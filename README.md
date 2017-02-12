@@ -92,7 +92,6 @@ Devices are broken down by room
 - [Chromecast (2nd Generation)][chromecast]
 - [iTach IP2IR (unused)][itach-ip2ir]
 - [PlayStation TV][pstv]
-- 2 [VSTARCAM 720p cameras][vstarcam] - pointed out the windows for a view of [Lake Merritt][lake-merritt] and [construction happening in the surrounding few blocks][bvdsp]
 
 ### Guest Bathroom
 - [Amazon Echo Dot][amazon-echo-dot]
@@ -111,7 +110,7 @@ Devices are broken down by room
 - [Aeotec ZW100 Multisensor][multisensor] - mounted high up in corner of room above desk
 - 3 [Philips Hue White and Color Ambiance Light Bulb, A19][hue-bulb]
   - Floorstanding lamp next to desk
-  - Left side of bed, mounted at head level in an IKEA MINUT wall lamp
+  - Left and right sides of bed, mounted at head level in an IKEA MINUT wall lamp
 - [Philips Hue Lightstrip (1st Generation)][hue-lightstrip] - under desk
 - [RGB LED Strip with Wifi Controller][rgb-led-strip] - On ledge under window to right of bed
 - [Amazon Echo][amazon-echo]
@@ -123,6 +122,7 @@ Devices are broken down by room
 - [Roku 3 Streaming Media Player][roku-3]
 - [Sony PlayStation 4 500GB Console][playstation-4]
 - [Raspberry Pi 3 Model B][raspi] - used to control devices via CEC
+- 2 [VSTARCAM 720p cameras][vstarcam] - pointed out the windows for a view of [Lake Merritt][lake-merritt] and [construction happening in the surrounding few blocks][bvdsp]
 
 ## Automations
 - End of day sunset notification
@@ -203,3 +203,5 @@ See [issues](https://github.com/robbiet480/Home-Assistant-Config/issues).
 [seagate-hdd]: http://amzn.to/2kiUJlq
 [pfsense]: https://www.pfsense.org
 [freenas]: http://www.freenas.org/
+[grafana]: https://grafana.net/
+[mosquitto]: https://mosquitto.org/
