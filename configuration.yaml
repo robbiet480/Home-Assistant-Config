@@ -67,7 +67,9 @@ foursquare:
   push_secret: !secret foursquare_push_token
 
 alert: !include_dir_named alerts/
-alexa: !include alexa.yaml
+alexa:
+  flash_briefings: !include_dir_named alexa/flash_briefings/
+  intents: !include_dir_named alexa/intents/
 automation: !include_dir_merge_list automations/
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
 camera: !include_dir_merge_list devices/cameras/

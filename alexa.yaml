@@ -1,2 +1,0 @@
-flash_briefings: !include_dir_named alexa/flash_briefings/
-intents: !include_dir_named alexa/intents/
