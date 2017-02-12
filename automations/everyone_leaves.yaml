@@ -1,0 +1,8 @@
+- alias: Turn off all devices when everyone leaves home
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: home
+    to: not_home
+  action:
+    service: homeassistant.turn_off

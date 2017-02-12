@@ -1,0 +1,10 @@
+speech:
+  type: plaintext
+  text: >
+    {%- for state in states.device_tracker -%}
+      {%- if state.name.lower() == Human.lower() -%}
+        {{ state.name }} sleep state is {{ state.state }}
+      {%- endif -%}
+    {%- else -%}
+      I am sorry, I do not know the sleep status of {{ Human }} is.
+    {%- endfor -%}

@@ -1,0 +1,3 @@
+- platform: hue
+  allow_in_emulated_hue: false
+  allow_hue_groups: false

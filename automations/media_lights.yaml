@@ -1,0 +1,75 @@
+- alias: Turn on living room lights when Apple TV is paused
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_apple_tv
+    from: playing
+    to: paused
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: group.living_room
+    data:
+      transition: 60
+
+- alias: Turn off living room lights when Apple TV is playing
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_apple_tv
+    from: paused
+    to: playing
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_off
+    entity_id: group.living_room
+
+- alias: Turn on Robbie's Room lights when Apple TV, Chromecast or Roku is paused
+  trigger:
+    - platform: state
+      entity_id: media_player.robbies_room_apple_tv
+      from: playing
+      to: paused
+    - platform: state
+      entity_id: media_player.robbies_room_chromecast
+      from: playing
+      to: paused
+    - platform: state
+      entity_id: media_player.robbies_roku
+      from: playing
+      to: paused
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: group.robbiesroom
+    data:
+      transition: 60
+
+- alias: Turn off Robbie's Room lights when Apple TV, Chromecast or Roku is playing
+  trigger:
+    - platform: state
+      entity_id: media_player.robbies_bedroom_apple_tv
+      from: paused
+      to: playing
+    - platform: state
+      entity_id: media_player.robbies_room_chromecast
+      from: paused
+      to: playing
+    - platform: state
+      entity_id: media_player.robbies_roku
+      from: paused
+      to: playing
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_off
+    entity_id: group.robbiesroom

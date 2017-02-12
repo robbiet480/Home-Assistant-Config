@@ -1,0 +1,12 @@
+- alias: Turn on hallway lights when there is movement at night
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ceiling_mounted_motion_sensor_11_0
+    to: "on"
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_interior_hallway_bloom

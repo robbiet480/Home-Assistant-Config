@@ -1,0 +1,116 @@
+sensor.front_door_alarm_level_10_1:
+  hidden: true
+sensor.front_door_alarm_type_10_0:
+  hidden: true
+sensor.front_door_burglar_10_10:
+  hidden: true
+sensor.front_door_sourcenodeid_10_2:
+  hidden: true
+sensor.living_room_multisensor_alarm_level_17_1:
+  hidden: true
+sensor.living_room_multisensor_alarm_type_17_0:
+  hidden: true
+sensor.living_room_multisensor_burglar_17_10:
+  hidden: true
+sensor.living_room_multisensor_sourcenodeid_17_2:
+  hidden: true
+sensor.robbies_bedroom_door_alarm_level_12_1:
+  hidden: true
+sensor.robbies_bedroom_door_alarm_type_12_0:
+  hidden: true
+sensor.robbies_bedroom_door_burglar_12_10:
+  hidden: true
+sensor.robbies_bedroom_door_sourcenodeid_12_2:
+  hidden: true
+sensor.robbies_room_multisensor_6_alarm_level_16_1:
+  hidden: true
+sensor.robbies_room_multisensor_6_alarm_type_16_0:
+  hidden: true
+sensor.robbies_room_multisensor_6_burglar_16_10:
+  hidden: true
+sensor.robbies_room_multisensor_6_sourcenodeid_16_2:
+  hidden: true
+
+sensor.robbies_iphone_7_plus_battery:
+  icon: mdi:battery
+  friendly_name: "Robbie's iPhone 7 Plus Battery"
+
+sensor.speedtest_ping:
+  icon: mdi:clock
+  friendly_name: "Ping"
+sensor.speedtest_download:
+  icon: mdi:arrow-down
+  friendly_name: "Download"
+sensor.speedtest_upload:
+  icon: mdi:arrow-up
+  friendly_name: "Upload"
+
+sensor.dark_sky_apparent_temperature:
+  friendly_name: "Real Feel"
+sensor.dark_sky_apparent_temperature_min:
+  friendly_name: "Real Feel Minimum"
+sensor.dark_sky_apparent_temperature_max:
+  friendly_name: "Real Feel Maximum"
+sensor.dark_sky_cloud_coverage:
+  friendly_name: "Cloud Coverage"
+  icon: mdi:cloud
+sensor.dark_sky_daily_summary:
+  friendly_name: "Weather Daily Summary"
+sensor.dark_sky_dew_point:
+  friendly_name: "Weather Dew Point"
+sensor.dark_sky_hourly_summary:
+  friendly_name: "Weather Hourly Summary"
+sensor.dark_sky_humidity:
+  friendly_name: "Outdoor"
+  icon: mdi:water
+sensor.dark_sky_icon:
+  friendly_name: "Weather Icon"
+sensor.dark_sky_minutely_summary:
+  friendly_name: "Weather Minutely Summary"
+sensor.dark_sky_nearest_storm:
+  friendly_name: "Nearest Storm"
+sensor.dark_sky_nearest_storm_bearing:
+  friendly_name: "Weather Nearest Storm Bearing"
+sensor.dark_sky_nearest_storm_distance:
+  friendly_name: "Weather Nearest Storm Distance"
+sensor.dark_sky_ozone:
+  friendly_name: "Ozone"
+sensor.dark_sky_precip:
+  friendly_name: "Precipitation Type"
+sensor.dark_sky_precip_intensity:
+  friendly_name: "Precipitation Intensity"
+sensor.dark_sky_precip_intensity_max:
+  friendly_name: "Precipitation Intensity Maximum"
+sensor.dark_sky_precip_probability:
+  friendly_name: "Precipitation Probability"
+sensor.dark_sky_pressure:
+  friendly_name: "Barometric Pressure"
+  icon: mdi:nature
+sensor.dark_sky_summary:
+  friendly_name: "Condition"
+sensor.dark_sky_temperature:
+  icon: mdi:thermometer
+  friendly_name: "Outdoor"
+sensor.dark_sky_temperature_min:
+  icon: mdi:thermometer
+  friendly_name: "Outdoor Minimum"
+sensor.dark_sky_temperature_max:
+  icon: mdi:thermometer
+  friendly_name: "Outdoor Maximum"
+sensor.dark_sky_visibility:
+  friendly_name: "Visibility"
+sensor.dark_sky_wind_bearing:
+  friendly_name: "Wind Bearing"
+  icon: mdi:compass
+sensor.dark_sky_wind_speed:
+  icon: mdi:weather-windy
+  friendly_name: "Wind Speed"
+
+sensor.front_door_smartthings_sensor_battery:
+  icon: mdi:battery
+sensor.front_door_smartthings_sensor_link_quality_indication:
+  icon: mdi:signal-variant
+sensor.front_door_smartthings_sensor_three_axis_gyro:
+  icon: mdi:vibrate
+sensor.front_door_smartthings_sensor_rssi:
+  icon: mdi:signal-variant

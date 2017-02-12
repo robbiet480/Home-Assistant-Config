@@ -1,0 +1,6 @@
+name: "Network"
+view: true
+entities:
+  - sensor.speedtest_download
+  - sensor.speedtest_ping
+  - sensor.speedtest_upload

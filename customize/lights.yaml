@@ -1,0 +1,35 @@
+light.entrance_hallway_overhead_lights_accessory_level_14_0:
+  hidden: true
+  emulated_hue: false
+
+light.interior_hallway_overhead_lights_accessory_level_15_0:
+  hidden: true
+  emulated_hue: false
+
+light.overhead_lights_level_19_0:
+  emulated_hue_name: "Living Room Overhead Lights"
+
+light.front_lamp:
+  homebridge_hidden: true
+
+light.hallway_bloom:
+  homebridge_hidden: true
+
+light.rear_lamp:
+  homebridge_hidden: true
+
+light.robbies_bedside__left:
+  homebridge_hidden: false
+  homebridge_name: "HASS Robbie's bedside"
+
+light.robbies_bedside__right:
+  homebridge_hidden: true
+
+light.robbies_floorstanding:
+  homebridge_hidden: true
+
+light.robbies_strip:
+  homebridge_hidden: true
+
+light.under_counter:
+  homebridge_hidden: true

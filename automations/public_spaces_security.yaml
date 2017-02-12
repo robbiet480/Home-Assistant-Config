@@ -1,0 +1,20 @@
+- alias: Notify if motion detected in living room or hallway when no one is home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ceiling_mounted_motion_sensor_11_0, binary_sensor.living_room_multisensor_sensor_17_0
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: "not_home"
+  action:
+    service: notify.allresidents
+    data_template:
+      title: 'Motion detected'
+      message: >
+        Motion detected on {{ trigger.to_state.attributes.friendly_name }} but no one is home!
+    data:
+      data:
+        push:
+          sound: "US-EN-Alexa-Motion-Detected-Generic.wav"

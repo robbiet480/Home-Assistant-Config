@@ -1,0 +1,4 @@
+speech:
+  type: plaintext
+  text: >
+    {% for device in states.device_tracker %}{{ device.name|replace("_", " ") }} has been {% if device.state == "not_home" %}away{% else %}at {{ device.state }}{% endif %} for {{ relative_time(device.last_changed) }}. {% endfor %}

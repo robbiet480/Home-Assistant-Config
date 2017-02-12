@@ -1,0 +1,3 @@
+- platform: owntracks
+  track_new_devices: false
+  max_gps_accuracy: 200

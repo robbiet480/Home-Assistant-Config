@@ -1,0 +1,68 @@
+{
+  "intents": [
+    {
+      "intent": "HumanIsSleepingIntent",
+      "slots": [
+        {
+          "name": "Human",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "HumanIsAwakeIntent",
+      "slots": [
+        {
+          "name": "Human",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "GetSleepStateIntent",
+      "slots": [
+        {
+          "name": "Human",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "WhoIsHomeIntent",
+      "slots": []
+    },
+    {
+      "intent": "WhoIsAwayIntent",
+      "slots": []
+    },
+    {
+      "intent": "HumansStateIntent",
+      "slots": []
+    },
+    {
+      "intent": "RobbiesRoomTemperatureIntent",
+      "slots": []
+    },
+    {
+      "intent": "LivingRoomTemperatureIntent",
+      "slots": []
+    },
+    {
+      "intent": "SetRoomColor",
+      "slots": [
+        {
+          "name": "Color",
+          "type": "COLOR"
+        },
+        {
+          "name": "Room",
+          "type": "ROOM"
+        }
+      ]
+    },
+    {
+      "intent": "CheckCommute",
+      "slots": []
+    }
+  ]
+}

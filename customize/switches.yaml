@@ -1,0 +1,37 @@
+switch.entrance_hallway_overhead_lights_switch_2_0:
+  friendly_name: "Entrance Hallway Overhead Lights"
+  icon: mdi:lightbulb
+switch.entrance_hallway_overhead_lights_accessory_switch_14_0:
+  hidden: true
+  emulated_hue: false
+switch.interior_hallway_overhead_lights_accessory_switch_15_0:
+  hidden: true
+  emulated_hue: false
+switch.interior_hallway_overhead_lights_switch_8_0:
+  friendly_name: "Interior Hallway Overhead Lights"
+  icon: mdi:lightbulb
+switch.living_room_lights_switch_7_0:
+  friendly_name: "Living Room Lights"
+  icon: mdi:spotlight-beam
+switch.kitchen_overhead_lights_switch_4_0:
+  friendly_name: "Kitchen Overhead Lights"
+  icon: mdi:lightbulb
+switch.kitchen_over_counter_lights_switch_5_0:
+  friendly_name: "Kitchen Counter Lights"
+  icon: mdi:lightbulb
+switch.kitchen_under_cabinet_lights_switch_3_0:
+  friendly_name: "Kitchen Under Cabinet Lights"
+  icon: mdi:lightbulb
+
+switch.playstation4:
+  friendly_name: "PlayStation 4"
+  icon: mdi:playstation
+
+switch.hdmi_8:
+  friendly_name: "Robbie's Apple TV"
+
+switch.hdmi_4:
+  friendly_name: "Robbie's Roku (CEC)"
+
+switch.hdmi_0:
+  friendly_name: "Robbie's TV"

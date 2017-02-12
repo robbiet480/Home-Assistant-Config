@@ -1,0 +1,27 @@
+- alias: Robbie arrived home
+  trigger:
+    platform: state
+    entity_id: device_tracker.robbiet480_7plus
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.robbies_bedside__left
+      - light.robbies_bedside__right
+      - light.robbies_floorstanding
+      - light.robbies_strip
+    data:
+      brightness: 255
+      rgb_color: [255, 255, 255]
+
+- alias: Robbie left home
+  trigger:
+    platform: state
+    entity_id: device_tracker.robbiet480_7plus
+    from: 'home'
+    to: 'not_home'
+  action:
+    service: homeassistant.turn_off
+    entity_id:
+      - group.robbiesroom

@@ -1,0 +1,36 @@
+- alias: Someone arrived home
+  trigger:
+    platform: state
+    entity_id: device_tracker.brandons_7, device_tracker.robbiet480_7plus, device_tracker.shannons_7plus, device_tracker.courtneys_se
+    from: not_home
+    to: home
+  action:
+    service: notify.humansanddisplays
+    data_template:
+      title: Roommate has arrived at home
+      message: >
+              {{ trigger.to_state.attributes.friendly_name }} has arrived at home.
+
+              {% for name, zone in states.device_tracker|groupby('state') %}{% if zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif %}{% else %} are{% endif %} {{ name|replace('_', ' ') }}.{% endif %}
+              {% endfor %}
+    data:
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
+
+
+- alias: Someone left home
+  trigger:
+    platform: state
+    entity_id: device_tracker.brandons_7, device_tracker.robbiet480_7plus, device_tracker.shannons_7plus, device_tracker.courtneys_se
+    from: home
+    to: not_home
+  action:
+    service: notify.humansanddisplays
+    data_template:
+      title: Roommate has left home
+      message: >
+              {{ trigger.to_state.attributes.friendly_name }} has left home.
+
+              {% for name, zone in states.device_tracker|groupby('state') %}{% if zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif %}{% else %} are{% endif %} {{ name|replace('_', ' ') }}.{% endif %}
+              {% endfor %}

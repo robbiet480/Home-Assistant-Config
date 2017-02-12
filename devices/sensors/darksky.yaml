@@ -1,0 +1,28 @@
+- platform: darksky
+  api_key: !secret forecast_io_key
+  monitored_conditions:
+    - apparent_temperature
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - cloud_cover
+    - daily_summary
+    - dew_point
+    - hourly_summary
+    - humidity
+    - icon
+    - minutely_summary
+    - nearest_storm_bearing
+    - nearest_storm_distance
+    - ozone
+    - precip_intensity
+    - precip_intensity_max
+    - precip_probability
+    - precip_type
+    - pressure
+    - summary
+    - temperature
+    - temperature_max
+    - temperature_min
+    - visibility
+    - wind_bearing
+    - wind_speed

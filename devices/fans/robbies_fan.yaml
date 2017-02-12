@@ -1,0 +1,21 @@
+- platform: mqtt
+  name: "Robbie's Fan"
+  state_topic: "robbies_room_fan/on/state"
+  command_topic: "robbies_room_fan/on/set"
+  oscillation_state_topic: "robbies_room_fan/oscillate/state"
+  oscillation_command_topic: "robbies_room_fan/oscillate/set"
+  speed_state_topic: "robbies_room_fan/speed/state"
+  speed_command_topic: "robbies_room_fan/speed/set"
+  qos: 0
+  payload_on: "true"
+  payload_off: "false"
+  payload_oscillation_on: "true"
+  payload_oscillation_off: "false"
+  payload_low_speed: "low"
+  payload_medium_speed: "medium"
+  payload_high_speed: "high"
+  speeds:
+    - eco
+    - low
+    - medium
+    - high

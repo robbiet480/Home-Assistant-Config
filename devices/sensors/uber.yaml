@@ -1,0 +1,9 @@
+- platform: uber
+  start_latitude: !secret latitude
+  start_longitude: !secret longitude
+  end_latitude: 37.7768520
+  end_longitude: -122.4155500
+  server_token: !secret uber_server_token
+  product_ids:
+    - '04a497f5-380d-47f2-bf1b-ad4cfdcb51f2'
+    - 'ee3ab307-e340-4406-b5ec-9f8c3b43075a'

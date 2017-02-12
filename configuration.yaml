@@ -1,0 +1,83 @@
+homeassistant:
+  name: TwelveTwelve
+  unit_system: imperial
+  time_zone: America/Los_Angeles
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 8
+  customize: !include_dir_merge_named customize
+
+http:
+  base_url: !secret http_base_url
+  api_password: !secret http_api_password
+  use_x_forwarded_for: yes
+
+mqtt:
+  broker: 192.168.1.3
+  port: 1883
+  client_id: home-assistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+zwave:
+  usb_path: /dev/zwave
+  config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/libopenzwave-0.3.2-py3.5-linux-x86_64.egg/config
+
+discovery:
+
+logger:
+  default: info
+frontend:
+history:
+sun:
+logbook:
+updater:
+recorder:
+  db_url: !secret recorder_db_url
+  purge_days: 14
+
+emulated_hue:
+  exposed_domains: ['switch', 'light', 'fan', 'media_player']
+  host_ip: 192.168.1.3
+  listen_port: 8300
+
+hdmi_cec:
+  host: 192.168.1.33
+  devices:
+    Toshiba TV: 0.0.0.0
+    Apple TV: 1.0.0.0
+    Roku: 2.0.0.0
+    PlayStation 4: 3.0.0.0
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+    region_name: !secret aws_region
+
+ios:
+
+influxdb:
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  database: !secret influxdb_database
+
+foursquare:
+  access_token: !secret foursquare_access_token
+  push_secret: !secret foursquare_push_token
+
+alert: !include_dir_named alerts/
+alexa: !include alexa.yaml
+automation: !include_dir_merge_list automations/
+binary_sensor: !include_dir_merge_list devices/binary_sensors/
+camera: !include_dir_merge_list devices/cameras/
+device_tracker: !include_dir_merge_list devices/device_trackers/
+fan: !include_dir_merge_list devices/fans/
+group: !include_dir_named groups/
+light: !include_dir_merge_list devices/lights/
+media_player: !include_dir_merge_list devices/media_players/
+notify: !include_dir_merge_list notifies/
+script: !include_dir_named scripts/
+sensor: !include_dir_merge_list devices/sensors/
+switch: !include_dir_merge_list devices/switches/
+zone: !include_dir_merge_list zones/

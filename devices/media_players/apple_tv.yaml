@@ -1,0 +1,8 @@
+- platform: apple_tv
+  host: 192.168.1.35
+  login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
+  name: Living Room Apple TV
+- platform: apple_tv
+  host: 192.168.1.36
+  login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
+  name: Robbie's Room Apple TV

@@ -1,0 +1,17 @@
+- name: SNS
+  platform: aws_sns
+  aws_access_key_id: !secret aws_access_key_id
+  aws_secret_access_key: !secret aws_secret_access_key
+  region_name: !secret aws_region
+
+- name: SQS
+  platform: aws_sqs
+  aws_access_key_id: !secret aws_access_key_id
+  aws_secret_access_key: !secret aws_secret_access_key
+  region_name: !secret aws_region
+
+- name: Lambda
+  platform: aws_lambda
+  aws_access_key_id: !secret aws_access_key_id
+  aws_secret_access_key: !secret aws_secret_access_key
+  region_name: !secret aws_region

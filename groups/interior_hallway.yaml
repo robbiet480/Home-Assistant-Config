@@ -1,0 +1,5 @@
+name: "Interior Hallway"
+entities:
+  - binary_sensor.ceiling_mounted_motion_sensor_11_0
+  - light.hallway_bloom
+  - switch.interior_hallway_overhead_lights_switch_8_0

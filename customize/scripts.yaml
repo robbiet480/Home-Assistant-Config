@@ -1,0 +1,6 @@
+script.front_door_open_notify_and_alarm_after_two_minutes:
+  hidden: true
+script.timed_interior_hallway_bloom:
+  hidden: true
+script.timed_entrance_hallway_overhead:
+  hidden: true

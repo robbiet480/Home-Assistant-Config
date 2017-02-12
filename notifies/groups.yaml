@@ -1,0 +1,18 @@
+- name: RobbiesDevices
+  platform: group
+  services:
+    - service: ios_robbiet480_7plus
+    - service: html5_robbiesmbp
+
+- name: AllResidents
+  platform: group
+  services:
+    - service: robbiesdevices
+    - service: ios_shannons_7plus
+    - service: ios_brandons_7
+
+- name: HumansAndDisplays
+  platform: group
+  services:
+    - service: allresidents
+    - service: living_room_tv

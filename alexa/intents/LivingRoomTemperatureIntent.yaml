@@ -1,0 +1,4 @@
+speech:
+  type: plaintext
+  text: >
+    Its' {{ states("sensor.living_room_multisensor_temperature_17_1") }} {{ states.sensor.living_room_multisensor_temperature_17_1.attributes.unit_of_measurement }} in the living room.

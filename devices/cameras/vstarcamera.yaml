@@ -1,0 +1,11 @@
+- platform: mjpeg
+  name: VStarCamera One
+  mjpeg_url: http://192.168.1.44:81/videostream.cgi?user=admin&pwd=vstarcamera
+  username: admin
+  password: vstarcamera
+
+- platform: mjpeg
+  name: VStarCamera Two
+  mjpeg_url: http://192.168.1.45:81/videostream.cgi?user=admin&pwd=vstarcamera
+  username: admin
+  password: vstarcamera

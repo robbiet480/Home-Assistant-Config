@@ -1,0 +1,7 @@
+name: "Public spaces"
+view: true
+entities:
+  - group.entrance_hallway
+  - group.interior_hallway
+  - group.kitchen
+  - group.living_room

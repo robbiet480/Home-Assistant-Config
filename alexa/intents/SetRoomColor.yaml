@@ -1,0 +1,8 @@
+action:
+  service: light.turn_on
+  data_template:
+    entity_id: 'group.{{ Room|replace("''", "")|replace(" ", "_")|lower }}'
+    color_name: "{{ Color }}"
+speech:
+  type: plaintext
+  text: !include ../confirm.yaml

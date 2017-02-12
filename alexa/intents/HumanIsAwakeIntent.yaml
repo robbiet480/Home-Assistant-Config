@@ -1,0 +1,7 @@
+action:
+  service: input_boolean.turn_off
+  data_template:
+    entity_id: "input_boolean.{{ Human|replace('Robby', 'Robbie')|lower }}_asleep"
+speech:
+  type: plaintext
+  text: !include ../confirm.yaml

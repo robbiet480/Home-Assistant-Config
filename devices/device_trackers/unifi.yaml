@@ -1,0 +1,4 @@
+- platform: unifi
+  username: !secret unifi_username
+  password: !secret unifi_password
+  track_new_devices: false

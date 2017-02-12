@@ -1,0 +1,4 @@
+speech:
+  type: plaintext
+  text: >
+    Its' {{ states("sensor.robbies_room_multisensor_6_temperature_16_1") }} {{ states.sensor.robbies_room_multisensor_6_temperature_16_1.attributes.unit_of_measurement }} in Robbie's Room.

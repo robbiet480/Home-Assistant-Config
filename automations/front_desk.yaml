@@ -1,0 +1,29 @@
+- alias: Send notifications for package delivery
+  trigger:
+    platform: event
+    event_type: security.package_ready
+  action:
+    service_template: >
+      notify.{{ trigger.event.data.human }}iOSApp
+    data_template:
+        message: >
+          You have {{ trigger.event.data.number_of_ready_packages }} package(s) ready to be picked up.
+    data:
+      title: Packages available
+      data:
+        push:
+          sound: US-EN-Alexa-Mail-Has-Arrived.wav
+
+- alias: Send notifications for guests/misc calls from front desk
+  trigger:
+    platform: event
+    event_type: security.delivery_access_request
+  action:
+    service_template: >
+      notify.{{ trigger.event.data.human }}iOSApp
+    data:
+      title: Guest/delivery inbound
+      message: You have a guest or delivery.
+      data:
+        push:
+          sound: US-EN-Alexa-Mail-Has-Arrived.wav

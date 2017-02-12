@@ -1,0 +1,4 @@
+- platform: nut
+  resources:
+    - battery.runtime
+    - ups.status

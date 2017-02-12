@@ -1,0 +1,10 @@
+name: "Transit"
+view: true
+entities:
+  - sensor.uberpool_price
+  - sensor.uberpool_time
+  - sensor.uberx_price
+  - sensor.uberx_time
+  - sensor.google_travel_time__driving
+  - sensor.google_travel_time__transit
+  - sensor.bay_area_rapid_transit_19th_to_civc_next_departure

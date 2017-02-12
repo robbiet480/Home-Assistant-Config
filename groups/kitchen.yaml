@@ -1,0 +1,5 @@
+name: "Kitchen"
+entities:
+  - switch.kitchen_over_counter_lights_switch_5_0
+  - switch.kitchen_overhead_lights_switch_4_0
+  - switch.kitchen_under_cabinet_lights_switch_3_0
