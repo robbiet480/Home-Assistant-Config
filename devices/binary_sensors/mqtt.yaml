@@ -3,11 +3,11 @@
   name: "Front Door SmartThings Acceleration Sensor"
   payload_on: "active"
   payload_off: "inactive"
-  sensor_class: "vibration"
+  device_class: "vibration"
 
 - platform: mqtt
   state_topic: "smartthings/Front Door Sensor/contact/state"
   name: "Front Door SmartThings Contact Sensor"
   payload_on: "open"
   payload_off: "closed"
-  sensor_class: "opening"
+  device_class: "opening"
