@@ -5,4 +5,4 @@ repeat: 5
 can_acknowledge: True
 skip_first: True
 notifiers:
-  - notify.humansanddisplays
+  - humansanddisplays
