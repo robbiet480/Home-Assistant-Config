@@ -1,10 +1,12 @@
 language: python
-python: "3.5"
+python:
+  - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+env:
+  - PIP_SOURCE=homeassistant
+  - PIP_SOURCE=https://github.com/home-assistant/home-assistant/archive/dev.zip#homeassistant
+install:
+  - pip3 install $PIP_SOURCE
 script:
   - hass -c . --script check_config
-matrix:
-  include:
-    - before_install: pip3 install homeassistant
-    - before_install: pip3 install https://github.com/home-assistant/home-assistant/archive/dev.zip#homeassistant
