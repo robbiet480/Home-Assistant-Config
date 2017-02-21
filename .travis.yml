@@ -7,5 +7,5 @@ script:
   - hass -c . --script check_config
 matrix:
   include:
-    - install: pip3 install homeassistant
-    - install: pip3 install https://github.com/home-assistant/home-assistant/archive/dev.zip#homeassistant
+    - before_install: pip3 install homeassistant
+    - before_install: pip3 install https://github.com/home-assistant/home-assistant/archive/dev.zip#homeassistant
