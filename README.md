@@ -1,5 +1,7 @@
 # Home Assistant Configuration
 
+[![Build Status](https://travis-ci.org/robbiet480/Home-Assistant-Config.svg?branch=master)](https://travis-ci.org/robbiet480/Home-Assistant-Config)
+
 ## Hardware
 Yes, I name my servers after rappers...
 
