@@ -4,7 +4,7 @@ python:
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 env:
-  - PIP_SOURCE="homeassistant$(if ! [[ $(cat .HA_VERSION) =~ "dev" ]]; then; echo "==$(cat .HA_VERSION)"; fi;)"
+  - PIP_SOURCE=homeassistant
   - PIP_SOURCE=https://github.com/home-assistant/home-assistant/archive/dev.zip#homeassistant
 install:
   - pip3 install $PIP_SOURCE
