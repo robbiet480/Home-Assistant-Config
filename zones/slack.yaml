@@ -1,5 +1,0 @@
-- name: Slack
-  latitude: 37.7821582
-  longitude: -122.4065833
-  radius: 250
-  icon: mdi:slack
