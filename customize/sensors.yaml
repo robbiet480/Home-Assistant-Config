@@ -6,13 +6,13 @@ sensor.front_door_burglar_10_10:
   hidden: true
 sensor.front_door_sourcenodeid_10_2:
   hidden: true
-sensor.living_room_multisensor_alarm_level_17_1:
+sensor.living_room_multisensor_6_alarm_level_20_1:
   hidden: true
-sensor.living_room_multisensor_alarm_type_17_0:
+sensor.living_room_multisensor_6_alarm_type_20_0:
   hidden: true
-sensor.living_room_multisensor_burglar_17_10:
+sensor.living_room_multisensor_6_burglar_20_10:
   hidden: true
-sensor.living_room_multisensor_sourcenodeid_17_2:
+sensor.living_room_multisensor_6_sourcenodeid_20_2:
   hidden: true
 sensor.robbies_bedroom_door_alarm_level_12_1:
   hidden: true
@@ -22,13 +22,13 @@ sensor.robbies_bedroom_door_burglar_12_10:
   hidden: true
 sensor.robbies_bedroom_door_sourcenodeid_12_2:
   hidden: true
-sensor.robbies_room_multisensor_6_alarm_level_16_1:
+sensor.robbies_room_multisensor_6_alarm_level_21_1:
   hidden: true
-sensor.robbies_room_multisensor_6_alarm_type_16_0:
+sensor.robbies_room_multisensor_6_alarm_type_21_0:
   hidden: true
-sensor.robbies_room_multisensor_6_burglar_16_10:
+sensor.robbies_room_multisensor_6_burglar_21_10:
   hidden: true
-sensor.robbies_room_multisensor_6_sourcenodeid_16_2:
+sensor.robbies_room_multisensor_6_sourcenodeid_21_2:
   hidden: true
 
 sensor.robbies_iphone_7_plus_battery:
@@ -105,12 +105,3 @@ sensor.dark_sky_wind_bearing:
 sensor.dark_sky_wind_speed:
   icon: mdi:weather-windy
   friendly_name: "Wind Speed"
-
-sensor.front_door_smartthings_sensor_battery:
-  icon: mdi:battery
-sensor.front_door_smartthings_sensor_link_quality_indication:
-  icon: mdi:signal-variant
-sensor.front_door_smartthings_sensor_three_axis_gyro:
-  icon: mdi:vibrate
-sensor.front_door_smartthings_sensor_rssi:
-  icon: mdi:signal-variant

@@ -17,7 +17,7 @@
 - alias: Notify if there is motion in Robbie's Room when he isn't home
   trigger:
     platform: state
-    entity_id: binary_sensor.robbies_room_multisensor_6_sensor_16_0
+    entity_id: binary_sensor.robbies_room_multisensor_6_sensor_21_0
     from: "off"
     to: "on"
   condition:

@@ -45,7 +45,6 @@ It's primary function is as a router and as a NAS, mostly storing media (TV, mov
 - [Home Assistant](https://home-assistant.io/), always running the dev branch, it gets updated a couple times a week.
 - [Homebridge][homebridge]
 - [homebridge-homeassistant][homebridge-homeassistant]
-- [SmartThings MQTT Bridge][homebridge-homeassistant]
 - [Network UPS Tools (NUT)][nut]
 - [Plex Media Server][plex]
 - [InfluxDB][influxdb] for data collection
@@ -64,7 +63,6 @@ It's primary function is as a router and as a NAS, mostly storing media (TV, mov
 Devices are broken down by room
 
 ### Entrance Hallway
-- [SmartThings Multi Sensor][st-multi-sensor]
 - [EcoLink Door/Window Sensor (DWZWAVE2-ECO)][ecolink-door-sensor]
 - [Linear/GoControl/2gig WS15Z-1 Z-Wave Switch][linear-ws15z-1] - next to front door
 - [Linear/GoControl/2gig WT00Z-1 Z-Wave 3-Way Accessory Switch][linear-wt00z-1] - at far end of hallway
@@ -152,13 +150,11 @@ See [issues](https://github.com/robbiet480/Home-Assistant-Config/issues).
 
 [homebridge]: https://github.com/nfarina/homebridge
 [homebridge-homeassistant]: https://github.com/home-assistant/homebridge-homeassistant
-[smartthings-bridge]: https://github.com/stjohnjohnson/smartthings-mqtt-bridge
 [nut]: http://networkupstools.org/
 [plex]: https://www.plex.tv/
 [influxdb]: https://www.influxdata.com/
 [robbie-twitter]: https://twitter.com/robbie
 [brandon-twitter]: https://twitter.com/bitsofbrandon
-[st-multi-sensor]: http://amzn.to/2kxGXMM
 [linear-ws15z-1]: http://amzn.to/2l1ZwMu
 [ecolink-door-sensor]: http://amzn.to/2kfzKVq
 [linear-wt00z-1]: http://amzn.to/2l6qX7B

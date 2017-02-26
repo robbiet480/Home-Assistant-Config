@@ -2,7 +2,7 @@ name: "Robbie's Room"
 view: true
 entities:
   - binary_sensor.robbies_bedroom_door_sensor_12_0
-  - binary_sensor.robbies_room_multisensor_6_sensor_16_0
+  - binary_sensor.robbies_room_multisensor_6_sensor_21_0
   - camera.vstarcamera_one
   - camera.vstarcamera_two
   - device_tracker.robbiet480_7plus
@@ -17,8 +17,8 @@ entities:
   - media_player.robbies_bedroom_apple_tv
   - media_player.robbies_roku
   - sensor.robbies_iphone_7_plus_battery
-  - sensor.robbies_room_multisensor_6_luminance_16_3
-  - sensor.robbies_room_multisensor_6_relative_humidity_16_5
-  - sensor.robbies_room_multisensor_6_temperature_16_1
-  - sensor.robbies_room_multisensor_6_ultraviolet_16_27
+  - sensor.robbies_room_multisensor_6_luminance_21_3
+  - sensor.robbies_room_multisensor_6_relative_humidity_21_5
+  - sensor.robbies_room_multisensor_6_temperature_21_1
+  - sensor.robbies_room_multisensor_6_ultraviolet_21_27
   - switch.playstation4

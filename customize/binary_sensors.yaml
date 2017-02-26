@@ -8,7 +8,7 @@ binary_sensor.front_door_sensor_10_0:
   icon: mdi:lock
   sensor_class: opening
 
-binary_sensor.living_room_multisensor_sensor_17_0:
+binary_sensor.living_room_multisensor_6_sensor_20_0:
   friendly_name: "Living Room Motion Sensor"
   icon: mdi:walk
   sensor_class: motion
@@ -18,10 +18,7 @@ binary_sensor.robbies_bedroom_door_sensor_12_0:
   icon: mdi:hotel
   sensor_class: opening
 
-binary_sensor.robbies_room_multisensor_6_sensor_16_0:
+binary_sensor.robbies_room_multisensor_6_sensor_21_0:
   friendly_name: "Robbie's Bedroom Motion Sensor"
   icon: mdi:walk
   sensor_class: motion
-
-binary_sensor.front_door_smartthings_contact_sensor:
-  icon: mdi:lock

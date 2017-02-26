@@ -1,7 +1,7 @@
 - alias: Notify if motion detected in living room or hallway when no one is home
   trigger:
     platform: state
-    entity_id: binary_sensor.ceiling_mounted_motion_sensor_11_0, binary_sensor.living_room_multisensor_sensor_17_0
+    entity_id: binary_sensor.ceiling_mounted_motion_sensor_11_0, binary_sensor.living_room_multisensor_6_sensor_20_0
     from: "off"
     to: "on"
   condition:

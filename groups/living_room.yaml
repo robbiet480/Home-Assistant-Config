@@ -1,12 +1,12 @@
 name: "Living Room"
 entities:
-  - binary_sensor.living_room_multisensor_sensor_17_0
+  - binary_sensor.living_room_multisensor_6_sensor_20_0
   - light.front_lamp
   - light.overhead_lights_level_19_0
   - light.rear_lamp
   - light.under_counter
-  - sensor.living_room_multisensor_luminance_17_3
-  - sensor.living_room_multisensor_relative_humidity_17_5
-  - sensor.living_room_multisensor_temperature_17_1_1
-  - sensor.living_room_multisensor_ultraviolet_17_27
+  - sensor.living_room_multisensor_6_luminance_20_3
+  - sensor.living_room_multisensor_6_relative_humidity_20_5
+  - sensor.living_room_multisensor_6_temperature_20_1
+  - sensor.living_room_multisensor_6_ultraviolet_20_27
   - switch.living_room_lights_switch_7_0
