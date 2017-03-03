@@ -33,6 +33,26 @@ zwave:
       ignored: true
     sensor.broken_contact_sensor_sourcenodeid_10_2:
       ignored: true
+    sensor.generic_outlet_energy_18_0:
+      ignored: true
+    sensor.generic_outlet_exporting_18_32:
+      ignored: true
+    sensor.generic_outlet_interval_18_10:
+      ignored: true
+    sensor.generic_outlet_interval_18_2:
+      ignored: true
+    sensor.generic_outlet_power_18_4:
+      ignored: true
+    sensor.generic_outlet_power_18_8:
+      ignored: true
+    sensor.generic_outlet_previous_reading_18_1:
+      ignored: true
+    sensor.generic_outlet_previous_reading_18_9:
+      ignored: true
+    switch.generic_outlet_switch_18_0:
+      ignored: true
+    switch.generic_outlet_switch_18_0:
+      ignored: true
 
 discovery:
 
