@@ -3,7 +3,7 @@ binary_sensor.ceiling_mounted_motion_sensor_11_0:
   icon: mdi:walk
   sensor_class: motion
 
-binary_sensor.front_door_sensor_10_0:
+binary_sensor.front_door_sensor_23_0:
   friendly_name: "Front Door"
   icon: mdi:lock
   sensor_class: opening

@@ -1,11 +1,3 @@
-sensor.front_door_alarm_level_10_1:
-  hidden: true
-sensor.front_door_alarm_type_10_0:
-  hidden: true
-sensor.front_door_burglar_10_10:
-  hidden: true
-sensor.front_door_sourcenodeid_10_2:
-  hidden: true
 sensor.living_room_multisensor_6_alarm_level_20_1:
   hidden: true
 sensor.living_room_multisensor_6_alarm_type_20_0:
