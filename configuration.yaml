@@ -51,8 +51,6 @@ zwave:
       ignored: true
     switch.generic_outlet_switch_18_0:
       ignored: true
-    switch.generic_outlet_switch_18_0:
-      ignored: true
 
 discovery:
 
