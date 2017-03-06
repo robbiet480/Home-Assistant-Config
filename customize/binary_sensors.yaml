@@ -1,24 +1,28 @@
 binary_sensor.ceiling_mounted_motion_sensor_11_0:
   friendly_name: "Interior Hallway Ceiling Mounted Motion Sensor"
   icon: mdi:walk
-  sensor_class: motion
+  device_class: motion
 
 binary_sensor.front_door_sensor_23_0:
   friendly_name: "Front Door"
   icon: mdi:lock
-  sensor_class: opening
+  device_class: opening
 
 binary_sensor.living_room_multisensor_6_sensor_20_0:
   friendly_name: "Living Room Motion Sensor"
   icon: mdi:walk
-  sensor_class: motion
+  device_class: motion
 
 binary_sensor.robbies_bedroom_door_sensor_12_0:
   friendly_name: "Robbie's Bedroom Door"
   icon: mdi:hotel
-  sensor_class: opening
+  device_class: opening
 
 binary_sensor.robbies_room_multisensor_6_sensor_21_0:
   friendly_name: "Robbie's Bedroom Motion Sensor"
   icon: mdi:walk
-  sensor_class: motion
+  device_class: motion
+
+binary_sensor.brandons_room_multisensor_6_sensor_24_0:
+  icon: mdi:walk
+  device_class: motion
