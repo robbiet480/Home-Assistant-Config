@@ -12,6 +12,8 @@ http:
   api_password: !secret http_api_password
   use_x_forwarded_for: yes
 
+config:
+
 mqtt:
   broker: 192.168.1.3
   port: 1883
@@ -25,6 +27,22 @@ zwave:
   device_config:
     binary_sensor.broken_contact_sensor_sensor_10_0:
       ignored: true
+    sensor.brandons_lamp_energy_18_0:
+      ignored: true
+    sensor.brandons_lamp_exporting_18_32:
+      ignored: true
+    sensor.brandons_lamp_interval_18_10:
+      ignored: true
+    sensor.brandons_lamp_interval_18_2:
+      ignored: true
+    sensor.brandons_lamp_power_18_4:
+      ignored: true
+    sensor.brandons_lamp_power_18_8:
+      ignored: true
+    sensor.brandons_lamp_previous_reading_18_1:
+      ignored: true
+    sensor.brandons_lamp_previous_reading_18_9:
+      ignored: true
     sensor.broken_contact_sensor_alarm_level_10_1:
       ignored: true
     sensor.broken_contact_sensor_alarm_type_10_0:
@@ -33,23 +51,13 @@ zwave:
       ignored: true
     sensor.broken_contact_sensor_sourcenodeid_10_2:
       ignored: true
-    sensor.generic_outlet_energy_18_0:
+    sensor.brandons_room_multisensor_6_alarm_level_24_1:
       ignored: true
-    sensor.generic_outlet_exporting_18_32:
+    sensor.brandons_room_multisensor_6_alarm_type_24_0:
       ignored: true
-    sensor.generic_outlet_interval_18_10:
+    sensor.brandons_room_multisensor_6_burglar_24_10:
       ignored: true
-    sensor.generic_outlet_interval_18_2:
-      ignored: true
-    sensor.generic_outlet_power_18_4:
-      ignored: true
-    sensor.generic_outlet_power_18_8:
-      ignored: true
-    sensor.generic_outlet_previous_reading_18_1:
-      ignored: true
-    sensor.generic_outlet_previous_reading_18_9:
-      ignored: true
-    switch.generic_outlet_switch_18_0:
+    sensor.brandons_room_multisensor_6_sourcenodeid_24_2:
       ignored: true
 
 discovery:
