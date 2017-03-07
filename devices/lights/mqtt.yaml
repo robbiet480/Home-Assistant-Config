@@ -6,8 +6,6 @@
   brightness_command_topic: 'RGBW/000CCF48/brightness/set'
   rgb_state_topic: 'RGBW/000CCF48/color/state'
   rgb_command_topic: 'RGBW/000CCF48/color/set'
-  payload_on: 1
-  payload_off: 0
 
 - platform: mqtt
   name: 'New Arilux RGBW LED Controller'
@@ -17,5 +15,3 @@
   brightness_command_topic: 'RGBW/000CCA97/brightness/set'
   rgb_state_topic: 'RGBW/000CCA97/color/state'
   rgb_command_topic: 'RGBW/000CCA97/color/set'
-  payload_on: 1
-  payload_off: 0
