@@ -33,3 +33,6 @@ light.robbies_strip:
 
 light.under_counter:
   homebridge_hidden: true
+
+light.arilux_lc04_rgbw_led_controller_000ccf48:
+  friendly_name: "Robbie's Room RGB LED Strip"
