@@ -104,6 +104,10 @@ foursquare:
   access_token: !secret foursquare_access_token
   push_secret: !secret foursquare_push_token
 
+twilio:
+  account_sid: !secret twilio_account_sid
+  auth_token: !secret twilio_auth_token
+
 alert: !include_dir_named alerts/
 alexa:
   flash_briefings: !include_dir_named alexa/flash_briefings/
