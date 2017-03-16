@@ -36,3 +36,6 @@ light.under_counter:
 
 light.arilux_lc04_rgbw_led_controller_000ccf48:
   friendly_name: "Robbie's Room RGB LED Strip"
+
+light.arilux_lc04_rgbw_led_controller_000cca97:
+  friendly_name: "Living Room RGB LED Strip"

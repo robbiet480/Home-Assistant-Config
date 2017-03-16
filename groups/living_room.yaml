@@ -1,6 +1,7 @@
 name: "Living Room"
 entities:
   - binary_sensor.living_room_multisensor_6_sensor_20_0
+  - light.arilux_lc04_rgbw_led_controller_000cca97
   - light.front_lamp
   - light.overhead_lights_level_19_0
   - light.rear_lamp
