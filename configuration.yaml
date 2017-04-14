@@ -6,6 +6,9 @@ homeassistant:
   longitude: !secret longitude
   elevation: 8
   customize: !include_dir_merge_named customize
+  customize_domain:
+    zone:
+      track_ios: yes
 
 http:
   base_url: !secret http_base_url
