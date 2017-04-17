@@ -35,3 +35,7 @@ switch.hdmi_4:
 
 switch.hdmi_0:
   friendly_name: "Robbie's TV"
+
+switch.brandons_lamp_switch_18_0:
+  friendly_name: "Brandon's Lamp"
+  icon: mdi:lightbulb
