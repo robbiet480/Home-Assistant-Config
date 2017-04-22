@@ -108,6 +108,10 @@ twilio:
   account_sid: !secret twilio_account_sid
   auth_token: !secret twilio_auth_token
 
+tradfri:
+  host: !secret tradfri_ip
+  api_key: !secret tradfri_api_key
+
 #alert: !include_dir_named alerts/
 alexa:
   flash_briefings: !include_dir_named alexa/flash_briefings/
