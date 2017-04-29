@@ -1,68 +1,277 @@
 {
   "intents": [
     {
-      "intent": "HumanIsSleepingIntent",
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "CheckCommute",
+      "samples": [
+        "What's my commute look like",
+        "How should I get to work",
+        "How many minutes will it take to get to work"
+      ],
+      "slots": []
+    },
+    {
+      "name": "GetSleepStateIntent",
+      "samples": [
+        "Is {Human} asleep",
+        "Is {Human} sleeping",
+        "Is {Human} in bed",
+        "Is {Human} in bed already",
+        "How long has {Human} been asleep",
+        "How long has {Human} been sleeping",
+        "How long has {Human} been in bed"
+      ],
       "slots": [
         {
           "name": "Human",
-          "type": "AMAZON.US_FIRST_NAME"
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": []
         }
       ]
     },
     {
-      "intent": "HumanIsAwakeIntent",
+      "name": "HumanIsAwakeIntent",
+      "samples": [
+        "{Human} is awake",
+        "{Human} is up",
+        "{Human} is alive"
+      ],
       "slots": [
         {
           "name": "Human",
-          "type": "AMAZON.US_FIRST_NAME"
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": []
         }
       ]
     },
     {
-      "intent": "GetSleepStateIntent",
+      "name": "HumanIsSleepingIntent",
+      "samples": [
+        "{Human} is asleep",
+        "{Human} is going to bed",
+        "{Human} is going to sleep",
+        "{Human} is sleeping"
+      ],
       "slots": [
         {
           "name": "Human",
-          "type": "AMAZON.US_FIRST_NAME"
+          "type": "AMAZON.US_FIRST_NAME",
+          "samples": []
         }
       ]
     },
     {
-      "intent": "WhoIsHomeIntent",
+      "name": "HumansStateIntent",
+      "samples": [
+        "Where is everyone"
+      ],
       "slots": []
     },
     {
-      "intent": "WhoIsAwayIntent",
+      "name": "LivingRoomTemperatureIntent",
+      "samples": [
+        "What is the temperature in the Living Room"
+      ],
       "slots": []
     },
     {
-      "intent": "HumansStateIntent",
+      "name": "RobbiesRoomTemperatureIntent",
+      "samples": [
+        "What is the temperature in Robbie's Room"
+      ],
       "slots": []
     },
     {
-      "intent": "RobbiesRoomTemperatureIntent",
-      "slots": []
-    },
-    {
-      "intent": "LivingRoomTemperatureIntent",
-      "slots": []
-    },
-    {
-      "intent": "SetRoomColor",
+      "name": "SpotifyRouter",
+      "samples": [
+        "Send Spotify to Bathroom",
+        "Send Spotify to Robbie's Bedroom",
+        "Send Spotify to Robbie's Bedroom Echo",
+        "Send Spotify to Living Room TV",
+        "Send Spotify to Living Room"
+      ],
       "slots": [
         {
-          "name": "Color",
-          "type": "COLOR"
-        },
-        {
-          "name": "Room",
-          "type": "ROOM"
+          "name": "SpotifyLocations",
+          "type": "SpotifyLocations",
+          "samples": [
+            "Send Spotify to {SpotifyLocations}"
+          ]
         }
       ]
     },
     {
-      "intent": "CheckCommute",
+      "name": "WhoIsAwayIntent",
+      "samples": [
+        "Who is away",
+        "Whos away",
+        "Whos is away"
+      ],
+      "slots": []
+    },
+    {
+      "name": "WhoIsHomeIntent",
+      "samples": [
+        "Who is at home",
+        "Whos home",
+        "Whos is home"
+      ],
       "slots": []
     }
-  ]
+  ],
+  "types": [
+    {
+      "name": "SpotifyLocations",
+      "values": [
+        {
+          "name": {
+            "value": "Bathroom"
+          }
+        },
+        {
+          "name": {
+            "value": "Robbie's Bedroom"
+          }
+        },
+        {
+          "name": {
+            "value": "Robbie's Bedroom Echo"
+          }
+        },
+        {
+          "name": {
+            "value": "Living Room"
+          }
+        },
+        {
+          "name": {
+            "value": "Living Room TV"
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocations",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Please provide a room name"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "CheckCommute",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      },
+      {
+        "name": "GetSleepStateIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "Human",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      },
+      {
+        "name": "HumanIsAwakeIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "Human",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      },
+      {
+        "name": "HumanIsSleepingIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "Human",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      },
+      {
+        "name": "HumansStateIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      },
+      {
+        "name": "LivingRoomTemperatureIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      },
+      {
+        "name": "RobbiesRoomTemperatureIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      },
+      {
+        "name": "SpotifyRouter",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "SpotifyLocations",
+            "type": "SpotifyLocations",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocations"
+            }
+          }
+        ]
+      },
+      {
+        "name": "WhoIsAwayIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      },
+      {
+        "name": "WhoIsHomeIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": []
+      }
+    ]
+  }
 }

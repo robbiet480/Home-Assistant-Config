@@ -28,11 +28,6 @@ HumansStateIntent Where is everyone
 RobbiesRoomTemperatureIntent What is the temperature in Robbie's Room
 LivingRoomTemperatureIntent What is the temperature in the Living Room
 
-SetRoomColor Set {Room} to {Color}
-SetRoomColor Set the {Room} to {Color}
-SetRoomColor Make {Room} {Color}
-SetRoomColor Make the {Room} {Color}
-
 CheckCommute What's my commute look like
 CheckCommute How should I get to work
 CheckCommute How many minutes will it take to get to work

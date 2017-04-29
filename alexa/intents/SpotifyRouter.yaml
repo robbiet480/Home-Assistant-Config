@@ -1,0 +1,15 @@
+action:
+  - service: media_player.select_source
+    entity_id: media_player.spotify
+    data_template:
+      source: >
+        {%- set location = SpotifyLocation.lower() -%}
+        {%- if location == "robbie's bedroom" %}Robbie's Bedroom
+        {%- if location == "robbie's bedroom echo" %}Robbie's Bedroom Echo
+        {%- elif location == "living room tv" -%}Living Room
+        {%- elif location == "living room" -%}Living Room Echo
+        {%- elif location == "bathroom" -%}Bathroom Echo Dot
+        {%- endif %}
+speech:
+  type: plaintext
+  text: Sending music to {{SpotifyLocation}}
