@@ -5,7 +5,7 @@ action:
       source: >
         {%- set location = SpotifyLocation.lower() -%}
         {%- if location == "robbie's bedroom" %}Robbie's Bedroom
-        {%- if location == "robbie's bedroom echo" %}Robbie's Bedroom Echo
+        {%- elif location == "robbie's bedroom echo" %}Robbie's Bedroom Echo
         {%- elif location == "living room tv" -%}Living Room
         {%- elif location == "living room" -%}Living Room Echo
         {%- elif location == "bathroom" -%}Bathroom Echo Dot
