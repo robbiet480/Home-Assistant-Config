@@ -4,12 +4,13 @@ action:
     data_template:
       source: >
         {%- set location = SpotifyLocation.lower() -%}
-        {%- if location == "robbie's bedroom" %}Robbie's Bedroom
-        {%- elif location == "robbie's bedroom echo" %}Robbie's Bedroom Echo
-        {%- elif location == "living room tv" -%}Living Room
-        {%- elif location == "living room" -%}Living Room Echo
-        {%- elif location == "bathroom" -%}Bathroom Echo Dot
-        {%- endif %}
+        {% if location == "robbie's bedroom" %}Robbie's Bedroom
+        {% elif location == "robbie's bedroom echo" %}Robbie's Bedroom Echo
+        {% elif location == "macbook" %}Robert Trencheny’s MacBook Pro
+        {% elif location == "living room tv" %}Living Room
+        {% elif location == "living room" %}Living Room Echo
+        {% elif location == "bathroom" %}Bathroom Echo Dot
+        {% endif %}
 speech:
   type: plaintext
   text: Sending music to {{SpotifyLocation}}
