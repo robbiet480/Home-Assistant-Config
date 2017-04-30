@@ -6,7 +6,7 @@
     to: "on"
   condition:
     condition: state
-    entity_id: device_tracker.robbiet480_7plus
+    entity_id: device_tracker.robbies_iphone_7_plus
     state: "not_home"
   action:
     service: notify.robbiesdevices
@@ -22,7 +22,7 @@
     to: "on"
   condition:
     condition: state
-    entity_id: device_tracker.robbiet480_7plus
+    entity_id: device_tracker.robbies_iphone_7_plus
     state: "not_home"
   action:
     service: notify.robbiesdevices

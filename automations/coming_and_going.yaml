@@ -1,7 +1,7 @@
 - alias: Someone arrived home
   trigger:
     platform: state
-    entity_id: device_tracker.brandons_7, device_tracker.robbiet480_7plus
+    entity_id: device_tracker.brandons_iphone_7, device_tracker.robbies_iphone_7_plus
     from: not_home
     to: home
   action:
@@ -22,7 +22,7 @@
 - alias: Someone left home
   trigger:
     platform: state
-    entity_id: device_tracker.brandons_7, device_tracker.robbiet480_7plus
+    entity_id: device_tracker.brandons_iphone_7, device_tracker.robbies_iphone_7_plus
     from: home
     to: not_home
   action:

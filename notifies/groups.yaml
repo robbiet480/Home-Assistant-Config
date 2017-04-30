@@ -1,14 +1,14 @@
 - name: RobbiesDevices
   platform: group
   services:
-    - service: ios_robbiet480_7plus
+    - service: ios_robbies_iphone_7_plus
     - service: html5_robbiesmbp
 
 - name: AllResidents
   platform: group
   services:
     - service: robbiesdevices
-    - service: ios_brandons_7
+    - service: ios_brandons_iphone_7
 
 - name: HumansAndDisplays
   platform: group

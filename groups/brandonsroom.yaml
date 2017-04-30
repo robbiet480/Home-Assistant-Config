@@ -2,7 +2,7 @@ name: "Brandon's Room"
 view: true
 entities:
   - binary_sensor.brandons_room_multisensor_6_sensor_24_0
-  - device_tracker.brandons_7
+  - device_tracker.brandons_iphone_7
   - sensor.brandons_iphone_7_battery_state
   - sensor.brandons_iphone_7_battery_level
   - sensor.brandons_room_multisensor_6_luminance_24_3

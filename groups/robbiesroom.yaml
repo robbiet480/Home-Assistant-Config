@@ -5,7 +5,7 @@ entities:
   - binary_sensor.robbies_room_multisensor_6_sensor_21_0
   - camera.vstarcamera_one
   - camera.vstarcamera_two
-  - device_tracker.robbiet480_7plus
+  - device_tracker.robbies_iphone_7_plus
   - fan.robbies_fan
   - light.robbies_bedside__left
   - light.robbies_bedside__right
