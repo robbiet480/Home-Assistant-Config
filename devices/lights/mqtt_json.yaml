@@ -3,7 +3,6 @@
   state_topic: 'RGBW/000CCF48/json/state'
   command_topic: 'RGBW/000CCF48/json/set'
   brightness: true
-  color_temp: true
   rgb: true
   white_value: true
 
@@ -12,6 +11,5 @@
   state_topic: 'RGBW/000CCA97/json/state'
   command_topic: 'RGBW/000CCA97/json/set'
   brightness: true
-  color_temp: true
   rgb: true
   white_value: true
