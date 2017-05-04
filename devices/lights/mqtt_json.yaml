@@ -6,7 +6,7 @@
   rgb: true
   white_value: true
 
-- platform: mqtt
+- platform: mqtt_json
   name: 'Living Room Window LED Strip'
   state_topic: 'RGBW/000CCA97/json/state'
   command_topic: 'RGBW/000CCA97/json/set'

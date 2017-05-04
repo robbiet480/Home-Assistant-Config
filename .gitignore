@@ -21,4 +21,3 @@ secrets.yaml
 tts
 www
 .spotify-token-cache
-custom_components/
