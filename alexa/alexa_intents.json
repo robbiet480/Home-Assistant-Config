@@ -95,18 +95,14 @@
     {
       "name": "SpotifyRouter",
       "samples": [
-        "Send Spotify to Bathroom",
-        "Send Spotify to Robbie's Bedroom",
-        "Send Spotify to Robbie's Bedroom Echo",
-        "Send Spotify to Living Room TV",
-        "Send Spotify to Living Room"
+        "Send Spotify to {SpotifyLocation}"
       ],
       "slots": [
         {
-          "name": "SpotifyLocations",
-          "type": "SpotifyLocations",
+          "name": "SpotifyLocation",
+          "type": "SpotifyLocation",
           "samples": [
-            "Send Spotify to {SpotifyLocations}"
+            "Send Spotify to {SpotifyLocation}"
           ]
         }
       ]
@@ -132,7 +128,7 @@
   ],
   "types": [
     {
-      "name": "SpotifyLocations",
+      "name": "SpotifyLocation",
       "values": [
         {
           "name": {
@@ -158,13 +154,18 @@
           "name": {
             "value": "Living Room TV"
           }
+        },
+        {
+          "name": {
+            "value": "Macbook"
+          }
         }
       ]
     }
   ],
   "prompts": [
     {
-      "id": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocations",
+      "id": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocation",
       "promptVersion": "1.0",
       "definitionVersion": "1.0",
       "variations": [
@@ -250,12 +251,12 @@
         "prompts": {},
         "slots": [
           {
-            "name": "SpotifyLocations",
-            "type": "SpotifyLocations",
+            "name": "SpotifyLocation",
+            "type": "SpotifyLocation",
             "elicitationRequired": true,
             "confirmationRequired": false,
             "prompts": {
-              "elicit": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocations"
+              "elicit": "Elicit.Intent-SpotifyRouter.IntentSlot-SpotifyLocation"
             }
           }
         ]
