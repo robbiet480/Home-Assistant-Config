@@ -10,15 +10,21 @@ entities:
   - light.robbies_bedside__left
   - light.robbies_bedside__right
   - light.robbies_floorstanding
-  - light.robbies_strip
   - light.robbies_room_window_led_strip
+  - light.robbies_strip
   - media_player.robbies_bedroom
-  - media_player.robbies_room_chromecast
   - media_player.robbies_bedroom_apple_tv
   - media_player.robbies_roku
+  - media_player.robbies_room_apple_tv
+  - media_player.robbies_room_chromecast
   - sensor.robbies_iphone_7_plus_battery
   - sensor.robbies_room_multisensor_6_luminance_21_3
   - sensor.robbies_room_multisensor_6_relative_humidity_21_5
   - sensor.robbies_room_multisensor_6_temperature_21_1
   - sensor.robbies_room_multisensor_6_ultraviolet_21_27
+  - sensor.sense_room_humidity
+  - sensor.sense_room_light
+  - sensor.sense_room_particulates
+  - sensor.sense_room_sound
+  - sensor.sense_room_temperature
   - switch.playstation4
