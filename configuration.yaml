@@ -26,7 +26,8 @@ mqtt:
 
 zwave:
   usb_path: /dev/zwave
-  config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/libopenzwave-0.3.2-py3.5-linux-x86_64.egg/config
+  config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
+  #network_key: !secret zwave_network_key
   device_config:
     binary_sensor.broken_contact_sensor_sensor_10_0:
       ignored: true
