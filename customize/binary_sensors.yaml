@@ -15,7 +15,7 @@ binary_sensor.living_room_multisensor_sensor_9_0:
 
 binary_sensor.robbies_bedroom_door_sensor_14_0:
   friendly_name: "Robbie's Bedroom Door"
-  icon: mdi:hotel
+  icon: mdi:lock
   device_class: opening
 
 binary_sensor.robbies_bedroom_multisensor_sensor_15_0:
@@ -26,3 +26,11 @@ binary_sensor.robbies_bedroom_multisensor_sensor_15_0:
 binary_sensor.brandons_bedroom_multisensor_sensor_20_0:
   icon: mdi:walk
   device_class: motion
+
+binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor_17_0:
+  hidden: true
+  haaska_hidden: true
+  homebridge_hidden: true
+
+binary_sensor.robbies_bed:
+  icon: mdi:hotel
