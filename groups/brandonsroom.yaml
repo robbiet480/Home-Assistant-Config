@@ -3,10 +3,11 @@ view: true
 entities:
   - binary_sensor.brandons_bedroom_multisensor_sensor_20_0
   - device_tracker.brandons_iphone_7
-  - sensor.brandons_iphone_7_battery_state
+  - sensor.brandons_bedroom_multisensor_luminance_20_3
+  - sensor.brandons_bedroom_multisensor_relative_humidity_20_5
+  - sensor.brandons_bedroom_multisensor_temperature_20_1
+  - sensor.brandons_bedroom_multisensor_ultraviolet_20_27
   - sensor.brandons_iphone_7_battery_level
-  - sensor.brandons_room_multisensor_6_luminance_24_3
-  - sensor.brandons_room_multisensor_6_relative_humidity_24_5
-  - sensor.brandons_room_multisensor_6_temperature_24_1
-  - sensor.brandons_room_multisensor_6_ultraviolet_24_27
+  - sensor.brandons_iphone_7_battery_state
   - switch.brandons_lamp_switch_18_0
+
