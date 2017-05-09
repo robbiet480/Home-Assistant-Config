@@ -1,0 +1,7 @@
+name: Dishwasher Status
+options:
+  - Dirty
+  - Running
+  - Drying
+  - Clean
+initial: Dirty
