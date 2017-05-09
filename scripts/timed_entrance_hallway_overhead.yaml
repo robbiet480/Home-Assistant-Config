@@ -2,9 +2,9 @@ alias: "Turn on entrance hallway overhead and set timer"
 sequence:
   - service: switch.turn_on
     data:
-      entity_id: switch.entrance_hallway_overhead_lights_switch_2_0
+      entity_id: switch.entrance_hallway_overhead_lights_switch_3_0
   - delay:
       minutes: 2
   - service: switch.turn_off
     data:
-      entity_id: switch.entrance_hallway_overhead_lights_switch_2_0
+      entity_id: switch.entrance_hallway_overhead_lights_switch_3_0

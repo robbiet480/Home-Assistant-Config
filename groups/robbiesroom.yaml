@@ -1,8 +1,8 @@
 name: "Robbie's Room"
 view: true
 entities:
-  - binary_sensor.robbies_bedroom_door_sensor_12_0
-  - binary_sensor.robbies_room_multisensor_6_sensor_21_0
+  - binary_sensor.robbies_bedroom_door_sensor_14_0
+  - binary_sensor.robbies_bedroom_multisensor_sensor_15_0
   - camera.vstarcamera_one
   - camera.vstarcamera_two
   - device_tracker.robbies_iphone_7_plus

@@ -1,4 +1,4 @@
 name: "Entrance Hallway"
 entities:
-  - binary_sensor.front_door_sensor_23_0
-  - switch.entrance_hallway_overhead_lights_switch_2_0
+  - binary_sensor.front_door_sensor_2_0
+  - switch.entrance_hallway_overhead_lights_switch_3_0

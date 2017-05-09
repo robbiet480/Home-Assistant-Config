@@ -1,26 +1,26 @@
-sensor.living_room_multisensor_6_alarm_level_20_1:
+sensor.living_room_multisensor_6_alarm_level_9_1:
   hidden: true
-sensor.living_room_multisensor_6_alarm_type_20_0:
+sensor.living_room_multisensor_6_alarm_type_9_0:
   hidden: true
-sensor.living_room_multisensor_6_burglar_20_10:
+sensor.living_room_multisensor_6_burglar_9_10:
   hidden: true
-sensor.living_room_multisensor_6_sourcenodeid_20_2:
+sensor.living_room_multisensor_6_sourcenodeid_9_2:
   hidden: true
-sensor.robbies_bedroom_door_alarm_level_12_1:
+sensor.robbies_bedroom_door_alarm_level_14_1:
   hidden: true
-sensor.robbies_bedroom_door_alarm_type_12_0:
+sensor.robbies_bedroom_door_alarm_type_14_0:
   hidden: true
-sensor.robbies_bedroom_door_burglar_12_10:
+sensor.robbies_bedroom_door_burglar_14_10:
   hidden: true
-sensor.robbies_bedroom_door_sourcenodeid_12_2:
+sensor.robbies_bedroom_door_sourcenodeid_14_2:
   hidden: true
-sensor.robbies_room_multisensor_6_alarm_level_21_1:
+sensor.robbies_room_multisensor_6_alarm_level_15_1:
   hidden: true
-sensor.robbies_room_multisensor_6_alarm_type_21_0:
+sensor.robbies_room_multisensor_6_alarm_type_15_0:
   hidden: true
-sensor.robbies_room_multisensor_6_burglar_21_10:
+sensor.robbies_room_multisensor_6_burglar_15_10:
   hidden: true
-sensor.robbies_room_multisensor_6_sourcenodeid_21_2:
+sensor.robbies_room_multisensor_6_sourcenodeid_15_2:
   hidden: true
 
 sensor.robbies_iphone_7_plus_battery:

@@ -29,39 +29,53 @@ zwave:
   config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
   #network_key: !secret zwave_network_key
   device_config:
-    binary_sensor.broken_contact_sensor_sensor_10_0:
+    light.entrance_hallway_overhead_lights_accessory_level_8_0:
       ignored: true
-    sensor.brandons_lamp_energy_18_0:
+    light.interior_hallway_overhead_lights_accessory_level_11_0:
       ignored: true
-    sensor.brandons_lamp_exporting_18_32:
+    sensor.brandons_bedroom_multisensor_alarm_level_20_1:
       ignored: true
-    sensor.brandons_lamp_interval_18_10:
+    sensor.brandons_bedroom_multisensor_alarm_type_20_0:
       ignored: true
-    sensor.brandons_lamp_interval_18_2:
+    sensor.brandons_bedroom_multisensor_burglar_20_10:
       ignored: true
-    sensor.brandons_lamp_power_18_4:
+    sensor.brandons_bedroom_multisensor_sourcenodeid_20_2:
       ignored: true
-    sensor.brandons_lamp_power_18_8:
+    sensor.living_room_multisensor_alarm_level_9_1:
       ignored: true
-    sensor.brandons_lamp_previous_reading_18_1:
+    sensor.living_room_multisensor_alarm_type_9_0:
       ignored: true
-    sensor.brandons_lamp_previous_reading_18_9:
+    sensor.living_room_multisensor_burglar_9_10:
       ignored: true
-    sensor.broken_contact_sensor_alarm_level_10_1:
+    sensor.living_room_multisensor_sourcenodeid_9_2:
       ignored: true
-    sensor.broken_contact_sensor_alarm_type_10_0:
+    sensor.robbies_bedroom_bed_occupancy_sensor_alarm_level_17_1:
       ignored: true
-    sensor.broken_contact_sensor_burglar_10_10:
+    sensor.robbies_bedroom_bed_occupancy_sensor_alarm_type_17_0:
       ignored: true
-    sensor.broken_contact_sensor_sourcenodeid_10_2:
+    sensor.robbies_bedroom_bed_occupancy_sensor_burglar_17_10:
       ignored: true
-    sensor.brandons_room_multisensor_6_alarm_level_24_1:
+    sensor.robbies_bedroom_bed_occupancy_sensor_sourcenodeid_17_2:
       ignored: true
-    sensor.brandons_room_multisensor_6_alarm_type_24_0:
+    sensor.robbies_bedroom_door_alarm_level_14_1:
       ignored: true
-    sensor.brandons_room_multisensor_6_burglar_24_10:
+    sensor.robbies_bedroom_door_alarm_type_14_0:
       ignored: true
-    sensor.brandons_room_multisensor_6_sourcenodeid_24_2:
+    sensor.robbies_bedroom_door_burglar_14_10:
+      ignored: true
+    sensor.robbies_bedroom_door_sourcenodeid_14_2:
+      ignored: true
+    sensor.robbies_bedroom_multisensor_alarm_level_15_1:
+      ignored: true
+    sensor.robbies_bedroom_multisensor_alarm_type_15_0:
+      ignored: true
+    sensor.robbies_bedroom_multisensor_burglar_15_10:
+      ignored: true
+    sensor.robbies_bedroom_multisensor_sourcenodeid_15_2:
+      ignored: true
+    switch.entrance_hallway_overhead_lights_accessory_switch_8_0:
+      ignored: true
+    switch.interior_hallway_overhead_lights_accessory_switch_11_0:
       ignored: true
 
 discovery:

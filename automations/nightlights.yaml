@@ -1,7 +1,7 @@
 - alias: Turn on hallway lights when there is movement at night
   trigger:
     platform: state
-    entity_id: binary_sensor.ceiling_mounted_motion_sensor_11_0
+    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor_13_0
     to: "on"
   condition:
     condition: state
