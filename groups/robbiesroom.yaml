@@ -1,8 +1,8 @@
 name: "Robbie's Room"
 view: true
 entities:
-  - binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor_17_0
   - binary_sensor.robbies_bed
+  - binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor_17_0
   - binary_sensor.robbies_bedroom_door_sensor_14_0
   - binary_sensor.robbies_bedroom_multisensor_sensor_15_0
   - camera.vstarcamera_one
@@ -14,6 +14,9 @@ entities:
   - light.robbies_floorstanding
   - light.robbies_room_window_led_strip
   - light.robbies_strip
+  - light.tradfri_bulb_e12_ws_opal_400lm
+  - light.tradfri_bulb_e12_ws_opal_400lm_2
+  - light.tradfri_bulb_e26_opal_1000lm
   - media_player.robbies_bedroom
   - media_player.robbies_bedroom_apple_tv
   - media_player.robbies_roku
