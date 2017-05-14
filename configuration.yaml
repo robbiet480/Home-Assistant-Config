@@ -78,6 +78,10 @@ zwave:
     switch.interior_hallway_overhead_lights_accessory_switch_11_0:
       ignored: true
 
+zha:
+  usb_path: /dev/zigbee
+  database_path: /home/robbiet480/.homeassistant/zigbee.db
+
 discovery:
 
 logger:
