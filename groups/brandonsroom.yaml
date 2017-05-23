@@ -9,5 +9,5 @@ entities:
   - sensor.brandons_bedroom_multisensor_ultraviolet_20_27
   - sensor.brandons_iphone_7_battery_level
   - sensor.brandons_iphone_7_battery_state
-  - switch.brandons_lamp_switch_18_0
+  - switch.brandons_lamp_switch_23_0
 
