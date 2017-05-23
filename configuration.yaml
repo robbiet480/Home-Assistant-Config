@@ -27,7 +27,7 @@ mqtt:
 zwave:
   usb_path: /dev/zwave
   config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
-  #network_key: !secret zwave_network_key
+  network_key: !secret zwave_network_key
   device_config:
     light.entrance_hallway_overhead_lights_accessory_level_8_0:
       ignored: true
