@@ -1,0 +1,440 @@
+- alias: Someone arrived home
+  id: someone_arrived_home
+  trigger:
+    platform: state
+    entity_id: device_tracker.brandons_iphone_7, device_tracker.robbies_iphone_7_plus
+    from: not_home
+    to: home
+  action:
+    service: notify.humansanddisplays
+    data_template:
+      title: Roommate has arrived at home
+      message: >
+              {{ trigger.to_state.attributes.friendly_name }} has arrived at home.
+
+              {% for name, zone in states.device_tracker|groupby('state') %}{% if zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif %}{% else %} are{% endif %} {{ name|replace('_', ' ') }}.{% endif %}
+              {% endfor %}
+    data:
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
+
+
+- alias: Someone left home
+  id: someone_left_home
+  trigger:
+    platform: state
+    entity_id: device_tracker.brandons_iphone_7, device_tracker.robbies_iphone_7_plus
+    from: home
+    to: not_home
+  action:
+    service: notify.humansanddisplays
+    data_template:
+      title: Roommate has left home
+      message: >
+              {{ trigger.to_state.attributes.friendly_name }} has left home.
+
+              {% for name, zone in states.device_tracker|groupby('state') %}{% if zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif %}{% else %} are{% endif %} {{ name|replace('_', ' ') }}.{% endif %}
+              {% endfor %}
+
+# When we detect power being drawn from the dishwasher,
+# mark the dishwasher as using power
+
+- alias: Set dishwasher active when power detected
+  id: set_dishwasher_active
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dishwasher_power_25_8
+      above: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Dirty
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Clean
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Running
+
+# When the power level drops below 10, and the Dishwasher is set to
+# the 'Running' state, mark the Dishwasher as Finished
+
+- alias: Set dishwasher drying when power drops
+  id: set_dishwasher_drying
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dishwasher_power_25_8
+      below: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Drying
+
+# Once the dishwasher status has been 'Drying' for 30 minutes, mark the
+# dishwasher as clean
+
+- alias: Set dishwasher clean
+  id: set_dishwasher_clean
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Drying
+      for:
+        minutes: 15
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Clean
+
+# When the power drops and the dishwasher is Clean or Drying, someone has
+# turned the Dishwasher off and emptied it. We should do this when the state
+# of the Dishwasher is clean or Finishing, just incase someone opens the
+# Dishwasher before the 30 minute timeout has been reached.
+
+- alias: Set Dishwasher dirty when power off
+  id: set_dishwasher_dirty
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dishwasher_power_25_8
+      below: 1
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.dishwasher_power_25_8
+        below: 1
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Clean
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Drying
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Dirty
+
+
+- alias: Send alert when dishwasher is clean
+  id: send_dishwasher_alert
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Clean
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Clean
+  action:
+    - service: notify.humansanddisplays
+      data:
+        message: 'The Dishwasher has finished and is ready to be emptied!'
+        title: 'Dishwasher Update'
+ 
+- alias: Turn off all devices when everyone leaves home
+  id: turn_off_when_people_leave
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: home
+    to: not_home
+  action:
+    service: homeassistant.turn_off
+
+- alias: Send notifications for package delivery
+  id: package_notifications
+  trigger:
+    platform: event
+    event_type: security.package_ready
+  action:
+    service_template: >
+      notify.{{ trigger.event.data.human }}iOSApp
+    data_template:
+        message: >
+          You have {{ trigger.event.data.number_of_ready_packages }} package(s) ready to be picked up.
+    data:
+      title: Packages available
+      data:
+        push:
+          sound: US-EN-Alexa-Mail-Has-Arrived.wav
+
+- alias: Send notifications for guests/misc calls from front desk
+  id: guest_notification
+  trigger:
+    platform: event
+    event_type: security.delivery_access_request
+  action:
+    service_template: >
+      notify.{{ trigger.event.data.human }}iOSApp
+    data:
+      title: Guest/delivery inbound
+      message: You have a guest or delivery.
+      data:
+        push:
+          sound: US-EN-Alexa-Mail-Has-Arrived.wav
+
+- alias: Front door is open
+  id: front_door_open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_2_0
+    from: 'off'
+    to: 'on'
+  action:
+    service: notify.humansanddisplays
+    data:
+      title: Front door
+      message: The front door is open
+      data:
+        push:
+          sound: US-EN-Daisy-Front-Door-Open.wav
+
+- alias: Turn on entrance hallway overhead when the door opens
+  id: turn_on_entrance_hallway
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_sensor_2_0
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_entrance_hallway_overhead
+
+- alias: Turn on living room lights when Apple TV is paused
+  id: turn_on_living_room_when_atv_pauses
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_apple_tv
+    from: playing
+    to: paused
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: group.living_room
+    data:
+      transition: 60
+
+- alias: Turn off living room lights when Apple TV is playing
+  id: turn_off_living_room_when_atv_plays
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_apple_tv
+    from: paused
+    to: playing
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_off
+    entity_id: group.living_room
+
+- alias: Turn on Robbie's Room lights when Apple TV, Chromecast or Roku is paused
+  id: turn_on_robbies_room_when_media_pauses
+  trigger:
+    - platform: state
+      entity_id: media_player.robbies_room_apple_tv
+      from: playing
+      to: paused
+    - platform: state
+      entity_id: media_player.robbies_room_chromecast
+      from: playing
+      to: paused
+    - platform: state
+      entity_id: media_player.robbies_roku
+      from: playing
+      to: paused
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_on
+    entity_id: group.robbiesroom
+    data:
+      transition: 60
+
+- alias: Turn off Robbie's Room lights when Apple TV, Chromecast or Roku is playing
+  id: turn_off_robbies_room_when_media_plays
+  trigger:
+    - platform: state
+      entity_id: media_player.robbies_bedroom_apple_tv
+      from: paused
+      to: playing
+    - platform: state
+      entity_id: media_player.robbies_room_chromecast
+      from: paused
+      to: playing
+    - platform: state
+      entity_id: media_player.robbies_roku
+      from: paused
+      to: playing
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: light.turn_off
+    entity_id: group.robbiesroom
+
+- alias: Turn on hallway lights when there is movement at night
+  id: hallway_lights_at_night
+  trigger:
+    platform: state
+    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor_13_0
+    to: "on"
+  condition:
+    condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_interior_hallway_bloom
+
+- alias: Notify if motion detected in living room or hallway when no one is home
+  id: notify_motion_detected
+  trigger:
+    platform: state
+    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor_13_0, binary_sensor.living_room_multisensor_sensor_9_0
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: group.all_devices
+    state: "not_home"
+  action:
+    service: notify.allresidents
+    data_template:
+      title: 'Motion detected'
+      message: >
+        Motion detected on {{ trigger.to_state.attributes.friendly_name }} but no one is home!
+    data:
+      data:
+        push:
+          sound: "US-EN-Alexa-Motion-Detected-Generic.wav"
+
+- alias: Robbie arrived home
+  id: robbie_arrived_home
+  trigger:
+    platform: state
+    entity_id: device_tracker.robbies_iphone_7_plus
+    from: 'not_home'
+    to: 'home'
+  action:
+    service: light.turn_on
+    entity_id: group.robbies_room
+    data:
+      brightness: 255
+      rgb_color: [255, 255, 255]
+
+- alias: Robbie left home
+  id: robbie_left_home
+  trigger:
+    platform: state
+    entity_id: device_tracker.robbies_iphone_7_plus
+    from: 'home'
+    to: 'not_home'
+  action:
+    service: homeassistant.turn_off
+    entity_id:
+      - group.robbiesroom
+
+- alias: Notify if Robbie's door is opened when he isn't home
+  id: robbies_door_open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.robbies_bedroom_door_sensor_14_0
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: device_tracker.robbies_iphone_7_plus
+    state: "not_home"
+  action:
+    service: notify.robbiesdevices
+    data_template:
+      message: >
+        Bedroom door is {% if trigger.to_state.state == "on" %}open{% else %}closed{% endif %} (you aren't at home!)
+
+- alias: Notify if there is motion in Robbie's Room when he isn't home
+  id: robbies_room_motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.robbies_bedroom_multisensor_sensor_15_0
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: device_tracker.robbies_iphone_7_plus
+    state: "not_home"
+  action:
+    service: notify.robbiesdevices
+    data:
+      message: "Motion in your bedroom (you aren't at home!)"
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Motion-In-Bedroom.wav"
+
+- alias: Send a notification 1 hour before sunset
+  id: before_sunset_notification
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-01:00:00'
+  action:
+    service: notify.robbiesdevices
+    data:
+      message: 'There is one hour remaining until sunset.'
+
+- alias: End of day sunset notification
+  id: sunset_notification
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: notify.robbiesdevices
+    data_template:
+      message: >
+        Sunset for {{ now().strftime('%A %B %-d, %Y at %-I:%M %p') }}!
+        The day's high temperature in Oakland was {{ states.sensor.dark_sky_daily_high_temperature.state }}{{ states.sensor.dark_sky_daily_high_temperature.attributes.unit_of_measurement }}.
+        The low temperature today was {{ states.sensor.dark_sky_daily_low_temperature.state }}{{ states.sensor.dark_sky_daily_low_temperature.attributes.unit_of_measurement }}.
+        The current conditions are {{ states.sensor.dark_sky_minutely_summary.state|lower }}.
+        {% for name, zone in states.device_tracker|groupby('state') %}{% if zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif %}{% else %} are{% endif %} {{ name|replace('_', ' ') }}.{% endif %} {% endfor %}
+    data:
+      data:
+        push:
+          sound: US-EN-Alexa-Good-Night.wav

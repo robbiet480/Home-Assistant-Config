@@ -137,7 +137,7 @@ tradfri:
 alexa:
   flash_briefings: !include_dir_named alexa/flash_briefings/
   intents: !include_dir_named alexa/intents/
-automation: !include_dir_merge_list automations/
+automation: !include automations.yaml
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
 camera: !include_dir_merge_list devices/cameras/
 device_tracker: !include_dir_merge_list devices/device_trackers/
