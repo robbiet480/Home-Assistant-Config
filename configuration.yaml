@@ -133,6 +133,7 @@ twilio:
 tradfri:
   host: !secret tradfri_ip
   api_key: !secret tradfri_api_key
+  allow_tradfri_groups: false
 
 #alert: !include_dir_named alerts/
 alexa:
