@@ -1,12 +1,12 @@
 name: "Kitchen"
 entities:
-  - switch.kitchen_counter_lights_switch_6_0
-  - switch.kitchen_overhead_lights_switch_5_0
-  - switch.kitchen_under_cabinet_lights_switch_4_0
-  - sensor.dishwasher_current_7_20
-  - sensor.dishwasher_energy_7_0
-  - sensor.dishwasher_power_7_8
-  - sensor.dishwasher_previous_reading_7_1
-  - sensor.dishwasher_voltage_7_16
-  - switch.dishwasher_switch_7_0
+  - switch.kitchen_counter_lights_switch
+  - switch.kitchen_overhead_lights_switch
+  - switch.kitchen_under_cabinet_lights_switch
+  - sensor.dishwasher_current
+  - sensor.dishwasher_energy
+  - sensor.dishwasher_power
+  - sensor.dishwasher_previous_reading
+  - sensor.dishwasher_voltage
+  - switch.dishwasher_switch
   - input_select.dishwasher_status

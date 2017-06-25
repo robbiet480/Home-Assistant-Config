@@ -1,13 +1,13 @@
 name: "Brandon's Room"
 view: true
 entities:
-  - binary_sensor.brandons_bedroom_multisensor_sensor_20_0
+  - binary_sensor.brandons_bedroom_multisensor_sensor
   - device_tracker.brandons_iphone_7
-  - sensor.brandons_bedroom_multisensor_luminance_20_3
-  - sensor.brandons_bedroom_multisensor_relative_humidity_20_5
-  - sensor.brandons_bedroom_multisensor_temperature_20_1
-  - sensor.brandons_bedroom_multisensor_ultraviolet_20_27
+  - sensor.brandons_bedroom_multisensor_luminance
+  - sensor.brandons_bedroom_multisensor_relative_humidity
+  - sensor.brandons_bedroom_multisensor_temperature
+  - sensor.brandons_bedroom_multisensor_ultraviolet
   - sensor.brandons_iphone_7_battery_level
   - sensor.brandons_iphone_7_battery_state
-  - switch.brandons_lamp_switch_23_0
+  - switch.brandons_lamp_switch
 

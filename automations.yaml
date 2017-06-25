@@ -44,7 +44,7 @@
   id: set_dishwasher_active
   trigger:
     - platform: numeric_state
-      entity_id: sensor.dishwasher_power_25_8
+      entity_id: sensor.dishwasher_power
       above: 10
   condition:
     condition: or
@@ -71,7 +71,7 @@
   id: set_dishwasher_drying
   trigger:
     - platform: numeric_state
-      entity_id: sensor.dishwasher_power_25_8
+      entity_id: sensor.dishwasher_power
       below: 10
   condition:
     condition: and
@@ -117,13 +117,13 @@
   id: set_dishwasher_dirty
   trigger:
     - platform: numeric_state
-      entity_id: sensor.dishwasher_power_25_8
+      entity_id: sensor.dishwasher_power
       below: 1
   condition:
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.dishwasher_power_25_8
+        entity_id: sensor.dishwasher_power
         below: 1
       - condition: or
         conditions:
@@ -157,7 +157,7 @@
       data:
         message: 'The Dishwasher has finished and is ready to be emptied!'
         title: 'Dishwasher Update'
- 
+
 - alias: Turn off all devices when everyone leaves home
   id: turn_off_when_people_leave
   trigger:
@@ -204,7 +204,7 @@
   id: front_door_open
   trigger:
     platform: state
-    entity_id: binary_sensor.front_door_sensor_2_0
+    entity_id: binary_sensor.front_door_sensor
     from: 'off'
     to: 'on'
   action:
@@ -220,7 +220,7 @@
   id: turn_on_entrance_hallway
   trigger:
     platform: state
-    entity_id: binary_sensor.front_door_sensor_2_0
+    entity_id: binary_sensor.front_door_sensor
     from: 'off'
     to: 'on'
   condition:
@@ -315,7 +315,7 @@
   id: hallway_lights_at_night
   trigger:
     platform: state
-    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor_13_0
+    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor
     to: "on"
   condition:
     condition: state
@@ -329,7 +329,7 @@
   id: notify_motion_detected
   trigger:
     platform: state
-    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor_13_0, binary_sensor.living_room_multisensor_sensor_9_0
+    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor, binary_sensor.living_room_multisensor_sensor
     from: "off"
     to: "on"
   condition:
@@ -377,7 +377,7 @@
   id: robbies_door_open
   trigger:
     platform: state
-    entity_id: binary_sensor.robbies_bedroom_door_sensor_14_0
+    entity_id: binary_sensor.robbies_bedroom_door_sensor
     from: "off"
     to: "on"
   condition:
@@ -394,7 +394,7 @@
   id: robbies_room_motion
   trigger:
     platform: state
-    entity_id: binary_sensor.robbies_bedroom_multisensor_sensor_15_0
+    entity_id: binary_sensor.robbies_bedroom_multisensor_sensor
     from: "off"
     to: "on"
   condition:

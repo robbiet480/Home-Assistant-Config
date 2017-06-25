@@ -1,12 +1,12 @@
-light.entrance_hallway_overhead_lights_accessory_level_8_0:
+light.entrance_hallway_overhead_lights_accessory_level:
   hidden: true
   emulated_hue: false
 
-light.interior_hallway_overhead_lights_accessory_level_11_0:
+light.interior_hallway_overhead_lights_accessory_level:
   hidden: true
   emulated_hue: false
 
-light.living_room_overhead_lights_level_10_0:
+light.living_room_overhead_lights_level:
   emulated_hue_name: "Living Room Overhead Lights"
 
 light.front_lamp:

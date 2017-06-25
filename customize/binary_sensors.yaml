@@ -1,29 +1,29 @@
-binary_sensor.interior_hallway_motion_sensor_sensor_13_0:
+binary_sensor.interior_hallway_motion_sensor_sensor:
   friendly_name: "Interior Hallway Ceiling Mounted Motion Sensor"
   device_class: motion
 
-binary_sensor.front_door_sensor_2_0:
+binary_sensor.front_door_sensor:
   friendly_name: "Front Door"
   icon: mdi:lock
   device_class: opening
 
-binary_sensor.living_room_multisensor_sensor_9_0:
+binary_sensor.living_room_multisensor_sensor:
   friendly_name: "Living Room Motion Sensor"
   device_class: motion
 
-binary_sensor.robbies_bedroom_door_sensor_14_0:
+binary_sensor.robbies_bedroom_door_sensor:
   friendly_name: "Robbie's Bedroom Door"
   icon: mdi:lock
   device_class: opening
 
-binary_sensor.robbies_bedroom_multisensor_sensor_15_0:
+binary_sensor.robbies_bedroom_multisensor_sensor:
   friendly_name: "Robbie's Bedroom Motion Sensor"
   device_class: motion
 
-binary_sensor.brandons_bedroom_multisensor_sensor_20_0:
+binary_sensor.brandons_bedroom_multisensor_sensor:
   device_class: motion
 
-binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor_17_0:
+binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor:
   hidden: true
   haaska_hidden: true
   homebridge_hidden: true

@@ -1,4 +1,4 @@
 speech:
   type: plaintext
   text: >
-    Its' {{ states("sensor.robbies_bedroom_multisensor_temperature_15_1") }} {{ states.sensor.robbies_bedroom_multisensor_temperature_15_1.attributes.unit_of_measurement }} in Robbie's Room.
+    Its' {{ states("sensor.robbies_bedroom_multisensor_temperature") }} {{ states.sensor.robbies_bedroom_multisensor_temperature.attributes.unit_of_measurement }} in Robbie's Room.

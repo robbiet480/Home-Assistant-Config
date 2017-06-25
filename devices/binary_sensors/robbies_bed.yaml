@@ -1,6 +1,6 @@
 - platform: template
   sensors:
     robbies_bed:
-      value_template: '{{ states("binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor_17_0") == "off" }}'
+      value_template: '{{ states("binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor") == "off" }}'
       friendly_name: "Robbie's Bed"
       device_class: occupancy
