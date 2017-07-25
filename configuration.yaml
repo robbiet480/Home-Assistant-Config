@@ -152,3 +152,22 @@ script: !include_dir_named scripts/
 sensor: !include_dir_merge_list devices/sensors/
 switch: !include_dir_merge_list devices/switches/
 zone: !include_dir_merge_list zones/
+
+apple_tv:
+  - name: Living Room Apple TV
+    host: 192.168.1.35
+    login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
+  - name: Robbie's Room Apple TV
+    login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
+    host: 192.168.1.36
+
+amcrest:
+  - host: !secret amcrest_ip
+    name: "New Construction"
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    resolution: high
+    stream_source: snapshot
+    sensors:
+      - motion_detector
+      - ptz_preset

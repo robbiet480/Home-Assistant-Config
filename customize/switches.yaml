@@ -39,3 +39,6 @@ switch.hdmi_0:
 switch.brandons_lamp_switch:
   friendly_name: "Brandon's Lamp"
   icon: mdi:lightbulb
+
+switch.dishwasher_switch:
+  hidden: true

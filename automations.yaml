@@ -292,7 +292,7 @@
   id: turn_off_robbies_room_when_media_plays
   trigger:
     - platform: state
-      entity_id: media_player.robbies_bedroom_apple_tv
+      entity_id: media_player.robbies_room_apple_tv
       from: paused
       to: playing
     - platform: state

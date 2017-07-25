@@ -13,3 +13,4 @@ media_player.sony_bravia_tv:
 media_player.living_room_2:
   emulated_hue: false
   homebridge_hidden: true
+  haaska_hidden: true
