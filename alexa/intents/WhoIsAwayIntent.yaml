@@ -1,4 +1,4 @@
 speech:
-  type: plaintext
+  type: plain
   text: >
     {% for device in dict(states.device_tracker|groupby('state'))['not_home'] %}{% if loop.last and loop.length > 1 %} and {% elif not loop.first and loop.length > 1 %}, {% endif %}{{ device.name }}{% endfor %} {% if dict(states.device_tracker|groupby('state'))['not_home']|length == 1 %}is{% else %}are{% endif %} away.

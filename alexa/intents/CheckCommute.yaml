@@ -1,5 +1,5 @@
 speech:
-  type: plaintext
+  type: plain
   text: >
     Drive time with traffic is {{ states.sensor.google_travel_time__driving.state }} minutes. There is an UberPOOL that will cost {{ states.sensor.uberpool_price.attributes['Price estimate'] }}{% if states.sensor.uberpool_time.attributes['Surge multiplier']|int > 1 %} (surge pricing in effect, currently {{ states.sensor.uberpool_price.attributes['Surge multiplier'] }}x){% endif %}, estimated to be {{ states.sensor.uberpool_time.state }} minutes away, for a total of {{ states.sensor.google_travel_time__driving.state|int + states.sensor.uberpool_time.state|int }} minutes.
     BART is currently estimated to take {{ states.sensor.google_travel_time__transit.state }} minutes.

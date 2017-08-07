@@ -3,5 +3,5 @@ action:
   data_template:
     entity_id: "input_boolean.{{ Human|replace('Robby', 'Robbie')|lower }}_asleep"
 speech:
-  type: plaintext
+  type: plain
   text: !include ../confirm.yaml

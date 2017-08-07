@@ -12,5 +12,5 @@ action:
         {% elif location == "bathroom" %}Bathroom Echo Dot
         {% endif %}
 speech:
-  type: plaintext
+  type: plain
   text: Sending music to {{SpotifyLocation}}

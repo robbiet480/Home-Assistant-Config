@@ -1,5 +1,5 @@
 speech:
-  type: plaintext
+  type: plain
   text: >
     {%- for state in states.device_tracker -%}
       {%- if state.name.lower() == Human.lower() -%}
