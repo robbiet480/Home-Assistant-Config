@@ -8,7 +8,7 @@
   platform: group
   services:
     - service: robbiesdevices
-    - service: ios_brandons_iphone_7
+    #- service: ios_brandons_iphone_7
 
 - name: HumansAndDisplays
   platform: group
