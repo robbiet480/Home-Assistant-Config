@@ -23,9 +23,9 @@ sensor.robbies_room_multisensor_6_burglar:
 sensor.robbies_room_multisensor_6_sourcenodeid:
   hidden: true
 
-sensor.robbies_iphone_7_plus_battery:
+sensor.robbies_iphone_x_battery:
   icon: mdi:battery
-  friendly_name: "Robbie's iPhone 7 Plus Battery"
+  friendly_name: "Robbie's iPhone X Battery"
 
 sensor.speedtest_ping:
   icon: mdi:clock

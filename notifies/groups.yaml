@@ -1,7 +1,7 @@
 - name: RobbiesDevices
   platform: group
   services:
-    - service: ios_robbies_iphone_7_plus
+    - service: ios_robbies_iphone_x
     - service: html5_robbiesmbp
 
 - name: AllResidents
