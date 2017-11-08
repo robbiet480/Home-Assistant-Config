@@ -176,7 +176,6 @@ twilio:
 
 tradfri:
   host: !secret tradfri_ip
-  api_key: !secret tradfri_api_key
   allow_tradfri_groups: false
 
 #alert: !include_dir_named alerts/
@@ -205,13 +204,13 @@ apple_tv:
     login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
     host: 192.168.1.36
 
-amcrest:
-  - host: !secret amcrest_ip
-    name: "New Construction"
-    username: !secret amcrest_username
-    password: !secret amcrest_password
-    resolution: high
-    stream_source: snapshot
-    sensors:
-      - motion_detector
-      - ptz_preset
+#amcrest:
+#  - host: !secret amcrest_ip
+#    name: "New Construction"
+#    username: !secret amcrest_username
+#    password: !secret amcrest_password
+#    resolution: high
+#    stream_source: snapshot
+#    sensors:
+#      - motion_detector
+#      - ptz_preset
