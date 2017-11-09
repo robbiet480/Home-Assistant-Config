@@ -28,7 +28,6 @@ zwave:
   usb_path: /dev/zwave
   config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
   network_key: !secret zwave_network_key
-  new_entity_ids: true
   device_config:
     light.entrance_hallway_overhead_lights_accessory_level:
       ignored: true
@@ -41,6 +40,12 @@ zwave:
     sensor.brandons_bedroom_multisensor_burglar:
       ignored: true
     sensor.brandons_bedroom_multisensor_sourcenodeid:
+      ignored: true
+    sensor.brandons_lamp_exporting:
+      ignored: true
+    sensor.brandons_lamp_interval:
+      ignored: true
+    sensor.brandons_lamp_interval_2:
       ignored: true
     sensor.living_room_multisensor_alarm_level:
       ignored: true
@@ -79,58 +84,12 @@ zwave:
     switch.interior_hallway_overhead_lights_accessory_switch:
       ignored: true
 
-zha:
-  usb_path: /dev/zigbee
-  database_path: /home/robbiet480/.homeassistant/zigbee.db
-
 discovery:
 
 logger:
   default: info
 frontend:
-  themes:
-    happy:
-      primary-color: pink
-    sad:
-      primary-color: blue
-    red:
-      primary-color: "#f44336"
-    pink:
-      primary-color: "#e91e63"
-    purple:
-      primary-color: "#9c27b0"
-    deep-purple:
-      primary-color: "#673ab7"
-    indigo:
-      primary-color: "#3f51b5"
-    blue:
-      primary-color: "#2196f3"
-    light-blue:
-      primary-color: "#03a9f4"
-    cyan:
-      primary-color: "#00bcd4"
-    teal:
-      primary-color: "#009688"
-    green:
-      primary-color: "#4caf50"
-    light-green:
-      primary-color: "#8bc34a"
-    lime:
-      primary-color: "#cddc39"
-    yellow:
-      primary-color: "#ffeb3b"
-    amber:
-      primary-color: "#ffc107"
-    orange:
-      primary-color: "#ff9800"
-    deep-orange:
-      primary-color: "#ff5722"
-    brown:
-      primary-color: "#795548"
-    grey:
-      primary-color: "#9e9e9e"
-    blue-grey:
-      primary-color: "#607d8b"
+map:
 history:
 sun:
 logbook:
@@ -140,45 +99,12 @@ recorder:
   purge_interval: 2
   purge_keep_days: 14
 
-#emulated_hue:
-#  exposed_domains: ['switch', 'light', 'fan', 'media_player']
-#  host_ip: 192.168.1.3
-#  listen_port: 8300
-
-#hdmi_cec:
-#  host: 192.168.1.33
-#  devices:
-#    Toshiba TV: 0.0.0.0
-#    Apple TV: 1.0.0.0
-#    Roku: 2.0.0.0
-#    PlayStation 4: 3.0.0.0
-
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret aws_access_key_id
-    aws_secret_access_key: !secret aws_secret_access_key
-    region_name: !secret aws_region
-
 ios:
-
-influxdb:
-  username: !secret influxdb_username
-  password: !secret influxdb_password
-  database: !secret influxdb_database
-
-foursquare:
-  access_token: !secret foursquare_access_token
-  push_secret: !secret foursquare_push_token
-
-twilio:
-  account_sid: !secret twilio_account_sid
-  auth_token: !secret twilio_auth_token
 
 tradfri:
   host: !secret tradfri_ip
   allow_tradfri_groups: false
 
-#alert: !include_dir_named alerts/
 alexa:
   flash_briefings: !include_dir_named alexa/flash_briefings/
 automation: !include automations.yaml
@@ -197,20 +123,12 @@ switch: !include_dir_merge_list devices/switches/
 zone: !include_dir_merge_list zones/
 
 apple_tv:
-  - name: Living Room Apple TV
-    host: 192.168.1.35
+  - name: Living Room Apple TV 4K
+    host: 192.168.1.25
     login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
+    credentials: 5C2A3FB4C19B8E9C:A627C2DC2CF84C50B97F9F7671C7F425EC74C26C2DA6C3B6527296216E175E7B
+    start_off: true
   - name: Robbie's Room Apple TV
     login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
     host: 192.168.1.36
-
-#amcrest:
-#  - host: !secret amcrest_ip
-#    name: "New Construction"
-#    username: !secret amcrest_username
-#    password: !secret amcrest_password
-#    resolution: high
-#    stream_source: snapshot
-#    sensors:
-#      - motion_detector
-#      - ptz_preset
+    credentials: B5918545CF04FD97:15EF7EE85D0964A0131685CAA6FC073B931E96CBB3CCC1522A6C00C01C66A0A3

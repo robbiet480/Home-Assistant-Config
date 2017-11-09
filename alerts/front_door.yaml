@@ -1,8 +1,0 @@
-name: Front door is open
-entity_id: binary_sensor.front_door_sensor
-state: 'on'
-repeat: 5
-can_acknowledge: True
-skip_first: True
-notifiers:
-  - humansanddisplays

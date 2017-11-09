@@ -1,7 +1,0 @@
-- name: Twilio SMS
-  platform: twilio_sms
-  from_number: !secret twilio_from_number
-
-- name: Twilio Call
-  platform: twilio_call
-  from_number: !secret twilio_from_number
