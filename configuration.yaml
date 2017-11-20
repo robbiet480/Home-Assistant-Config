@@ -88,6 +88,9 @@ discovery:
 
 logger:
   default: info
+  logs:
+    homeassistant.components.cloud: debug
+    homeassistant.components.cloud.iot: debug
 frontend:
 map:
 history:
@@ -132,3 +135,17 @@ apple_tv:
     login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
     host: 192.168.1.36
     credentials: B5918545CF04FD97:15EF7EE85D0964A0131685CAA6FC073B931E96CBB3CCC1522A6C00C01C66A0A3
+
+cloud:
+  mode: !secret cloud_mode
+  cognito_client_id: !secret cloud_cognito_client_id
+  user_pool_id: !secret cloud_user_pool_id
+  region: !secret cloud_region
+  relayer: !secret cloud_relayer
+  alexa:
+    filter:
+      include_domains:
+        - fan
+        - light
+        - media_player
+        - switch
