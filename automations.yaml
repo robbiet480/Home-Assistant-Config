@@ -446,3 +446,41 @@
     from: 'off'
     platform: state
     to: 'on'
+
+- action:
+  - alias: Turn on living room lights
+    data:
+      entity_id:
+        - light.front_lamp
+        - light.living_room_overhead_lights_level
+        - light.living_room_window_led_strip
+        - light.rear_lamp
+        - light.under_counter
+    service: light.turn_on
+  alias: Turn living room lights on when holding dimmer switch
+  id: '1510187667467'
+  trigger:
+  - event_data:
+      scene_id: 1
+      scene_data: 3
+    event_type: zwave.scene_activated
+    platform: event
+
+- action:
+  - alias: Turn off living room lights
+    data:
+      entity_id:
+        - light.front_lamp
+        - light.living_room_overhead_lights_level
+        - light.living_room_window_led_strip
+        - light.rear_lamp
+        - light.under_counter
+    service: light.turn_off
+  alias: Turn living room lights off when holding dimmer switch
+  id: '1510187667468'
+  trigger:
+  - event_data:
+      scene_id: 2
+      scene_data: 3
+    event_type: zwave.scene_activated
+    platform: event
