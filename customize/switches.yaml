@@ -3,10 +3,10 @@ switch.entrance_hallway_overhead_lights_switch:
   icon: mdi:lightbulb
 switch.entrance_hallway_overhead_lights_accessory_switch:
   hidden: true
-  emulated_hue: false
+  alexa_hidden: false
 switch.interior_hallway_overhead_lights_accessory_switch:
   hidden: true
-  emulated_hue: false
+  alexa_hidden: false
 switch.interior_hallway_overhead_lights_switch:
   friendly_name: "Interior Hallway Overhead Lights"
   icon: mdi:lightbulb

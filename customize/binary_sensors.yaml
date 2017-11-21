@@ -25,7 +25,7 @@ binary_sensor.brandons_bedroom_multisensor_sensor:
 
 binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor:
   hidden: true
-  haaska_hidden: true
+  alexa_hidden: true
   homebridge_hidden: true
 
 binary_sensor.robbies_bed:

@@ -1,16 +1,17 @@
 media_player.living_room:
   friendly_name: "Living Room Sonos"
   icon: mdi:speaker
+  alexa_hidden: true
 
 media_player.robbies_bedroom:
   friendly_name: "Robbie's Bedroom Sonos"
   icon: mdi:speaker
+  alexa_hidden: true
 
 media_player.sony_bravia_tv:
   friendly_name: "Living Room TV"
   icon: mdi:television
 
 media_player.living_room_2:
-  emulated_hue: false
   homebridge_hidden: true
-  haaska_hidden: true
+  alexa_hidden: true

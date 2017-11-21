@@ -8,7 +8,7 @@ homeassistant:
   customize: !include_dir_merge_named customize
   customize_glob:
     "media_player.plex_*":
-      haaska_hidden: true
+      alexa_hidden: true
 
 http:
   base_url: !secret http_base_url

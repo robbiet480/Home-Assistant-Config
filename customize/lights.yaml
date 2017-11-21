@@ -1,13 +1,11 @@
 light.entrance_hallway_overhead_lights_accessory_level:
   hidden: true
-  emulated_hue: false
 
 light.interior_hallway_overhead_lights_accessory_level:
   hidden: true
-  emulated_hue: false
 
 light.living_room_overhead_lights_level:
-  emulated_hue_name: "Living Room Overhead Lights"
+  alexa_name: "Living Room Overhead Lights"
 
 light.front_lamp:
   homebridge_hidden: true
