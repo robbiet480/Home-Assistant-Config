@@ -115,7 +115,6 @@ Devices are broken down by room
 - [RGB LED Strip with Wifi Controller][rgb-led-strip] - On ledge under window to right of bed
 - [Amazon Echo][amazon-echo]
 - [Sonos PLAY:3][sonos-play3]
-- [Sense Sleep System][hello-sense]
 - [ZEEQ Smart Pillow][zeeq-pillow]
 - [Toshiba 55WX800U 55-Inch 1080p 240 Hz Cinema Series 3D LED TV, Black (2010 Model)][toshiba-55wx800u]
 - [Apple TV, 4th Generation, 32GB][apple-tv]
@@ -183,7 +182,6 @@ See [issues](https://github.com/robbiet480/Home-Assistant-Config/issues).
 [rgb-led-strip]: http://amzn.to/2kFQYKb
 [sonos-play3]: http://amzn.to/2l6ldKM
 [toshiba-55wx800u]: https://www.amazon.com/Toshiba-55WX800U-55-Inch-1080p-Cinema/dp/B00447GA2W/
-[hello-sense]: http://amzn.to/2kVeKjQ
 [zeeq-pillow]: https://www.kickstarter.com/projects/2121327950/zeeq-smart-pillow-stream-music-stop-snoring-sleep
 [roku-3]: http://amzn.to/2l6im4I
 [playstation-4]: https://www.amazon.com/Sony-PlayStation-4-500GB-Console/dp/B00BGA9WK2/

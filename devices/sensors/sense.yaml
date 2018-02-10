@@ -1,2 +1,0 @@
-- platform: sense
-  access_token: !secret sense_access_token
