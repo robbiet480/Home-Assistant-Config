@@ -137,11 +137,6 @@ apple_tv:
     credentials: B5918545CF04FD97:15EF7EE85D0964A0131685CAA6FC073B931E96CBB3CCC1522A6C00C01C66A0A3
 
 cloud:
-  mode: !secret cloud_mode
-  cognito_client_id: !secret cloud_cognito_client_id
-  user_pool_id: !secret cloud_user_pool_id
-  region: !secret cloud_region
-  relayer: !secret cloud_relayer
   alexa:
     filter:
       include_domains:
