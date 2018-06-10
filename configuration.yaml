@@ -144,3 +144,6 @@ cloud:
         - light
         - media_player
         - switch
+
+homekit:
+  auto_start: False
