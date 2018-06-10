@@ -42,3 +42,4 @@ switch.brandons_lamp_switch:
 
 switch.dishwasher_switch:
   hidden: true
+  alexa_hidden: true
