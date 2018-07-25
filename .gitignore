@@ -23,3 +23,5 @@ www
 .spotify-token-cache
 zones/
 .cloud/
+.homekit.state
+.config_entries.json
