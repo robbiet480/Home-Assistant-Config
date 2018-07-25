@@ -20,9 +20,6 @@ binary_sensor.robbies_bedroom_multisensor_sensor:
   friendly_name: "Robbie's Bedroom Motion Sensor"
   device_class: motion
 
-binary_sensor.brandons_bedroom_multisensor_sensor:
-  device_class: motion
-
 binary_sensor.robbies_bedroom_bed_occupancy_sensor_sensor:
   hidden: true
   alexa_hidden: true

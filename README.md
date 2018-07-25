@@ -54,10 +54,7 @@ It's primary function is as a router and as a NAS, mostly storing media (TV, mov
 ## People
 - [Robbie][robbie-twitter]
   - MacBook Pro
-  - iPhone 7 Plus
-- [Brandon][brandon-twitter]
-  - MacBook Pro
-  - iPhone 7
+  - iPhone X
 
 ## Devices
 Devices are broken down by room
@@ -153,7 +150,6 @@ See [issues](https://github.com/robbiet480/Home-Assistant-Config/issues).
 [plex]: https://www.plex.tv/
 [influxdb]: https://www.influxdata.com/
 [robbie-twitter]: https://twitter.com/robbie
-[brandon-twitter]: https://twitter.com/bitsofbrandon
 [linear-ws15z-1]: http://amzn.to/2l1ZwMu
 [ecolink-door-sensor]: http://amzn.to/2kfzKVq
 [linear-wt00z-1]: http://amzn.to/2l6qX7B

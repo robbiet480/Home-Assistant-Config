@@ -2,8 +2,7 @@
   id: someone_arrived_home
   trigger:
     platform: state
-    entity_id: device_tracker.brandons_iphone_x, device_tracker.robbies_iphone_x,
-      device_tracker.katies_iphone_x
+    entity_id: device_tracker.robbies_iphone_x, device_tracker.katies_iphone_x
     from: not_home
     to: home
   action:
@@ -28,8 +27,7 @@
   id: someone_left_home
   trigger:
     platform: state
-    entity_id: device_tracker.brandons_iphone_x, device_tracker.robbies_iphone_x,
-      device_tracker.katies_iphone_x
+    entity_id: device_tracker.robbies_iphone_x, device_tracker.katies_iphone_x
     from: home
     to: not_home
   action:

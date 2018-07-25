@@ -33,20 +33,6 @@ zwave:
       ignored: true
     light.interior_hallway_overhead_lights_accessory_level:
       ignored: true
-    sensor.brandons_bedroom_multisensor_alarm_level:
-      ignored: true
-    sensor.brandons_bedroom_multisensor_alarm_type:
-      ignored: true
-    sensor.brandons_bedroom_multisensor_burglar:
-      ignored: true
-    sensor.brandons_bedroom_multisensor_sourcenodeid:
-      ignored: true
-    sensor.brandons_lamp_exporting:
-      ignored: true
-    sensor.brandons_lamp_interval:
-      ignored: true
-    sensor.brandons_lamp_interval_2:
-      ignored: true
     sensor.living_room_multisensor_alarm_level:
       ignored: true
     sensor.living_room_multisensor_alarm_type:
