@@ -1,0 +1,52 @@
+light.entrance_hallway_overhead_lights_accessory_level:
+  ignored: true
+light.interior_hallway_overhead_lights_accessory_level:
+  ignored: true
+sensor.aeotec_zw100_multisensor_6_alarm_level:
+  ignored: true
+sensor.aeotec_zw100_multisensor_6_alarm_type:
+  ignored: true
+sensor.aeotec_zw100_multisensor_6_burglar:
+  ignored: true
+sensor.aeotec_zw100_multisensor_6_sourcenodeid:
+  ignored: true
+sensor.interior_hallway_multisensor_alarm_level:
+  ignored: true
+sensor.interior_hallway_multisensor_alarm_type:
+  ignored: true
+sensor.living_room_multisensor_alarm_level:
+  ignored: true
+sensor.living_room_multisensor_alarm_type:
+  ignored: true
+sensor.living_room_multisensor_burglar:
+  ignored: true
+sensor.living_room_multisensor_sourcenodeid:
+  ignored: true
+sensor.robbies_bedroom_bed_occupancy_sensor_alarm_level:
+  ignored: true
+sensor.robbies_bedroom_bed_occupancy_sensor_alarm_type:
+  ignored: true
+sensor.robbies_bedroom_bed_occupancy_sensor_burglar:
+  ignored: true
+sensor.robbies_bedroom_bed_occupancy_sensor_sourcenodeid:
+  ignored: true
+sensor.robbies_bedroom_door_alarm_level:
+  ignored: true
+sensor.robbies_bedroom_door_alarm_type:
+  ignored: true
+sensor.robbies_bedroom_door_burglar:
+  ignored: true
+sensor.robbies_bedroom_door_sourcenodeid:
+  ignored: true
+sensor.robbies_bedroom_multisensor_alarm_level:
+  ignored: true
+sensor.robbies_bedroom_multisensor_alarm_type:
+  ignored: true
+sensor.robbies_bedroom_multisensor_burglar:
+  ignored: true
+sensor.robbies_bedroom_multisensor_sourcenodeid:
+  ignored: true
+switch.entrance_hallway_overhead_lights_accessory_switch:
+  ignored: true
+switch.interior_hallway_overhead_lights_accessory_switch:
+  ignored: true

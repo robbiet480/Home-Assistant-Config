@@ -8,5 +8,3 @@ entities:
   - sensor.dishwasher_power
   - sensor.dishwasher_previous_reading
   - sensor.dishwasher_voltage
-  - switch.dishwasher_switch
-  - input_select.dishwasher_status

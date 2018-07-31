@@ -28,55 +28,11 @@ zwave:
   usb_path: /dev/zwave
   config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
   network_key: !secret zwave_network_key
-  device_config:
-    light.entrance_hallway_overhead_lights_accessory_level:
-      ignored: true
-    light.interior_hallway_overhead_lights_accessory_level:
-      ignored: true
-    sensor.living_room_multisensor_alarm_level:
-      ignored: true
-    sensor.living_room_multisensor_alarm_type:
-      ignored: true
-    sensor.living_room_multisensor_burglar:
-      ignored: true
-    sensor.living_room_multisensor_sourcenodeid:
-      ignored: true
-    sensor.robbies_bedroom_bed_occupancy_sensor_alarm_level:
-      ignored: true
-    sensor.robbies_bedroom_bed_occupancy_sensor_alarm_type:
-      ignored: true
-    sensor.robbies_bedroom_bed_occupancy_sensor_burglar:
-      ignored: true
-    sensor.robbies_bedroom_bed_occupancy_sensor_sourcenodeid:
-      ignored: true
-    sensor.robbies_bedroom_door_alarm_level:
-      ignored: true
-    sensor.robbies_bedroom_door_alarm_type:
-      ignored: true
-    sensor.robbies_bedroom_door_burglar:
-      ignored: true
-    sensor.robbies_bedroom_door_sourcenodeid:
-      ignored: true
-    sensor.robbies_bedroom_multisensor_alarm_level:
-      ignored: true
-    sensor.robbies_bedroom_multisensor_alarm_type:
-      ignored: true
-    sensor.robbies_bedroom_multisensor_burglar:
-      ignored: true
-    sensor.robbies_bedroom_multisensor_sourcenodeid:
-      ignored: true
-    switch.entrance_hallway_overhead_lights_accessory_switch:
-      ignored: true
-    switch.interior_hallway_overhead_lights_accessory_switch:
-      ignored: true
 
 discovery:
 
 logger:
   default: info
-  logs:
-    homeassistant.components.cloud: debug
-    homeassistant.components.cloud.iot: debug
 frontend:
 map:
 history:
@@ -106,7 +62,7 @@ intent_script: !include_dir_named alexa/intents/
 light: !include_dir_merge_list devices/lights/
 media_player: !include_dir_merge_list devices/media_players/
 notify: !include_dir_merge_list notifies/
-script: !include_dir_named scripts/
+script: !include scripts.yaml
 sensor: !include_dir_merge_list devices/sensors/
 switch: !include_dir_merge_list devices/switches/
 zone: !include_dir_merge_list zones/

@@ -1,0 +1,11 @@
+'1532904736916':
+  alias: Entrance Hallway Timer
+  sequence:
+  - data:
+      entity_id: switch.entrance_hallway_overhead_lights_switch
+    service: switch.turn_on
+  - timeout: '2'
+    wait_template: ''
+  - data:
+      entity_id: switch.entrance_hallway_overhead_lights_switch
+    service: switch.turn_off
