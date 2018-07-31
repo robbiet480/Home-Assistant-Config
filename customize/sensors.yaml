@@ -22,6 +22,22 @@ sensor.robbies_room_multisensor_6_burglar:
   hidden: true
 sensor.robbies_room_multisensor_6_sourcenodeid:
   hidden: true
+sensor.interior_hallway_multisensor_6_alarm_level:
+  hidden: true
+sensor.interior_hallway_multisensor_6_alarm_type:
+  hidden: true
+sensor.interior_hallway_multisensor_6_burglar:
+  hidden: true
+sensor.interior_hallway_multisensor_6_sourcenodeid:
+  hidden: true
+sensor.interior_hallway_multisensor_6_alarm_level:
+  hidden: true
+sensor.interior_hallway_multisensor_6_alarm_type:
+  hidden: true
+sensor.interior_hallway_multisensor_6_burglar:
+  hidden: true
+sensor.interior_hallway_multisensor_6_sourcenodeid:
+  hidden: true
 
 sensor.robbies_iphone_x_battery:
   icon: mdi:battery

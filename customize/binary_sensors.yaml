@@ -2,10 +2,18 @@ binary_sensor.interior_hallway_motion_sensor:
   friendly_name: "Interior Hallway Ceiling Mounted Motion Sensor"
   device_class: motion
 
+binary_sensor.interior_hallway_multisensor_sensor:
+  friendly_name: "Interior Hallway Multisensor Motion Sensor"
+  device_class: motion
+
 binary_sensor.front_door_sensor:
   friendly_name: "Front Door"
   icon: mdi:lock
   device_class: opening
+
+binary_sensor.kitchen_multisensor_sensor:
+  friendly_name: "Kitchen Motion Sensor"
+  device_class: motion
 
 binary_sensor.living_room_multisensor_sensor:
   friendly_name: "Living Room Motion Sensor"
