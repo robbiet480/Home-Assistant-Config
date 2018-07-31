@@ -1,5 +1,5 @@
 name: "Interior Hallway"
 entities:
-  - binary_sensor.interior_hallway_motion_sensor_sensor
+  - binary_sensor.interior_hallway_motion_sensor
   - light.hallway_bloom
   - switch.interior_hallway_overhead_lights_switch

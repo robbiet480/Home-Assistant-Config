@@ -297,7 +297,7 @@
   id: notify_motion_detected
   trigger:
     platform: state
-    entity_id: binary_sensor.interior_hallway_motion_sensor_sensor, binary_sensor.living_room_multisensor_sensor
+    entity_id: binary_sensor.interior_hallway_motion_sensor, binary_sensor.living_room_multisensor_sensor
     from: 'off'
     to: 'on'
   condition:
