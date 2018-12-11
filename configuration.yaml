@@ -9,11 +9,19 @@ homeassistant:
   customize_glob:
     "media_player.plex_*":
       alexa_hidden: true
+  #auth_providers:
+  #  - type: homeassistant
+  #  - type: legacy_api_password
+
+auth:
 
 http:
   base_url: !secret http_base_url
   api_password: !secret http_api_password
   use_x_forwarded_for: yes
+  trusted_proxies:
+    - 127.0.0.1
+    - ::1
 
 config:
 
@@ -28,6 +36,7 @@ zwave:
   usb_path: /dev/zwave
   config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
   network_key: !secret zwave_network_key
+  device_config: !include zwave_device_config.yaml
 
 discovery:
 

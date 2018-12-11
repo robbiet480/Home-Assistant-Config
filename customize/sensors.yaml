@@ -30,18 +30,10 @@ sensor.interior_hallway_multisensor_6_burglar:
   hidden: true
 sensor.interior_hallway_multisensor_6_sourcenodeid:
   hidden: true
-sensor.interior_hallway_multisensor_6_alarm_level:
-  hidden: true
-sensor.interior_hallway_multisensor_6_alarm_type:
-  hidden: true
-sensor.interior_hallway_multisensor_6_burglar:
-  hidden: true
-sensor.interior_hallway_multisensor_6_sourcenodeid:
-  hidden: true
 
-sensor.robbies_iphone_x_battery:
+sensor.robbies_iphone_xs_max_battery:
   icon: mdi:battery
-  friendly_name: "Robbie's iPhone X Battery"
+  friendly_name: "Robbie's iPhone XS Max Battery"
 
 sensor.speedtest_ping:
   icon: mdi:clock

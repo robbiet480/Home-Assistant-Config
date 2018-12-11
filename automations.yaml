@@ -2,7 +2,7 @@
   id: someone_arrived_home
   trigger:
     platform: state
-    entity_id: device_tracker.robbies_iphone_x, device_tracker.katies_iphone_x
+    entity_id: device_tracker.eddies_iphone_x, device_tracker.katies_iphone_x, device_tracker.robbies_iphone_xs_max
     from: not_home
     to: home
   action:
@@ -27,7 +27,7 @@
   id: someone_left_home
   trigger:
     platform: state
-    entity_id: device_tracker.robbies_iphone_x, device_tracker.katies_iphone_x
+    entity_id: device_tracker.eddies_iphone_x, device_tracker.katies_iphone_x, device_tracker.robbies_iphone_xs_max
     from: home
     to: not_home
   action:
@@ -320,7 +320,7 @@
   id: robbie_arrived_home
   trigger:
     platform: state
-    entity_id: device_tracker.robbies_iphone_x
+    entity_id: device_tracker.robbies_iphone_xs_max
     from: not_home
     to: home
   action:
@@ -336,7 +336,7 @@
   id: robbie_left_home
   trigger:
     platform: state
-    entity_id: device_tracker.robbies_iphone_x
+    entity_id: device_tracker.robbies_iphone_xs_max
     from: home
     to: not_home
   action:
@@ -351,7 +351,7 @@
     to: 'on'
   condition:
     condition: state
-    entity_id: device_tracker.robbies_iphone_x
+    entity_id: device_tracker.robbies_iphone_xs_max
     state: not_home
   action:
     service: notify.robbiesdevices
@@ -369,7 +369,7 @@
     to: 'on'
   condition:
     condition: state
-    entity_id: device_tracker.robbies_iphone_x
+    entity_id: device_tracker.robbies_iphone_xs_max
     state: not_home
   action:
     service: notify.robbiesdevices
