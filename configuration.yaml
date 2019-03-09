@@ -14,7 +14,6 @@ auth:
 
 http:
   base_url: !secret http_base_url
-  api_password: !secret http_api_password
   use_x_forwarded_for: yes
   trusted_proxies:
     - 127.0.0.1
