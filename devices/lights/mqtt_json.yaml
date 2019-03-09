@@ -1,4 +1,5 @@
-- platform: mqtt_json
+- platform: mqtt
+  schema: json
   name: "Robbie's Room Window LED Strip"
   state_topic: 'RGBW/000CCF48/json/state'
   command_topic: 'RGBW/000CCF48/json/set'
@@ -6,7 +7,8 @@
   rgb: true
   white_value: true
 
-- platform: mqtt_json
+- platform: mqtt
+  schema: json
   name: 'Living Room Window LED Strip'
   state_topic: 'RGBW/000CCA97/json/state'
   command_topic: 'RGBW/000CCA97/json/set'

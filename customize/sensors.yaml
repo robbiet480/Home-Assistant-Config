@@ -47,10 +47,6 @@ sensor.speedtest_upload:
 
 sensor.dark_sky_apparent_temperature:
   friendly_name: "Real Feel"
-sensor.dark_sky_apparent_temperature_min:
-  friendly_name: "Real Feel Minimum"
-sensor.dark_sky_apparent_temperature_max:
-  friendly_name: "Real Feel Maximum"
 sensor.dark_sky_cloud_coverage:
   friendly_name: "Cloud Coverage"
   icon: mdi:cloud
@@ -91,12 +87,6 @@ sensor.dark_sky_summary:
 sensor.dark_sky_temperature:
   icon: mdi:thermometer
   friendly_name: "Outdoor"
-sensor.dark_sky_temperature_min:
-  icon: mdi:thermometer
-  friendly_name: "Outdoor Minimum"
-sensor.dark_sky_temperature_max:
-  icon: mdi:thermometer
-  friendly_name: "Outdoor Maximum"
 sensor.dark_sky_visibility:
   friendly_name: "Visibility"
 sensor.dark_sky_wind_bearing:

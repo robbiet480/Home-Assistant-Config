@@ -418,11 +418,11 @@
   - alias: Turn on living room lights
     data:
       entity_id:
-        - light.front_lamp
-        - light.living_room_overhead_lights_level
-        - light.living_room_window_led_strip
-        - light.rear_lamp
-        - light.under_counter
+      - light.front_lamp
+      - light.living_room_overhead_lights_level
+      - light.living_room_window_led_strip
+      - light.rear_lamp
+      - light.under_counter
     service: light.turn_on
   alias: Turn living room lights on when holding dimmer switch
   id: '1510187667467'
@@ -432,16 +432,15 @@
       scene_data: 3
     event_type: zwave.scene_activated
     platform: event
-
 - action:
   - alias: Turn off living room lights
     data:
       entity_id:
-        - light.front_lamp
-        - light.living_room_overhead_lights_level
-        - light.living_room_window_led_strip
-        - light.rear_lamp
-        - light.under_counter
+      - light.front_lamp
+      - light.living_room_overhead_lights_level
+      - light.living_room_window_led_strip
+      - light.rear_lamp
+      - light.under_counter
     service: light.turn_off
   alias: Turn living room lights off when holding dimmer switch
   id: '1510187667468'
@@ -451,12 +450,21 @@
       scene_data: 3
     event_type: zwave.scene_activated
     platform: event
-
-- alias: 'Start HomeKit'
+- alias: Start HomeKit
   trigger:
-    - platform: event
-      event_type: zwave.network_ready
-    - platform: event
-      event_type: zwave.network_complete
+  - platform: event
+    event_type: zwave.network_ready
+  - platform: event
+    event_type: zwave.network_complete
   action:
-    - service: homekit.start
+  - service: homekit.start
+  id: 510ba2270acd448ea87db01c598d19f4
+- id: '1550206333633'
+  alias: Catch iOS action notification
+  trigger:
+  - event_type: ios.action_fired
+    platform: event
+  action:
+  - data_template:
+      message: 'Received action named {{ trigger.event.data.actionName }} from device {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource }}'
+    service: notify.html5_robbiesmbp

@@ -1,11 +1,11 @@
 - title: Traffic update
   text: >
-    Drive time with traffic is {{ states.sensor.google_travel_time__driving.state }} minutes. There is an UberPOOL that will cost {{ states.sensor.uberpool_price.attributes['Price estimate'] }}{% if states.sensor.uberpool_time.attributes['Surge multiplier'] > 1 %} (surge pricing in effect, currently {{ states.sensor.uberpool_price.attributes['Surge multiplier'] }}x){% endif %}, estimated to be {{ states.sensor.uberpool_time.state }} minutes away, for a total of {{ states.sensor.google_travel_time__driving.state|int + states.sensor.uberpool_time.state|int }} minutes.
-    BART is currently estimated to take {{ states.sensor.google_travel_time__transit.state }} minutes.
-    {% if (states.sensor.google_travel_time__driving.state|int + states.sensor.uberpool_time.state|int) > states.sensor.google_travel_time__transit.state|int %}
-    You should take BART, as it is estimated to be faster by {{ (states.sensor.google_travel_time__driving.state|int + states.sensor.uberpool_time.state|int) - states.sensor.google_travel_time__transit.state|int }} minutes.
+    Drive time with traffic is {{ states.sensor.google_travel_time_driving.state }} minutes. There is an UberPOOL that will cost {{ states.sensor.uberpool_price.attributes['Price estimate'] }}{% if states.sensor.uberpool_time.attributes['Surge multiplier'] > 1 %} (surge pricing in effect, currently {{ states.sensor.uberpool_price.attributes['Surge multiplier'] }}x){% endif %}, estimated to be {{ states.sensor.uberpool_time.state }} minutes away, for a total of {{ states.sensor.google_travel_time_driving.state|int + states.sensor.uberpool_time.state|int }} minutes.
+    BART is currently estimated to take {{ states.sensor.google_travel_time_transit.state }} minutes.
+    {% if (states.sensor.google_travel_time_driving.state|int + states.sensor.uberpool_time.state|int) > states.sensor.google_travel_time_transit.state|int %}
+    You should take BART, as it is estimated to be faster by {{ (states.sensor.google_travel_time_driving.state|int + states.sensor.uberpool_time.state|int) - states.sensor.google_travel_time_transit.state|int }} minutes.
     {% else %}
-    You should take UberPOOL, as it is estimated to be faster by {{ states.sensor.google_travel_time__transit.state|int - (states.sensor.google_travel_time__driving.state|int + states.sensor.uberpool_time.state|int) }} minutes.
+    You should take UberPOOL, as it is estimated to be faster by {{ states.sensor.google_travel_time_transit.state|int - (states.sensor.google_travel_time_driving.state|int + states.sensor.uberpool_time.state|int) }} minutes.
     {% if states.sensor.uberpool_time.attributes['Surge multiplier'] > 1 %}
     However, be advised that surge pricing is active for UberPOOL, currently {{ states.sensor.uberpool_price.attributes['Surge multiplier'] }}x
     {% endif %}

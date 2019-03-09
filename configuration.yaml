@@ -9,9 +9,6 @@ homeassistant:
   customize_glob:
     "media_player.plex_*":
       alexa_hidden: true
-  #auth_providers:
-  #  - type: homeassistant
-  #  - type: legacy_api_password
 
 auth:
 
@@ -31,6 +28,8 @@ mqtt:
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
+
+system_health:
 
 zwave:
   usb_path: /dev/zwave

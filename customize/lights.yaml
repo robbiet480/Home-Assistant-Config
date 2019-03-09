@@ -16,11 +16,11 @@ light.hallway_bloom:
 light.rear_lamp:
   homebridge_hidden: true
 
-light.robbies_bedside__left:
+light.robbies_bedside_left:
   homebridge_hidden: false
   homebridge_name: "HASS Robbie's bedside"
 
-light.robbies_bedside__right:
+light.robbies_bedside_right:
   homebridge_hidden: true
 
 light.robbies_floorstanding:
