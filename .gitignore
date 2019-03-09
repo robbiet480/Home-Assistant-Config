@@ -25,3 +25,4 @@ zones/
 .cloud/
 .homekit.state
 .config_entries.json
+.storage/
