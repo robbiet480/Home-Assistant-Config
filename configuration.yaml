@@ -40,6 +40,8 @@ discovery:
 
 logger:
   default: info
+  logs:
+    pyhap: warning
 frontend:
 map:
 history:
@@ -52,6 +54,8 @@ recorder:
   purge_keep_days: 14
 
 ios:
+
+mobile_app:
 
 tradfri:
   host: !secret tradfri_ip
@@ -96,3 +100,7 @@ cloud:
 
 homekit:
   auto_start: False
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30

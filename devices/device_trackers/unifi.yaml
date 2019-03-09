@@ -1,5 +1,6 @@
 - platform: unifi
+  host: !secret unifi_host
+  port: 443
   username: !secret unifi_username
   password: !secret unifi_password
   track_new_devices: false
-  verify_ssl: false
