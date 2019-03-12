@@ -1,6 +1,0 @@
-- platform: command_line
-  switches:
-    playstation4:
-      command_on: '/usr/bin/ps4-waker -d 192.168.1.60 -c /home/robbiet480/.ps4-wake.credentials.json'
-      command_off: '/usr/bin/ps4-waker standby -d 192.168.1.60 -c /home/robbiet480/.ps4-wake.credentials.json'
-      command_state: '/bin/nc -z -w 5 192.168.1.60 9295'
