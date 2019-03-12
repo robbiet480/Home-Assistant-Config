@@ -1,2 +1,0 @@
-- platform: ohmconnect
-  id: !secret ohmconnect_id
