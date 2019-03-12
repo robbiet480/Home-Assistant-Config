@@ -20,9 +20,7 @@ entities:
   - media_player.robbies_bedroom
   - media_player.robbies_bedroom_apple_tv
   - media_player.robbies_desk_speakers
-  - media_player.robbies_roku
   - media_player.robbies_room_apple_tv
-  - media_player.robbies_room_chromecast
   - remote.robbies_room_apple_tv
   - sensor.robbies_bedroom_multisensor_luminance
   - sensor.robbies_bedroom_multisensor_relative_humidity

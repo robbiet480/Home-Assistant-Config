@@ -2,7 +2,4 @@ name: "Media players"
 view: true
 entities:
   - media_player.living_room
-  - media_player.living_room_chromecast
   - media_player.robbies_bedroom
-  - media_player.robbies_room_chromecast
-  - media_player.roku_1gm351013183
