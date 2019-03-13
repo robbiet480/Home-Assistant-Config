@@ -3,6 +3,7 @@
   services:
     - service: ios_robbies_iphone_xs_max
     - service: html5_robbiesmbp
+    - service: lametric
 
 - name: AllResidents
   platform: group
