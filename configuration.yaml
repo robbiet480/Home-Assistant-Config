@@ -101,3 +101,9 @@ speedtestdotnet:
 lametric:
   client_id: !secret lametric_client_id
   client_secret: !secret lametric_client_secret
+
+amcrest:
+  - host: 192.168.1.46
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    resolution: high
