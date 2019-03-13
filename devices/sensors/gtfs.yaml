@@ -1,4 +1,0 @@
-- platform: gtfs
-  origin: 19TH
-  destination: CIVC
-  data: /home/robbiet480/.homeassistant/gtfs/bart.zip
