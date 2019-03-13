@@ -15,6 +15,7 @@
   payload_medium_speed: "medium"
   payload_high_speed: "high"
   speeds:
+    - 'off'
     - eco
     - low
     - medium
