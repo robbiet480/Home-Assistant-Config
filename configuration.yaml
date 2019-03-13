@@ -43,6 +43,7 @@ logger:
   logs:
     pyhap: warning
 frontend:
+  themes: !include themes.yaml
 map:
 history:
 sun:

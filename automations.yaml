@@ -450,5 +450,29 @@
     platform: event
   action:
   - data_template:
-      message: 'Received action named {{ trigger.event.data.actionName }} from device {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource }}'
+      message: Received action named {{ trigger.event.data.actionName }} from device
+        {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource
+        }}
     service: notify.html5_robbiesmbp
+- id: '1552385078690'
+  alias: Set theme for night
+  trigger:
+  - event: sunset
+    offset: 00:45:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      name: midnight
+    service: frontend.set_theme
+- id: '1552385107202'
+  alias: Set theme for day
+  trigger:
+  - event: sunrise
+    offset: -00:30:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      name: default
+    service: frontend.set_theme
