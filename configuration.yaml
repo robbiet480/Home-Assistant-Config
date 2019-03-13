@@ -79,15 +79,6 @@ switch: !include_dir_merge_list devices/switches/
 zone: !include_dir_merge_list zones/
 
 apple_tv:
-  - name: Living Room Apple TV 4K
-    host: 192.168.1.25
-    login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
-    credentials: 5C2A3FB4C19B8E9C:A627C2DC2CF84C50B97F9F7671C7F425EC74C26C2DA6C3B6527296216E175E7B
-    start_off: true
-  - name: Robbie's Room Apple TV
-    login_id: 00000000-0ba7-9abb-857f-3f12f3b94448
-    host: 192.168.1.36
-    credentials: B5918545CF04FD97:15EF7EE85D0964A0131685CAA6FC073B931E96CBB3CCC1522A6C00C01C66A0A3
 
 cloud:
   alexa:
