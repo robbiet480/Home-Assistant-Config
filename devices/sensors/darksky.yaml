@@ -1,7 +1,16 @@
 - platform: darksky
   api_key: !secret forecast_io_key
+  forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
   monitored_conditions:
     - apparent_temperature
+    - apparent_temperature_high
+    - apparent_temperature_low
     - cloud_cover
     - daily_summary
     - dew_point
@@ -12,6 +21,7 @@
     - nearest_storm_bearing
     - nearest_storm_distance
     - ozone
+    - precip_accumulation
     - precip_intensity
     - precip_intensity_max
     - precip_probability
@@ -19,6 +29,9 @@
     - pressure
     - summary
     - temperature
+    - temperature_high
+    - temperature_low
+    - uv_index
     - visibility
     - wind_bearing
     - wind_speed
