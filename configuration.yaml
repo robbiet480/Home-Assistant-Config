@@ -94,6 +94,7 @@ homekit:
   auto_start: False
 
 speedtestdotnet:
+  server_id: 18531
   scan_interval:
     minutes: 30
 
