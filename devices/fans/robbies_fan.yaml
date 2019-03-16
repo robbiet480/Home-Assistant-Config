@@ -11,9 +11,9 @@
   payload_off: "false"
   payload_oscillation_on: "true"
   payload_oscillation_off: "false"
-  payload_low_speed: "low"
-  payload_medium_speed: "medium"
-  payload_high_speed: "high"
+  availability_topic: "robbies_room_fan/status"
+  payload_available: "alive"
+  payload_not_available: "dead"
   speeds:
     - 'off'
     - eco
