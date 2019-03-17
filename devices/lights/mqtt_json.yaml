@@ -1,17 +1,21 @@
 - platform: mqtt
-  schema: json
-  name: "Robbie's Room Window LED Strip"
-  state_topic: 'RGBW/000CCF48/json/state'
-  command_topic: 'RGBW/000CCF48/json/set'
+  name: "Living Room Window LED Strip"
+  availability_topic: "RGBW/000CCA97/status"
+  json_attributes_topic: "RGBW/000CCA97/attributes"
   brightness: true
+  command_topic: "RGBW/000CCA97/json/set"
   rgb: true
+  schema: "json"
+  state_topic: "RGBW/000CCA97/json/state"
   white_value: true
 
 - platform: mqtt
-  schema: json
-  name: 'Living Room Window LED Strip'
-  state_topic: 'RGBW/000CCA97/json/state'
-  command_topic: 'RGBW/000CCA97/json/set'
+  name: "Robbie's Room Window LED Strip"
+  availability_topic: "RGBW/000CCF48/status"
+  json_attributes_topic: "RGBW/000CCF48/attributes"
   brightness: true
+  command_topic: "RGBW/000CCF48/json/set"
   rgb: true
+  schema: "json"
+  state_topic: "RGBW/000CCF48/json/state"
   white_value: true

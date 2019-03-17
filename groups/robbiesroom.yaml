@@ -12,7 +12,7 @@ entities:
   - light.robbies_bedside_left
   - light.robbies_bedside_right
   - light.robbies_floorstanding
-  - light.robbies_room_window_led_strip
+  - light.robbie_s_room_window_led_strip
   - light.robbies_strip
   - light.tradfri_bulb_e12_ws_opal_400lm
   - light.tradfri_bulb_e12_ws_opal_400lm_2
