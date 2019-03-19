@@ -9,7 +9,7 @@ entities:
   - camera.vstarcamera_two
   - device_tracker.robbies_iphone_xs_max
   - fan.robbies_fan
-  - light.robbie_s_room_window_led_strip
+  - light.robbies_room_led_strip
   - light.robbies_floorstanding
   - light.robbies_bedside_right
   - media_player.robbies_bedroom
