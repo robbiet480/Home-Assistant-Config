@@ -1,0 +1,29 @@
+robbies_fan_timer:
+  name: "Robbie's Fan - Timer"
+  icon: mdi:timer
+  initial: '0:00'
+  options:
+    - '0:00'
+    - '0:30'
+    - '1:00'
+    - '1:30'
+    - '2:00'
+    - '2:30'
+    - '3:00'
+    - '3:30'
+    - '4:00'
+    - '4:30'
+    - '5:00'
+    - '5:30'
+    - '6:00'
+    - '6:30'
+    - '7:00'
+    - '7:30'
+robbies_fan_wind:
+  name: "Robbie's Fan - Wind Mode"
+  icon: mdi:weather-windy
+  initial: 'Normal'
+  options:
+    - 'Normal'
+    - 'Sleeping'
+    - 'Natural'

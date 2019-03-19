@@ -1,0 +1,7 @@
+name: "Robbie's Fan - Wind Mode"
+icon: mdi:weather-windy
+initial: 'Normal'
+options:
+  - 'Normal'
+  - 'Sleeping'
+  - 'Natural'

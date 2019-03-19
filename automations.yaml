@@ -474,3 +474,25 @@
   - data:
       name: default
     service: frontend.set_theme
+- id: '1552820217163'
+  alias: Set Robbie's Fan Timer
+  trigger:
+  - entity_id: input_select.robbies_fan_timer
+    platform: state
+  condition: []
+  action:
+  - data:
+      payload_template: '{{ states.input_select.robbies_fan_timer.state }}'
+      topic: robbies_room_fan/wind/set
+    service: mqtt.publish
+- id: '1552820252245'
+  alias: Set Robbie's Fan Wind Mode
+  trigger:
+  - entity_id: input_select.robbies_fan_wind
+    platform: state
+  condition: []
+  action:
+  - data:
+      payload_template: '{{ states.input_select.robbies_fan_wind.state }}'
+      topic: robbies_room_fan/wind/set
+    service: mqtt.publish

@@ -67,7 +67,7 @@ device_tracker: !include_dir_merge_list devices/device_trackers/
 fan: !include_dir_merge_list devices/fans/
 group: !include_dir_named groups/
 intent_script: !include_dir_named alexa/intents/
-input_select: !include input_select.yaml
+input_select: !include_dir_named input_selects/
 light: !include_dir_merge_list devices/lights/
 media_player: !include_dir_merge_list devices/media_players/
 notify: !include_dir_merge_list notifies/
