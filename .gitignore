@@ -26,3 +26,6 @@ zones/
 .homekit.state
 .config_entries.json
 .storage/
+esphome/secrets.yaml
+esphome/robbies_room_led_strip/
+esphome/.esphome/
