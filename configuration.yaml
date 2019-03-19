@@ -83,10 +83,12 @@ apple_tv:
 cloud:
   alexa:
     filter:
+      include_entities:
+        - media_player.living_room_apple_tv_4k
+        - media_player.robbies_room_apple_tv
       include_domains:
         - fan
         - light
-        - media_player
         - switch
 
 homekit:
