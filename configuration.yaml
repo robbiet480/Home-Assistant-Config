@@ -1,3 +1,5 @@
+
+
 homeassistant:
   name: TwelveTwelve
   unit_system: imperial
@@ -27,6 +29,7 @@ mqtt:
   client_id: home-assistant
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: true
 
 system_health:
 
@@ -64,7 +67,6 @@ automation: !include automations.yaml
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
 camera: !include_dir_merge_list devices/cameras/
 device_tracker: !include_dir_merge_list devices/device_trackers/
-fan: !include_dir_merge_list devices/fans/
 group: !include_dir_named groups/
 intent_script: !include_dir_named alexa/intents/
 input_select: !include_dir_named input_selects/
