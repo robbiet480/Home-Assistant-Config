@@ -1,39 +1,6 @@
+
 light.entrance_hallway_overhead_lights_accessory_level:
   hidden: true
 
 light.interior_hallway_overhead_lights_accessory_level:
   hidden: true
-
-light.living_room_overhead_lights_level:
-  alexa_name: "Living Room Overhead Lights"
-
-light.front_lamp:
-  homebridge_hidden: true
-
-light.hallway_bloom:
-  homebridge_hidden: true
-
-light.rear_lamp:
-  homebridge_hidden: true
-
-light.robbies_bedside_left:
-  homebridge_hidden: false
-  homebridge_name: "HASS Robbie's bedside"
-
-light.robbies_bedside_right:
-  homebridge_hidden: true
-
-light.robbies_floorstanding:
-  homebridge_hidden: true
-
-light.robbies_strip:
-  homebridge_hidden: true
-
-light.under_counter:
-  homebridge_hidden: true
-
-light.arilux_lc04_rgbw_led_controller_000ccf48:
-  friendly_name: "Robbie's Room RGB LED Strip"
-
-light.arilux_lc04_rgbw_led_controller_000cca97:
-  friendly_name: "Living Room RGB LED Strip"

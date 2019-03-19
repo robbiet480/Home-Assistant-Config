@@ -406,7 +406,6 @@
       - light.living_room_overhead_lights_level
       - light.living_room_window_led_strip
       - light.rear_lamp
-      - light.under_counter
     service: light.turn_on
   alias: Turn living room lights on when holding dimmer switch
   id: '1510187667467'
@@ -424,7 +423,6 @@
       - light.living_room_overhead_lights_level
       - light.living_room_window_led_strip
       - light.rear_lamp
-      - light.under_counter
     service: light.turn_off
   alias: Turn living room lights off when holding dimmer switch
   id: '1510187667468'

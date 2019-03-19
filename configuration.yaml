@@ -58,10 +58,6 @@ ios:
 
 mobile_app:
 
-tradfri:
-  host: !secret tradfri_ip
-  allow_tradfri_groups: false
-
 alexa:
   flash_briefings: !include_dir_named alexa/flash_briefings/
 automation: !include automations.yaml
@@ -71,6 +67,7 @@ device_tracker: !include_dir_merge_list devices/device_trackers/
 fan: !include_dir_merge_list devices/fans/
 group: !include_dir_named groups/
 intent_script: !include_dir_named alexa/intents/
+input_select: !include input_select.yaml
 light: !include_dir_merge_list devices/lights/
 media_player: !include_dir_merge_list devices/media_players/
 notify: !include_dir_merge_list notifies/

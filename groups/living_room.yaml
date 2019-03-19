@@ -5,7 +5,6 @@ entities:
   - light.living_room_overhead_lights_level
   - light.living_room_window_led_strip
   - light.rear_lamp
-  - light.under_counter
   - sensor.living_room_multisensor_6_luminance
   - sensor.living_room_multisensor_6_relative_humidity
   - sensor.living_room_multisensor_6_temperature
