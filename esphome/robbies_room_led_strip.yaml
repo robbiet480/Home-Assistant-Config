@@ -1,0 +1,182 @@
+esphome:
+  name: robbies_room_led_strip
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "BillWiTheScienceFi 2.4GHz"
+  password: "tooflyforanyeguy"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+web_server:
+  port: 80
+
+output:
+  - platform: esp8266_pwm
+    id: red_pin
+    pin: GPIO5
+    frequency: 500
+  - platform: esp8266_pwm
+    id: green_pin
+    pin: GPIO14
+    frequency: 500
+  - platform: esp8266_pwm
+    id: blue_pin
+    pin: GPIO12
+    frequency: 500
+  - platform: esp8266_pwm
+    id: white_pin
+    pin: GPIO13
+    frequency: 500
+
+sensor:
+  - platform: wifi_signal
+    name: "WiFi Signal Sensor"
+    update_interval: 60s
+  - platform: uptime
+    name: Uptime Sensor
+
+light:
+  - platform: rgbw
+    name: "Robbie's Room LED Strip"
+    red: red_pin
+    green: green_pin
+    blue: blue_pin
+    white: white_pin
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+
+remote_receiver:
+  pin: GPIO4
+  dump: nec
+
+# binary_sensor:
+#   - platform: remote_receiver
+#     name: Key Up
+#     nec:
+#       address: 0x4242
+#       command: 0xFF906F
+#   - platform: remote_receiver
+#     name: Key Down
+#     nec:
+#       address: 0x4242
+#       command: 0xFFB847
+#   - platform: remote_receiver
+#     name: Key Off
+#     nec:
+#       address: 0x4242
+#       command: 0xFFF807
+#   - platform: remote_receiver
+#     name: Key On
+#     nec:
+#       address: 0x4242
+#       command: 0xFFB04F
+#   - platform: remote_receiver
+#     name: Key R
+#     nec:
+#       address: 0x4242
+#       command: 0xFF9867
+#   - platform: remote_receiver
+#     name: Key G
+#     nec:
+#       address: 0x4242
+#       command: 0xFFD827
+#   - platform: remote_receiver
+#     name: Key B
+#     nec:
+#       address: 0x4242
+#       command: 0xFF8877
+#   - platform: remote_receiver
+#     name: Key W
+#     nec:
+#       address: 0x4242
+#       command: 0xFFA857
+#   - platform: remote_receiver
+#     name: Key 1
+#     nec:
+#       address: 0x4242
+#       command: 0xFFE817
+#   - platform: remote_receiver
+#     name: Key 2
+#     nec:
+#       address: 0x4242
+#       command: 0xFF48B7
+#   - platform: remote_receiver
+#     name: Key 3
+#     nec:
+#       address: 0x4242
+#       command: 0xFF6897
+#   - platform: remote_receiver
+#     name: Key Flash
+#     nec:
+#       address: 0x4242
+#       command: 0xFFB24D
+#   - platform: remote_receiver
+#     name: Key 4
+#     nec:
+#       address: 0x4242
+#       command: 0xFF02FD
+#   - platform: remote_receiver
+#     name: Key 5
+#     nec:
+#       address: 0x4242
+#       command: 0xFF32CD
+#   - platform: remote_receiver
+#     name: Key 6
+#     nec:
+#       address: 0x4242
+#       command: 0xFF20DF
+#   - platform: remote_receiver
+#     name: Key Strobe
+#     nec:
+#       address: 0x4242
+#       command: 0xFF00FF
+#   - platform: remote_receiver
+#     name: Key 7
+#     nec:
+#       address: 0x4242
+#       command: 0xFF50AF
+#   - platform: remote_receiver
+#     name: Key 8
+#     nec:
+#       address: 0x4242
+#       command: 0xFF7887
+#   - platform: remote_receiver
+#     name: Key 9
+#     nec:
+#       address: 0x4242
+#       command: 0xFF708F
+#   - platform: remote_receiver
+#     name: Key Fade
+#     nec:
+#       address: 0x4242
+#       command: 0xFF58A7
+#   - platform: remote_receiver
+#     name: Key 10
+#     nec:
+#       address: 0x4242
+#       command: 0xFF38C7
+#   - platform: remote_receiver
+#     name: Key 11
+#     nec:
+#       address: 0x4242
+#       command: 0xFF28D7
+#   - platform: remote_receiver
+#     name: Key 12
+#     nec:
+#       address: 0x4242
+#       command: 0xFFF00F
+#   - platform: remote_receiver
+#     name: Key Smooth
+#     nec:
+#       address: 0x4242
+#       command: 0xFF30CF
