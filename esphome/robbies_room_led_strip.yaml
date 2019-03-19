@@ -1,5 +1,5 @@
 esphome:
-  name: robbies_room_led_strip
+  name: "Robbie's Room Arilux LC04"
   platform: ESP8266
   board: esp01_1m
 
@@ -7,10 +7,8 @@ wifi:
   ssid: "BillWiTheScienceFi 2.4GHz"
   password: "tooflyforanyeguy"
 
-# Enable logging
 logger:
 
-# Enable Home Assistant API
 api:
 
 ota:
