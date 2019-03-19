@@ -4,8 +4,7 @@
   - data:
       entity_id: switch.entrance_hallway_overhead_lights_switch
     service: switch.turn_on
-  - timeout: '2'
-    wait_template: ''
+  - delay: 00:02:00
   - data:
       entity_id: switch.entrance_hallway_overhead_lights_switch
     service: switch.turn_off
