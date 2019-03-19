@@ -93,6 +93,11 @@ cloud:
 
 homekit:
   auto_start: False
+  filter:
+    include_domains:
+      - fan
+      - light
+      - switch
 
 speedtestdotnet:
   server_id: 18531
