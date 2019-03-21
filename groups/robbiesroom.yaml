@@ -12,6 +12,7 @@ entities:
   - light.robbies_room_led_strip
   - light.robbies_floorstanding
   - light.robbies_bedside_right
+  - light.robbies_desk_strip
   - media_player.robbies_bedroom
   - media_player.robbies_bedroom_apple_tv
   - media_player.robbies_desk_speakers
