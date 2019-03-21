@@ -45,7 +45,7 @@ logger:
   default: info
   logs:
     pyhap: warning
-    homeassistant.components.media_player.onkyo: warning
+    homeassistant.components.onkyo.media_player: warning
 frontend:
   themes: !include themes.yaml
 map:
