@@ -29,3 +29,4 @@ zones/
 esphome/secrets.yaml
 esphome/robbies_room_led_strip/
 esphome/.esphome/
+alexa_media.*.pickle

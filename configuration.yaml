@@ -114,3 +114,9 @@ amcrest:
     username: !secret amcrest_username
     password: !secret amcrest_password
     resolution: high
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com

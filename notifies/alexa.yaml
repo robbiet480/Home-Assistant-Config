@@ -1,0 +1,2 @@
+- name: Alexa
+  platform: alexa_media
