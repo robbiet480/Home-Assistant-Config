@@ -451,7 +451,7 @@
       message: Received action named {{ trigger.event.data.actionName }} from device
         {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource
         }}
-    service: notify.html5_robbiesmbp
+    service: notify.lametric
 - id: '1552385078690'
   alias: Set theme for night
   trigger:
