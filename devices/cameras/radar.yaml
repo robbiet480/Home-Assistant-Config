@@ -1,3 +1,0 @@
-- platform: generic
-  still_image_url: https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=MUX&brand=wui&num=1&delay=15&type=N0R&frame=0&scale=0.125&noclutter=0&showstorms=0&mapx=400&mapy=240&centerx=786.3130434782609&centery=688.4521739130432&transx=386.31304347826085&transy=448.4521739130432&showlabels=1&severe=0&rainsnow=1&lightning=0&smooth=0&rand=24758156&lat=0&lon=0&label=you
-  name: Bay Area Radar
