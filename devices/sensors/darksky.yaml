@@ -1,5 +1,5 @@
 - platform: darksky
-  api_key: !secret forecast_io_key
+  api_key: !secret darksky_key
   forecast:
     - 0
     - 1
