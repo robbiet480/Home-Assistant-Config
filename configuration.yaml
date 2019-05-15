@@ -46,6 +46,8 @@ logger:
     homeassistant.components.onkyo.media_player: warning
 frontend:
   themes: !include themes.yaml
+lovelace:
+  mode: yaml
 map:
 history:
 sun:

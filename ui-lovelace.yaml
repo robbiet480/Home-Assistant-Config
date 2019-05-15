@@ -1,0 +1,264 @@
+resources:
+  - type: module
+    url: >-
+      https://cdn.jsdelivr.net/gh/custom-cards/spotify-card/dist/spotify-card.umd.js
+  - type: module
+    url: >-
+      https://cdn.jsdelivr.net/gh/iammexx/home-assistant-config/ui/darksky/dark-sky-weather-card.js
+  - type: js
+    url: >-
+      https://cdn.jsdelivr.net/gh/ciotlosm/custom-lovelace/plan-coordinates/plan-coordinates.js
+title: TwelveTwelve
+views:
+  - badges:
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.living_room_multisensor_relative_humidity
+      - sensor.robbies_bedroom_multisensor_relative_humidity
+      - sensor.kitchen_multisensor_relative_humidity
+      - sensor.interior_hallway_multisensor_relative_humidity
+    cards:
+      - elements:
+          - entity: binary_sensor.front_door_sensor
+            style:
+              left: 26.5%
+              top: 96%
+            type: state-icon
+          - entity: binary_sensor.kitchen_multisensor_sensor
+            style:
+              left: 10%
+              top: 69%
+            type: state-icon
+          - entity: binary_sensor.living_room_multisensor_sensor
+            style:
+              left: 19%
+              top: 27%
+            type: state-icon
+          - entity: binary_sensor.interior_hallway_motion_sensor
+            style:
+              left: 65%
+              top: 38%
+            type: state-icon
+          - entity: binary_sensor.interior_hallway_multisensor_sensor
+            style:
+              left: 48%
+              top: 44.8%
+            type: state-icon
+          - entity: binary_sensor.robbies_bedroom_multisensor_sensor
+            style:
+              left: 66%
+              top: 9%
+            type: state-icon
+          - entity: sensor.living_room_multisensor_temperature
+            style:
+              background-color: gray
+              color: white
+              display: block
+              font-family: Helvetica
+              font-size: 12px
+              left: 19%
+              overflow: hidden
+              text-align: center
+              top: 37%
+            type: state-label
+          - entity: sensor.kitchen_multisensor_temperature
+            style:
+              background-color: gray
+              color: white
+              display: block
+              font-family: Helvetica
+              font-size: 12px
+              left: 19%
+              overflow: hidden
+              text-align: center
+              top: 69%
+            type: state-label
+          - entity: sensor.robbies_bedroom_multisensor_temperature
+            style:
+              background-color: gray
+              color: white
+              display: block
+              font-family: Helvetica
+              font-size: 12px
+              left: 81%
+              overflow: hidden
+              text-align: center
+              top: 21%
+            type: state-label
+          - entity: sensor.interior_hallway_multisensor_temperature
+            style:
+              background-color: gray
+              color: white
+              display: block
+              font-family: Helvetica
+              font-size: 12px
+              left: 49%
+              overflow: hidden
+              text-align: center
+              top: 37%
+            type: state-label
+        image: /local/floorplan.svg
+        type: picture-elements
+      - card:
+          title: People at home
+          type: glance
+        entities:
+          - device_tracker.eddies_iphone_x
+          - device_tracker.katies_iphone_x
+          - device_tracker.robbies_iphone_xs_max
+        state_filter:
+          - home
+        type: entity-filter
+      - cards:
+          - entity_apparent_temp: sensor.dark_sky_apparent_temperature
+            entity_current_conditions: sensor.dark_sky_icon
+            entity_daily_summary: sensor.dark_sky_daily_summary
+            entity_daytime_high: sensor.dark_sky_daytime_high_temperature_0d
+            entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1d
+            entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2d
+            entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3d
+            entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4d
+            entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5d
+            entity_forecast_icon_1: sensor.dark_sky_icon_1d
+            entity_forecast_icon_2: sensor.dark_sky_icon_2d
+            entity_forecast_icon_3: sensor.dark_sky_icon_3d
+            entity_forecast_icon_4: sensor.dark_sky_icon_4d
+            entity_forecast_icon_5: sensor.dark_sky_icon_5d
+            entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_0d
+            entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_1d
+            entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_2d
+            entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_3d
+            entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_4d
+            entity_humidity: sensor.dark_sky_humidity
+            entity_pop: sensor.dark_sky_precip_probability
+            entity_pop_1: sensor.dark_sky_precip_probability_1d
+            entity_pop_2: sensor.dark_sky_precip_probability_2d
+            entity_pop_3: sensor.dark_sky_precip_probability_3d
+            entity_pop_4: sensor.dark_sky_precip_probability_4d
+            entity_pop_5: sensor.dark_sky_precip_probability_5d
+            entity_pop_intensity: sensor.dark_sky_precip_intensity
+            entity_pressure: sensor.dark_sky_pressure
+            entity_summary_1: sensor.dark_sky_summary_1d
+            entity_summary_2: sensor.dark_sky_summary_2d
+            entity_summary_3: sensor.dark_sky_summary_3d
+            entity_summary_4: sensor.dark_sky_summary_4d
+            entity_summary_5: sensor.dark_sky_summary_5d
+            entity_sun: sun.sun
+            entity_temperature: sensor.dark_sky_temperature
+            entity_visibility: sensor.dark_sky_visibility
+            entity_wind_bearing: sensor.dark_sky_wind_bearing
+            entity_wind_speed: sensor.dark_sky_wind_speed
+            type: 'custom:dark-sky-weather-card'
+          - aspect_ratio: 90%
+            type: iframe
+            url: >-
+              https://embed.windy.com/embed2.html?lat=37.440&lon=-122.333&zoom=8&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=37.814&detailLon=-122.286&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1
+        type: vertical-stack
+      - cards:
+          - camera_view: live
+            entity: camera.vstarcamera_two
+            name: North
+            show_state: false
+            type: picture-entity
+          - camera_view: live
+            entity: camera.vstarcamera_one
+            name: South
+            show_state: false
+            type: picture-entity
+          - camera_view: live
+            entity: camera.amcrest_camera
+            name: East
+            show_state: false
+            type: picture-entity
+        type: vertical-stack
+      - entities:
+          - entity: switch.kitchen_counter_lights_switch
+          - entity: switch.kitchen_overhead_lights_switch
+          - entity: switch.kitchen_under_cabinet_lights_switch
+        show_header_toggle: true
+        title: Kitchen
+        type: entities
+      - entities:
+          - binary_sensor.front_door_sensor
+          - switch.entrance_hallway_overhead_lights_switch
+        show_header_toggle: true
+        title: Entrance Hallway
+        type: entities
+      - entities:
+          - entity: light.living_room_overhead_lights_level
+          - entity: light.living_room_window_led_strip
+          - entity: light.front_lamp
+          - entity: light.rear_lamp
+        show_header_toggle: true
+        title: Living Room
+        type: entities
+      - entities:
+          - entity: binary_sensor.interior_hallway_motion_sensor
+          - entity: binary_sensor.interior_hallway_multisensor_sensor
+          - entity: switch.interior_hallway_overhead_lights_switch
+        show_header_toggle: true
+        title: Interior Hallway
+        type: entities
+      - cards:
+          - entity: media_player.living_room_tv
+            type: media-control
+          - entity: media_player.onkyo_receiver
+            type: media-control
+          - entity: media_player.living_room_apple_tv_4k
+            type: media-control
+        type: vertical-stack
+    icon: 'mdi:home'
+    path: home
+    title: Home
+  - badges:
+      - binary_sensor.robbies_bed
+      - binary_sensor.robbies_bedroom_door_sensor
+      - binary_sensor.robbies_bedroom_multisensor_sensor
+      - device_tracker.robbies_iphone_xs_max
+      - sensor.robbies_bedroom_multisensor_luminance
+      - sensor.robbies_bedroom_multisensor_relative_humidity
+      - sensor.robbies_bedroom_multisensor_temperature
+    cards:
+      - client_id: c1c9ba578b744c61b46f28f1ba87857b
+        type: 'custom:spotify-card'
+      - entities:
+          - entity: light.robbies_room_led_strip
+          - entity: light.robbies_bedside_right
+          - entity: light.robbies_floorstanding
+          - entity: light.robbies_desk_strip
+        title: Light
+        type: entities
+      - entity: media_player.robbies_bedroom
+        type: media-control
+      - entity: media_player.robbies_room_apple_tv
+        type: media-control
+      - entities:
+          - entity: fan.robbies_fan
+          - entity: input_select.robbies_fan_timer
+          - entity: input_select.robbies_fan_wind
+        type: entities
+      - cards:
+          - entity: camera.vstarcamera_two
+            name: North
+            show_state: false
+            type: picture-entity
+          - entity: camera.vstarcamera_one
+            name: South
+            show_state: false
+            type: picture-entity
+          - entity: camera.amcrest_camera
+            name: East
+            show_state: false
+            type: picture-entity
+        type: vertical-stack
+      - entity: media_player.spotify
+        type: media-control
+      - entity: media_player.robbie_s_ps4
+        type: media-control
+      - entity: media_player.robbie_s_echo_spot
+        type: media-control
+    icon: 'mdi:hotel'
+    path: robbiesroom
+    title: Robbie's Room
+
