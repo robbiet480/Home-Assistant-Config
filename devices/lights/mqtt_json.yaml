@@ -8,6 +8,8 @@
   schema: "json"
   state_topic: "RGBW/000CCA97/json/state"
   white_value: true
+  payload_available: "alive"
+  payload_not_available: "dead"
 
 - platform: mqtt
   name: "Robbie's Room Window LED Strip"
@@ -19,3 +21,5 @@
   schema: "json"
   state_topic: "RGBW/000CCF48/json/state"
   white_value: true
+  payload_available: "alive"
+  payload_not_available: "dead"
