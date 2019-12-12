@@ -1,42 +1,19 @@
-- alias: Someone arrived home
-  id: someone_arrived_home
+- id: someone_arrived_home
+  alias: Someone arrived home
   trigger:
-    platform: state
-    entity_id: device_tracker.eddies_iphone_x, device_tracker.katies_iphone_x, device_tracker.robbies_iphone_xs_max
+  - entity_id: person.robbie_trencheny, person.eddie_sun
     from: not_home
+    platform: state
     to: home
   action:
-    service: notify.humansanddisplays
-    data_template:
-      title: Roommate has arrived at home
-      message: '{{ trigger.to_state.attributes.friendly_name }} has arrived at home.
-
-        {% for name, zone in states.device_tracker|groupby(''state'') %}{% if zone|length
-        > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {%
-        elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{%
-        endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif
-        %}{% else %} are{% endif %} {{ name|replace(''_'', '' '') }}.{% endif %} {%
-        endfor %}
-
-        '
-    data:
+  - data:
       data:
         push:
           sound: US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav
-- alias: Someone left home
-  id: someone_left_home
-  trigger:
-    platform: state
-    entity_id: device_tracker.eddies_iphone_x, device_tracker.katies_iphone_x, device_tracker.robbies_iphone_xs_max
-    from: home
-    to: not_home
-  action:
-    service: notify.humansanddisplays
     data_template:
-      title: Roommate has left home
-      message: '{{ trigger.to_state.attributes.friendly_name }} has left home.
+      message: '{{ trigger.to_state.attributes.friendly_name }} has arrived at home.
 
-        {% for name, zone in states.device_tracker|groupby(''state'') %}{% if zone|length
+        {% for name, zone in states.person|groupby(''state'') %}{% if zone|length
         > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {%
         elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{%
         endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif
@@ -44,6 +21,29 @@
         endfor %}
 
         '
+      title: Roommate has arrived at home
+    service: notify.humansanddisplays
+- id: someone_left_home
+  alias: Someone left home
+  trigger:
+  - entity_id: person.robbie_trencheny, person.eddie_sun
+    from: home
+    platform: state
+    to: not_home
+  action:
+  - data_template:
+      message: '{{ trigger.to_state.attributes.friendly_name }} has left home.
+
+        {% for name, zone in states.person|groupby(''state'') %}{% if zone|length
+        > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {%
+        elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{%
+        endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif
+        %}{% else %} are{% endif %} {{ name|replace(''_'', '' '') }}.{% endif %} {%
+        endfor %}
+
+        '
+      title: Roommate has left home
+    service: notify.humansanddisplays
 - alias: Set dishwasher active when power detected
   id: set_dishwasher_active
   trigger:
@@ -277,91 +277,94 @@
   action:
     service: light.turn_off
     entity_id: group.robbiesroom
-- alias: Notify if motion detected in living room or hallway when no one is home
-  id: notify_motion_detected
+- id: notify_motion_detected
+  alias: Notify if motion detected in living room or hallway when no one is home
   trigger:
-    platform: state
-    entity_id: binary_sensor.interior_hallway_motion_sensor, binary_sensor.living_room_multisensor_sensor
+  - entity_id: binary_sensor.interior_hallway_motion_sensor, binary_sensor.living_room_multisensor_sensor
     from: 'off'
+    platform: state
     to: 'on'
   condition:
-    condition: state
-    entity_id: group.all_devices
+  - condition: state
+    entity_id: person.robbie_trencheny
+    state: not_home
+  - condition: state
+    entity_id: person.eddie_sun
     state: not_home
   action:
-    service: notify.allresidents
+  - data:
+      data:
+        push:
+          sound: US-EN-Alexa-Motion-Detected-Generic.wav
     data_template:
-      title: Motion detected
       message: 'Motion detected on {{ trigger.to_state.attributes.friendly_name }}
         but no one is home!
 
         '
-    data:
-      data:
-        push:
-          sound: US-EN-Alexa-Motion-Detected-Generic.wav
-- alias: Robbie arrived home
-  id: robbie_arrived_home
+      title: Motion detected
+    service: notify.allresidents
+- id: robbie_arrived_home
+  alias: Robbie arrived home
   trigger:
-    platform: state
-    entity_id: device_tracker.robbies_iphone_xs_max
+  - entity_id: person.robbie_trencheny
     from: not_home
+    platform: state
     to: home
   action:
-    service: light.turn_on
-    entity_id: group.robbies_room
-    data:
+  - data:
       brightness: 255
       rgb_color:
       - 255
       - 255
       - 255
-- alias: Robbie left home
-  id: robbie_left_home
+    entity_id: group.robbies_room
+    service: light.turn_on
+- id: robbie_left_home
+  alias: Robbie left home
   trigger:
-    platform: state
-    entity_id: device_tracker.robbies_iphone_xs_max
+  - entity_id: person.robbie_trencheny
     from: home
+    platform: state
     to: not_home
   action:
+  - entity_id: group.robbiesroom
     service: script.turn_off
-    entity_id: group.robbiesroom
-- alias: Notify if Robbie's door is opened when he isn't home
-  id: robbies_door_open
+- id: robbies_door_open
+  alias: Notify if Robbie's door is opened when he isn't home
   trigger:
-    platform: state
-    entity_id: binary_sensor.robbies_bedroom_door_sensor
+  - entity_id: binary_sensor.robbies_bedroom_door_sensor
     from: 'off'
+    platform: state
     to: 'on'
   condition:
-    condition: state
-    entity_id: device_tracker.robbies_iphone_xs_max
+  - condition: state
+    entity_id: person.robbie_trencheny
     state: not_home
   action:
-    service: notify.robbiesdevices
-    data_template:
+  - data_template:
       message: 'Bedroom door is {% if trigger.to_state.state == "on" %}open{% else
         %}closed{% endif %} (you aren''t at home!)
 
         '
-- alias: Notify if there is motion in Robbie's Room when he isn't home
-  id: robbies_room_motion
+    service: notify.robbiesdevices
+- id: robbies_room_motion
+  alias: Notify if there is motion in Robbie's Room when he isn't home
   trigger:
-    platform: state
-    entity_id: binary_sensor.robbies_bedroom_multisensor_sensor
+  - entity_id: binary_sensor.robbies_bedroom_multisensor_sensor
     from: 'off'
+    platform: state
     to: 'on'
   condition:
-    condition: state
-    entity_id: device_tracker.robbies_iphone_xs_max
+  - condition: state
+    entity_id: person.robbie_trencheny
     state: not_home
   action:
-    service: notify.robbiesdevices
-    data:
-      message: Motion in your bedroom (you aren't at home!)
+  - data:
       data:
         push:
           sound: US-EN-Morgan-Freeman-Motion-In-Bedroom.wav
+      message: Motion in your bedroom (you aren't at home!)
+    service: notify.robbiesdevices
 - alias: Send a notification 1 hour before sunset
   id: before_sunset_notification
   trigger:
@@ -372,32 +375,32 @@
     service: notify.robbiesdevices
     data:
       message: There is one hour remaining until sunset.
-- alias: End of day sunset notification
-  id: sunset_notification
+- id: sunset_notification
+  alias: End of day sunset notification
   trigger:
+  - event: sunset
     platform: sun
-    event: sunset
   action:
-    service: notify.robbiesdevices
-    data_template:
-      message: 'Sunset for {{ now().strftime(''%A %B %-d, %Y at %-I:%M %p'') }}! The
-        day''s high temperature in Oakland was {{ states.sensor.dark_sky_daily_high_temperature.state
-        }}{{ states.sensor.dark_sky_daily_high_temperature.attributes.unit_of_measurement
-        }}. The low temperature today was {{ states.sensor.dark_sky_daily_low_temperature.state
-        }}{{ states.sensor.dark_sky_daily_low_temperature.attributes.unit_of_measurement
-        }}. The current conditions are {{ states.sensor.dark_sky_minutely_summary.state|lower
-        }}. {% for name, zone in states.device_tracker|groupby(''state'') %}{% if
-        zone|length > 0 %}{% for device in zone %}{% if loop.last and loop|length
-        > 1 %} and {% elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name
-        }}{% endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{%
-        endif %}{% else %} are{% endif %} {{ name|replace(''_'', '' '') }}.{% endif
-        %} {% endfor %}
-
-        '
-    data:
+  - data:
       data:
         push:
           sound: US-EN-Alexa-Good-Night.wav
+    data_template:
+      message: 'Sunset for {{ now().strftime(''%A %B %-d, %Y at %-I:%M %p'') }}! The
+        day''s high temperature in Oakland was {{ states.sensor.dark_sky_daytime_high_temperature_0d.state
+        }}{{ states.sensor.dark_sky_daytime_high_temperature_0d.unit_of_measurement
+        }}. The low temperature today was {{ states.sensor.dark_sky_daytime_low_temperature_0d.state
+        }}{{ states.sensor.dark_sky_daytime_low_temperature_0d.unit_of_measurement
+        }}. The current conditions are {{ states.sensor.dark_sky_minutely_summary.state|lower
+        }}. {% for name, zone in states.person|groupby(''state'') %}{% if zone|length
+        > 0 %}{% for device in zone %}{% if loop.last and loop|length > 1 %} and {%
+        elif not loop.first and loop|length > 1 %}, {% endif %}{{ device.name }}{%
+        endfor %}{% if zone|length == 1 %} is{% if name != "not_home" %} at{% endif
+        %}{% else %} are{% endif %} {{ name|replace(''_'', '' '') }}.{% endif %} {%
+        endfor %}
+
+        '
+    service: notify.robbiesdevices
 - action:
   - alias: Turn on living room lights
     data:

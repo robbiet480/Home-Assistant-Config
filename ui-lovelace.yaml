@@ -104,9 +104,8 @@ views:
           title: People at home
           type: glance
         entities:
-          - device_tracker.eddies_iphone_x
-          - device_tracker.katies_iphone_x
-          - device_tracker.robbies_iphone_xs_max
+          - person.robbie_trencheny
+          - person.eddie_sun
         state_filter:
           - home
         type: entity-filter
