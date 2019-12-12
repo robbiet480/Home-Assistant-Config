@@ -1,7 +1,7 @@
 - name: RobbiesDevices
   platform: group
   services:
-    - service: ios_robbies_iphone_xs_max
+    - service: mobile_app_robbie_s_iphone_xs_max
     - service: html5_robbiesmbp
     - service: lametric
 
@@ -9,7 +9,6 @@
   platform: group
   services:
     - service: robbiesdevices
-    - service: ios_katies_iphone_x
 
 - name: HumansAndDisplays
   platform: group

@@ -441,17 +441,6 @@
   action:
   - service: homekit.start
   id: 510ba2270acd448ea87db01c598d19f4
-- id: '1550206333633'
-  alias: Catch iOS action notification
-  trigger:
-  - event_type: ios.action_fired
-    platform: event
-  action:
-  - data_template:
-      message: Received action named {{ trigger.event.data.actionName }} from device
-        {{ trigger.event.data.sourceDeviceID }} triggered from {{ trigger.event.data.triggerSource
-        }}
-    service: notify.lametric
 - id: '1552385078690'
   alias: Set theme for night
   trigger:

@@ -10,8 +10,6 @@ homeassistant:
     "media_player.plex_*":
       alexa_hidden: true
 
-auth:
-
 http:
   base_url: !secret http_base_url
   use_x_forwarded_for: yes
@@ -33,7 +31,6 @@ system_health:
 
 zwave:
   usb_path: /dev/zwave
-  config_path: /home/robbiet480/home-assistant/venv/lib/python3.5/site-packages/python_openzwave/ozw_config
   network_key: !secret zwave_network_key
   device_config: !include zwave_device_config.yaml
 
@@ -44,6 +41,7 @@ logger:
   logs:
     pyhap: warning
     homeassistant.components.onkyo.media_player: warning
+    homeassistant.components.mobile_app: debug
 frontend:
   themes: !include themes.yaml
 lovelace:
@@ -58,8 +56,6 @@ recorder:
   purge_interval: 2
   purge_keep_days: 14
 
-ios:
-
 mobile_app:
 
 alexa:
@@ -67,7 +63,7 @@ alexa:
 automation: !include automations.yaml
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
 camera: !include_dir_merge_list devices/cameras/
-device_tracker: !include_dir_merge_list devices/device_trackers/
+#device_tracker: !include_dir_merge_list devices/device_trackers/
 group: !include_dir_named groups/
 intent_script: !include_dir_named alexa/intents/
 input_select: !include_dir_named input_selects/
@@ -113,9 +109,3 @@ amcrest:
     username: !secret amcrest_username
     password: !secret amcrest_password
     resolution: high
-
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
