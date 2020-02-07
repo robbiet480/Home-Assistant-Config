@@ -106,6 +106,7 @@ views:
         entities:
           - person.robbie_trencheny
           - person.eddie_sun
+          - person.wilson_zhong
         state_filter:
           - home
         type: entity-filter

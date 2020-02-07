@@ -1,7 +1,7 @@
 - id: someone_arrived_home
   alias: Someone arrived home
   trigger:
-  - entity_id: person.robbie_trencheny, person.eddie_sun
+  - entity_id: person.robbie_trencheny, person.eddie_sun, person.wilson_zhong
     from: not_home
     platform: state
     to: home
@@ -26,7 +26,7 @@
 - id: someone_left_home
   alias: Someone left home
   trigger:
-  - entity_id: person.robbie_trencheny, person.eddie_sun
+  - entity_id: person.robbie_trencheny, person.eddie_sun, person.wilson_zhong
     from: home
     platform: state
     to: not_home
@@ -290,6 +290,9 @@
     state: not_home
   - condition: state
     entity_id: person.eddie_sun
+    state: not_home
+  - condition: state
+    entity_id: person.wilson_zhong
     state: not_home
   action:
   - data:

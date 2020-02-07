@@ -1,5 +1,4 @@
 name: "Public spaces"
-view: true
 entities:
   - group.entrance_hallway
   - group.interior_hallway

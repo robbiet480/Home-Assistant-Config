@@ -1,5 +1,4 @@
 name: "Robbie's Room"
-view: true
 entities:
   - binary_sensor.robbies_bed
   - binary_sensor.robbies_bedroom_bed_occupancy_sensor
