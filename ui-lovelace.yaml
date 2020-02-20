@@ -173,9 +173,9 @@ views:
             type: picture-entity
         type: vertical-stack
       - entities:
-          - entity: switch.kitchen_counter_lights_switch
-          - entity: switch.kitchen_overhead_lights_switch
-          - entity: switch.kitchen_under_cabinet_lights_switch
+          - entity: switch.kitchen_over_counter_lights
+          - entity: switch.kitchen_overhead_light
+          - entity: switch.kitchen_under_cabinet_lights
         show_header_toggle: true
         title: Kitchen
         type: entities

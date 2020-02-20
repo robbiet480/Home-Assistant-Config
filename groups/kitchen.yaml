@@ -10,6 +10,6 @@ entities:
   - sensor.kitchen_multisensor_6_relative_humidity
   - sensor.kitchen_multisensor_6_temperature
   - sensor.kitchen_multisensor_6_ultraviolet
-  - switch.kitchen_counter_lights_switch
-  - switch.kitchen_overhead_lights_switch
-  - switch.kitchen_under_cabinet_lights_switch
+  - switch.kitchen_over_counter_lights
+  - switch.kitchen_overhead_light
+  - switch.kitchen_under_cabinet_lights
