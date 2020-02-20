@@ -10,6 +10,7 @@
       data:
         push:
           sound: US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav
+          thread-id: presence-changed
     data_template:
       message: '{{ trigger.to_state.attributes.friendly_name }} has arrived at home.
 
@@ -31,7 +32,11 @@
     platform: state
     to: not_home
   action:
-  - data_template:
+  - data:
+      data:
+        push:
+          thread-id: presence-changed
+    data_template:
       message: '{{ trigger.to_state.attributes.friendly_name }} has left home.
 
         {% for name, zone in states.person|groupby(''state'') %}{% if zone|length
@@ -188,21 +193,22 @@
       data:
         push:
           sound: US-EN-Alexa-Mail-Has-Arrived.wav
-- alias: Front door is open
-  id: front_door_open
+- id: front_door_open
+  alias: Front door is open
   trigger:
-    platform: state
-    entity_id: binary_sensor.front_door_sensor
+  - entity_id: binary_sensor.front_door_sensor
     from: 'off'
+    platform: state
     to: 'on'
   action:
-    service: notify.humansanddisplays
-    data:
-      title: Front door
-      message: The front door is open
+  - data:
       data:
         push:
           sound: US-EN-Daisy-Front-Door-Open.wav
+          thread-id: front-door
+      message: The front door is open
+      title: Front door
+    service: notify.humansanddisplays
 - alias: Turn on entrance hallway overhead when the door opens
   id: turn_on_entrance_hallway
   trigger:
@@ -299,6 +305,7 @@
       data:
         push:
           sound: US-EN-Alexa-Motion-Detected-Generic.wav
+          thread-id: motion-detected
     data_template:
       message: 'Motion detected on {{ trigger.to_state.attributes.friendly_name }}
         but no one is home!
@@ -491,3 +498,23 @@
       payload_template: '{{ states.input_select.robbies_fan_wind.state }}'
       topic: robbies_room_fan/wind/set
     service: mqtt.publish
+- id: '1582085760208'
+  alias: UPS Changed State
+  description: ''
+  trigger:
+  - event_type: nut.ups_event
+    platform: event
+  condition: []
+  action:
+  - data_template:
+      data:
+        push:
+          sound:
+            critical: 1
+            name: default
+            volume: 1
+          thread-id: nut
+        subtitle: '{{ trigger.event.data.notify_type }}'
+      message: '{{ trigger.event.data.notify_msg }}'
+      title: UPS changed state
+    service: notify.RobbiesDevices
