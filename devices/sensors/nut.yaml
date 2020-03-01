@@ -1,0 +1,10 @@
+- platform: nut
+  name: "Tripp-Lite SMART1500LCDT"
+  host: a0d7b954-nut
+  username: ups
+  password: ups
+  resources:
+    - battery.charge
+    - battery.runtime
+    - ups.load
+    - ups.status
