@@ -1,4 +1,5 @@
 - name: HTML5
   platform: html5
-  gcm_api_key: !secret gcm_api_key
-  gcm_sender_id: !secret gcm_sender_id
+  vapid_pub_key: !secret fcm_push_public_key
+  vapid_prv_key: !secret fcm_push_private_key
+  vapid_email: !secret fcm_push_email

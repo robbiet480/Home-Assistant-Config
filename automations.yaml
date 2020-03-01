@@ -500,7 +500,6 @@
     service: mqtt.publish
 - id: '1582085760208'
   alias: UPS Changed State
-  description: ''
   trigger:
   - event_type: nut.ups_event
     platform: event

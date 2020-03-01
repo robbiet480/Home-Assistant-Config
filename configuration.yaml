@@ -19,18 +19,18 @@ http:
 
 config:
 
-mqtt:
-  broker: 192.168.1.3
-  port: 1883
-  client_id: home-assistant
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  discovery: true
+#mqtt:
+#  broker: 192.168.1.3
+#  port: 1883
+#  client_id: home-assistant
+#  username: !secret mqtt_username
+#  password: !secret mqtt_password
+#  discovery: true
 
 system_health:
 
 zwave:
-  usb_path: /dev/zwave
+  usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
   device_config: !include zwave_device_config.yaml
 

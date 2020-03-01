@@ -2,7 +2,7 @@
   platform: group
   services:
     - service: mobile_app_robbie_s_iphone_xs_max
-    - service: html5_robbiesmbp
+    - service: html5_robbie_s_macbook_pro
     - service: lametric
 
 - name: AllResidents
