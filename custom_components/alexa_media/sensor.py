@@ -12,9 +12,11 @@ import logging
 from typing import List, Text  # noqa pylint: disable=unused-import
 
 from homeassistant.const import DEVICE_CLASS_TIMESTAMP, STATE_UNAVAILABLE
-from homeassistant.exceptions import NoEntitySpecifiedError
+from homeassistant.exceptions import ConfigEntryNotReady, NoEntitySpecifiedError
+from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity import Entity
 from homeassistant.util import dt
+import pytz
 
 from . import (
     CONF_EMAIL,
@@ -25,31 +27,17 @@ from . import (
     hide_email,
     hide_serial,
 )
+from .const import RECURRING_PATTERN, RECURRING_PATTERN_ISO_SET
 from .helpers import add_devices, retry_async
 
 _LOGGER = logging.getLogger(__name__)
 
 LOCAL_TIMEZONE = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
 
-RECURRING_PATTERN = {
-    None: "Never Repeat",
-    "P1D": "Every day",
-    "XXXX-WE": "Weekends",
-    "XXXX-WD": "Weekdays",
-    "XXXX-WXX-1": "Every Monday",
-    "XXXX-WXX-2": "Every Tuesday",
-    "XXXX-WXX-3": "Every Wednesday",
-    "XXXX-WXX-4": "Every Thursday",
-    "XXXX-WXX-5": "Every Friday",
-    "XXXX-WXX-6": "Every Saturday",
-    "XXXX-WXX-7": "Every Sunday",
-}
 
-
-@retry_async(limit=5, delay=5, catch_exceptions=False)
 async def async_setup_platform(hass, config, add_devices_callback, discovery_info=None):
     """Set up the Alexa sensor platform."""
-    devices: List[AlexaMediaSensor] = []
+    devices: List[AlexaMediaNotificationSensor] = []
     SENSOR_TYPES = {
         "Alarm": AlarmSensor,
         "Timer": TimerSensor,
@@ -69,15 +57,7 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
                 hide_email(account),
                 hide_serial(key),
             )
-            if devices:
-                await add_devices(
-                    hide_email(account),
-                    devices,
-                    add_devices_callback,
-                    include_filter,
-                    exclude_filter,
-                )
-            return False
+            raise ConfigEntryNotReady
         if key not in (account_dict["entities"]["sensor"]):
             (account_dict["entities"]["sensor"][key]) = {}
             for (n_type, class_) in SENSOR_TYPES.items():
@@ -147,7 +127,7 @@ async def async_unload_entry(hass, entry) -> bool:
     return True
 
 
-class AlexaMediaSensor(Entity):
+class AlexaMediaNotificationSensor(Entity):
     """Representation of Alexa Media sensors."""
 
     def __init__(
@@ -170,23 +150,30 @@ class AlexaMediaSensor(Entity):
         self._unit = None
         self._device_class = DEVICE_CLASS_TIMESTAMP
         self._icon = icon
+        self._all = []
+        self._active = []
+        self._next = None
+        self._prior_value = None
+        self._timestamp: datetime.datetime = None
+        self._process_raw_notifications()
+
+    def _process_raw_notifications(self):
         self._all = (
-            sorted(self._n_dict.items(), key=lambda x: x[1][self._sensor_property])
+            list(map(self._fix_alarm_date_time, self._n_dict.items()))
             if self._n_dict
             else []
         )
-        self._all = list(map(self._fix_alarm_date_time, self._all))
-        self._sorted = (
+        self._all = list(map(self._update_recurring_alarm, self._all))
+        self._all = sorted(self._all, key=lambda x: x[1][self._sensor_property])
+        self._prior_value = self._next if self._active else None
+        self._active = (
             list(filter(lambda x: x[1]["status"] == "ON", self._all))
             if self._all
             else []
         )
-        self._next = self._sorted[0][1] if self._sorted else None
-        self._timestamp: datetime.datetime = None
+        self._next = self._active[0][1] if self._active else None
 
     def _fix_alarm_date_time(self, value):
-        import pytz
-
         if (
             self._sensor_property != "date_time"
             or not value
@@ -222,6 +209,39 @@ class AlexaMediaSensor(Entity):
             )
         return value
 
+    def _update_recurring_alarm(self, value):
+        _LOGGER.debug("Sensor value %s", value)
+        alarm = value[1][self._sensor_property]
+        reminder = None
+        if isinstance(value[1][self._sensor_property], int):
+            reminder = True
+            alarm = dt.as_local(
+                self._round_time(
+                    datetime.datetime.fromtimestamp(alarm / 1000, tz=LOCAL_TIMEZONE)
+                )
+            )
+        alarm_on = value[1]["status"] == "ON"
+        recurring_pattern = value[1].get("recurringPattern")
+        while (
+            alarm_on
+            and recurring_pattern
+            and RECURRING_PATTERN_ISO_SET[recurring_pattern]
+            and alarm.isoweekday not in RECURRING_PATTERN_ISO_SET[recurring_pattern]
+            and alarm < dt.now()
+        ):
+            alarm += datetime.timedelta(days=1)
+        if reminder:
+            alarm = dt.as_timestamp(alarm) * 1000
+        if alarm != value[1][self._sensor_property]:
+            _LOGGER.debug(
+                "%s with recurrence %s set to %s",
+                value[1]["type"],
+                RECURRING_PATTERN[recurring_pattern],
+                alarm,
+            )
+            value[1][self._sensor_property] = alarm
+        return value
+
     @staticmethod
     def _round_time(value: datetime.datetime) -> datetime.datetime:
         precision = datetime.timedelta(seconds=1).total_seconds()
@@ -237,8 +257,10 @@ class AlexaMediaSensor(Entity):
         except AttributeError:
             pass
         # Register event handler on bus
-        self._listener = self.hass.bus.async_listen(
-            f"{ALEXA_DOMAIN}_{hide_email(self._account)}"[0:32], self._handle_event
+        self._listener = async_dispatcher_connect(
+            self.hass,
+            f"{ALEXA_DOMAIN}_{hide_email(self._account)}"[0:32],
+            self._handle_event,
         )
         await self.async_update()
 
@@ -258,9 +280,9 @@ class AlexaMediaSensor(Entity):
                 return
         except AttributeError:
             pass
-        if "notification_update" in event.data:
+        if "notification_update" in event:
             if (
-                event.data["notification_update"]["dopplerId"]["deviceSerialNumber"]
+                event["notification_update"]["dopplerId"]["deviceSerialNumber"]
                 == self._client.unique_id
             ):
                 _LOGGER.debug("Updating sensor %s", self.name)
@@ -296,9 +318,12 @@ class AlexaMediaSensor(Entity):
     @property
     def state(self):
         """Return the state of the sensor."""
+        return self._process_state(self._next)
+
+    def _process_state(self, value):
         return (
-            self._next[self._sensor_property].replace(tzinfo=LOCAL_TIMEZONE).isoformat()
-            if self._next
+            value[self._sensor_property].replace(tzinfo=LOCAL_TIMEZONE).isoformat()
+            if value
             else STATE_UNAVAILABLE
         )
 
@@ -325,18 +350,7 @@ class AlexaMediaSensor(Entity):
             self._n_dict = account_dict["notifications"][self._dev_id][self._type]
         except KeyError:
             self._n_dict = None
-        self._all = (
-            sorted(self._n_dict.items(), key=lambda x: x[1][self._sensor_property])
-            if self._n_dict
-            else []
-        )
-        self._all = list(map(self._fix_alarm_date_time, self._all))
-        self._sorted = (
-            list(filter(lambda x: x[1]["status"] == "ON", self._all))
-            if self._all
-            else []
-        )
-        self._next = self._sorted[0][1] if self._sorted else None
+        self._process_raw_notifications()
         try:
             self.async_schedule_update_ha_state()
         except NoEntitySpecifiedError:
@@ -358,7 +372,11 @@ class AlexaMediaSensor(Entity):
     @property
     def recurrence(self):
         """Return the recurrence pattern of the sensor."""
-        return RECURRING_PATTERN[self._next["recurringPattern"]] if self._next else None
+        return (
+            RECURRING_PATTERN[self._next.get("recurringPattern")]
+            if self._next
+            else None
+        )
 
     @property
     def device_state_attributes(self):
@@ -367,15 +385,16 @@ class AlexaMediaSensor(Entity):
 
         attr = {
             "recurrence": self.recurrence,
-            "total_active": len(self._sorted),
+            "prior_value": self._process_state(self._prior_value),
+            "total_active": len(self._active),
             "total_all": len(self._all),
-            "sorted_active": json.dumps(self._sorted, default=str),
+            "sorted_active": json.dumps(self._active, default=str),
             "sorted_all": json.dumps(self._all, default=str),
         }
         return attr
 
 
-class AlarmSensor(AlexaMediaSensor):
+class AlarmSensor(AlexaMediaNotificationSensor):
     """Representation of a Alexa Alarm sensor."""
 
     def __init__(self, client, n_json, account):
@@ -387,7 +406,7 @@ class AlarmSensor(AlexaMediaSensor):
         )
 
 
-class TimerSensor(AlexaMediaSensor):
+class TimerSensor(AlexaMediaNotificationSensor):
     """Representation of a Alexa Timer sensor."""
 
     def __init__(self, client, n_json, account):
@@ -401,16 +420,19 @@ class TimerSensor(AlexaMediaSensor):
     @property
     def state(self) -> datetime.datetime:
         """Return the state of the sensor."""
+        return self._process_state(self._next)
+
+    def _process_state(self, value):
         return (
             dt.as_local(
                 super()._round_time(
                     datetime.datetime.fromtimestamp(
                         self._timestamp.timestamp()
-                        + self._next[self._sensor_property] / 1000
+                        + value[self._sensor_property] / 1000
                     )
                 )
             ).isoformat()
-            if self._next and self._timestamp
+            if value and self._timestamp
             else STATE_UNAVAILABLE
         )
 
@@ -425,7 +447,7 @@ class TimerSensor(AlexaMediaSensor):
         return self._icon if not self.paused else "mdi:timer-off"
 
 
-class ReminderSensor(AlexaMediaSensor):
+class ReminderSensor(AlexaMediaNotificationSensor):
     """Representation of a Alexa Reminder sensor."""
 
     def __init__(self, client, n_json, account):
@@ -439,15 +461,18 @@ class ReminderSensor(AlexaMediaSensor):
     @property
     def state(self):
         """Return the state of the sensor."""
+        return self._process_state(self._next)
+
+    def _process_state(self, value):
         return (
             dt.as_local(
                 super()._round_time(
                     datetime.datetime.fromtimestamp(
-                        self._next[self._sensor_property] / 1000, tz=LOCAL_TIMEZONE
+                        value[self._sensor_property] / 1000, tz=LOCAL_TIMEZONE
                     )
                 )
             ).isoformat()
-            if self._next
+            if value
             else STATE_UNAVAILABLE
         )
 

@@ -1,19 +1,38 @@
 """Support for Apple TV media player."""
 import logging
 
-import homeassistant.util.dt as dt_util
-from homeassistant.components.media_player import MediaPlayerDevice
-from homeassistant.components.media_player.const import (
-    MEDIA_TYPE_MUSIC, MEDIA_TYPE_TVSHOW, MEDIA_TYPE_VIDEO, SUPPORT_NEXT_TRACK,
-    SUPPORT_PAUSE, SUPPORT_PLAY, SUPPORT_PLAY_MEDIA, SUPPORT_PREVIOUS_TRACK,
-    SUPPORT_SEEK, SUPPORT_STOP, SUPPORT_TURN_OFF, SUPPORT_TURN_ON)
-from homeassistant.const import (CONF_NAME, STATE_IDLE, STATE_OFF,
-                                 STATE_PAUSED, STATE_PLAYING, STATE_STANDBY,
-                                 STATE_UNKNOWN)
-from homeassistant.core import callback
-from pyatv.const import DeviceState, MediaType
+from pyatv.const import DeviceState, FeatureName, FeatureState, MediaType
 
-from .const import CONF_IDENTIFIER, DOMAIN
+from homeassistant.components.media_player import MediaPlayerEntity
+from homeassistant.components.media_player.const import (
+    ATTR_MEDIA_ALBUM_NAME,
+    ATTR_MEDIA_ARTIST,
+    MEDIA_TYPE_MUSIC,
+    MEDIA_TYPE_TVSHOW,
+    MEDIA_TYPE_VIDEO,
+    SUPPORT_NEXT_TRACK,
+    SUPPORT_PAUSE,
+    SUPPORT_PLAY,
+    SUPPORT_PLAY_MEDIA,
+    SUPPORT_PREVIOUS_TRACK,
+    SUPPORT_SEEK,
+    SUPPORT_STOP,
+    SUPPORT_TURN_OFF,
+    SUPPORT_TURN_ON,
+)
+from homeassistant.const import (
+    CONF_NAME,
+    STATE_IDLE,
+    STATE_OFF,
+    STATE_PAUSED,
+    STATE_PLAYING,
+    STATE_STANDBY,
+    STATE_UNKNOWN,
+)
+from homeassistant.core import callback
+import homeassistant.util.dt as dt_util
+
+from .const import ATTR_MEDIA_GENRE, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -34,13 +53,13 @@ SUPPORT_APPLE_TV = (
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Load Apple TV media player based on a config entry."""
-    identifier = config_entry.data[CONF_IDENTIFIER]
+    identifier = config_entry.unique_id
     name = config_entry.data[CONF_NAME]
-    manager = hass.data[DOMAIN][identifier]
+    manager = hass.data[DOMAIN][config_entry.unique_id]
     async_add_entities([AppleTvDevice(name, identifier, manager)])
 
 
-class AppleTvDevice(MediaPlayerDevice):
+class AppleTvDevice(MediaPlayerEntity):
     """Representation of an Apple TV device."""
 
     def __init__(self, name, identifier, manager):
@@ -56,6 +75,10 @@ class AppleTvDevice(MediaPlayerDevice):
         self._manager.listeners.append(self)
         await self._manager.init()
 
+    async def async_will_remove_from_hass(self):
+        """Handle when an entity is about to be removed from Home Assistant."""
+        self._manager.listeners.remove(self)
+
     @callback
     def device_connected(self):
         """Handle when connection is made to device."""
@@ -65,19 +88,8 @@ class AppleTvDevice(MediaPlayerDevice):
     @callback
     def device_disconnected(self):
         """Handle when connection was lost to device."""
+        self.atv.push_updater.listener = None
         self.atv = None
-
-    @property
-    def device_info(self):
-        """Return the device info."""
-        return {
-            "identifiers": {(DOMAIN, self._identifier)},
-            "manufacturer": "Apple",
-            "model": "Media Player",
-            "name": self.name,
-            "sw_version": "0.0",
-            "via_device": (DOMAIN, self._identifier),
-        }
 
     @property
     def name(self):
@@ -85,9 +97,25 @@ class AppleTvDevice(MediaPlayerDevice):
         return self._name
 
     @property
+    def app_id(self):
+        """ID of the current running app."""
+        if self.atv:
+            if self.atv.features.in_state(FeatureState.Available, FeatureName.App):
+                return self.atv.metadata.app.identifier
+        return None
+
+    @property
+    def app_name(self):
+        """Name of the current running app."""
+        if self.atv:
+            if self.atv.features.in_state(FeatureState.Available, FeatureName.App):
+                return self.atv.metadata.app.name
+        return None
+
+    @property
     def unique_id(self):
         """Return a unique ID."""
-        return "mp_" + self._identifier
+        return f"mp_{self._identifier}"
 
     @property
     def should_poll(self):
@@ -105,11 +133,16 @@ class AppleTvDevice(MediaPlayerDevice):
         if self._playing:
 
             state = self._playing.device_state
-            if state in (DeviceState.Idle, DeviceState.Loading):
+            if state == DeviceState.Idle:
                 return STATE_IDLE
             if state == DeviceState.Playing:
                 return STATE_PLAYING
-            if state in (DeviceState.Paused, DeviceState.Seeking, DeviceState.Stopped):
+            if state in (
+                DeviceState.Paused,
+                DeviceState.Seeking,
+                DeviceState.Stopped,
+                DeviceState.Loading,
+            ):
                 return STATE_PAUSED
             return STATE_STANDBY  # Bad or unknown state?
 
@@ -117,27 +150,24 @@ class AppleTvDevice(MediaPlayerDevice):
     def playstatus_update(self, _, playing):
         """Print what is currently playing when it changes."""
         self._playing = playing
-        self.async_schedule_update_ha_state()
+        self.async_write_ha_state()
 
     @callback
     def playstatus_error(self, _, exception):
         """Inform about an error and restart push updates."""
         _LOGGER.warning("A %s error occurred: %s", exception.__class__, exception)
         self._playing = None
-        self.async_schedule_update_ha_state()
+        self.async_write_ha_state()
 
     @property
     def media_content_type(self):
         """Content type of current playing media."""
         if self._playing:
-
-            media_type = self._playing.media_type
-            if media_type == MediaType.Video:
-                return MEDIA_TYPE_VIDEO
-            if media_type == MediaType.Music:
-                return MEDIA_TYPE_MUSIC
-            if media_type == MediaType.TV:
-                return MEDIA_TYPE_TVSHOW
+            return {
+                MediaType.Video: MEDIA_TYPE_VIDEO,
+                MediaType.Music: MEDIA_TYPE_MUSIC,
+                MediaType.TV: MEDIA_TYPE_TVSHOW,
+            }.get(self._playing.media_type)
 
     @property
     def media_duration(self):
@@ -193,6 +223,32 @@ class AppleTvDevice(MediaPlayerDevice):
     def supported_features(self):
         """Flag media player features that are supported."""
         return SUPPORT_APPLE_TV
+
+    @property
+    def device_info(self):
+        """Return the device info."""
+        return {
+            "name": self._name,
+            "identifiers": {(DOMAIN, self._identifier)},
+            "via_device": (DOMAIN, self._identifier),
+        }
+
+    @property
+    def device_state_attributes(self):
+        """Return the state attributes."""
+        attrs = {}
+
+        if self.atv and self._playing:
+            all_features = self.atv.features.all_features(include_unsupported=True)
+
+            if all_features[FeatureName.Album].state == FeatureState.Available:
+                attrs[ATTR_MEDIA_ALBUM_NAME] = self._playing.album
+            if all_features[FeatureName.Artist].state == FeatureState.Available:
+                attrs[ATTR_MEDIA_ARTIST] = self._playing.artist
+            if all_features[FeatureName.Genre].state == FeatureState.Available:
+                attrs[ATTR_MEDIA_GENRE] = self._playing.genre
+
+        return attrs
 
     async def async_turn_on(self):
         """Turn the media player on."""

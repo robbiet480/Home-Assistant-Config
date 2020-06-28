@@ -24,10 +24,12 @@ async def add_devices(
     account: Text,
     devices: List[EntityComponent],
     add_devices_callback: Callable,
-    include_filter: List[Text] = [],
-    exclude_filter: List[Text] = [],
+    include_filter: List[Text] = None,
+    exclude_filter: List[Text] = None,
 ) -> bool:
     """Add devices using add_devices_callback."""
+    include_filter = [] or include_filter
+    exclude_filter = [] or exclude_filter
     new_devices = []
     for device in devices:
         if (
@@ -142,6 +144,9 @@ def _catch_login_errors(func) -> Callable:
 
     @functools.wraps(func)
     async def wrapper(*args, **kwargs) -> Any:
+        instance = args[0]
+        if hasattr(instance, "check_login_changes"):
+            instance.check_login_changes()
         try:
             result = await func(*args, **kwargs)
         except AlexapyLoginError as ex:  # pylint: disable=broad-except
@@ -168,8 +173,8 @@ def _catch_login_errors(func) -> Callable:
                     config_entry = hass.data[DATA_ALEXAMEDIA]["accounts"][email][
                         "config_entry"
                     ]
-                    callback = hass.data[DATA_ALEXAMEDIA]["accounts"][email][
-                        "setup_platform_callback"
+                    setup_alexa = hass.data[DATA_ALEXAMEDIA]["accounts"][email][
+                        "setup_alexa"
                     ]
                     test_login_status = hass.data[DATA_ALEXAMEDIA]["accounts"][email][
                         "test_login_status"
@@ -178,9 +183,39 @@ def _catch_login_errors(func) -> Callable:
                         "%s: Alexa API disconnected; attempting to relogin",
                         hide_email(email),
                     )
-                    await login.login_with_cookie()
-                    await test_login_status(hass, config_entry, login, callback)
+                    if login.status:
+                        await login.reset()
+                        await login.login()
+                        await test_login_status(hass, config_entry, login, setup_alexa)
             return None
         return result
 
     return wrapper
+
+
+def _existing_serials(hass, login_obj) -> List:
+    email: Text = login_obj.email
+    existing_serials = (
+        list(
+            hass.data[DATA_ALEXAMEDIA]["accounts"][email]["entities"][
+                "media_player"
+            ].keys()
+        )
+        if "entities" in (hass.data[DATA_ALEXAMEDIA]["accounts"][email])
+        else []
+    )
+    for serial in existing_serials:
+        device = hass.data[DATA_ALEXAMEDIA]["accounts"][email]["devices"][
+            "media_player"
+        ][serial]
+        if "appDeviceList" in device and device["appDeviceList"]:
+            apps = list(
+                map(
+                    lambda x: x["serialNumber"] if "serialNumber" in x else None,
+                    device["appDeviceList"],
+                )
+            )
+            # _LOGGER.debug("Combining %s with %s",
+            #               existing_serials, apps)
+            existing_serials = existing_serials + apps
+    return existing_serials
