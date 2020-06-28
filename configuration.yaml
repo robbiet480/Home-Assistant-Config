@@ -11,7 +11,6 @@ homeassistant:
       alexa_hidden: true
 
 http:
-  base_url: !secret http_base_url
   use_x_forwarded_for: yes
   trusted_proxies:
     - 127.0.0.1
