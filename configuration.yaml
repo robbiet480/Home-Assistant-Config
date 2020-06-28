@@ -60,7 +60,6 @@ mobile_app:
 alexa:
 automation: !include automations.yaml
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
-camera: !include_dir_merge_list devices/cameras/
 group: !include_dir_named groups/
 intent_script: !include_dir_named alexa/intents/
 input_select: !include_dir_named input_selects/
