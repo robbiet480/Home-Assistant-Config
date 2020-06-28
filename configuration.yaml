@@ -60,7 +60,6 @@ recorder:
 mobile_app:
 
 alexa:
-  flash_briefings: !include_dir_named alexa/flash_briefings/
 automation: !include automations.yaml
 binary_sensor: !include_dir_merge_list devices/binary_sensors/
 camera: !include_dir_merge_list devices/cameras/
