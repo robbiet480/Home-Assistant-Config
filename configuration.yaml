@@ -48,6 +48,16 @@ frontend:
   themes: !include themes.yaml
 lovelace:
   mode: yaml
+  resources:
+    - type: module
+      url: >-
+        https://cdn.jsdelivr.net/gh/custom-cards/spotify-card/dist/spotify-card.umd.js
+    - type: module
+      url: >-
+        https://cdn.jsdelivr.net/gh/iammexx/home-assistant-config/ui/darksky/dark-sky-weather-card.js
+    - type: js
+      url: >-
+        https://cdn.jsdelivr.net/gh/ciotlosm/custom-lovelace/plan-coordinates/plan-coordinates.js
 map:
 history:
 sun:
