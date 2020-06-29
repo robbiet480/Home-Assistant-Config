@@ -5,6 +5,8 @@ homeassistant:
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: 8
+  external_url: !secret url_external
+  internal_url: !secret url_internal
   customize: !include_dir_merge_named customize
   customize_glob:
     "media_player.plex_*":
