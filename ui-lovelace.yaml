@@ -147,12 +147,12 @@ views:
         type: vertical-stack
       - cards:
           - camera_view: live
-            entity: camera.vstarcamera_two_profile_000
+            entity: camera.vstarcam_two_profile_000
             name: North
             show_state: false
             type: picture-entity
           - camera_view: live
-            entity: camera.vstarcamera_one_profile_000
+            entity: camera.vstarcam_one_profile_000
             name: South
             show_state: false
             type: picture-entity
@@ -229,11 +229,11 @@ views:
           - entity: input_select.robbies_fan_wind
         type: entities
       - cards:
-          - entity: camera.vstarcamera_two_profile_000
+          - entity: camera.vstarcam_two_profile_000
             name: North
             show_state: false
             type: picture-entity
-          - entity: camera.vstarcamera_one_profile_000
+          - entity: camera.vstarcam_one_profile_000
             name: South
             show_state: false
             type: picture-entity
