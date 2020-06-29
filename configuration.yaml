@@ -69,6 +69,7 @@ notify: !include_dir_merge_list notifies/
 script: !include scripts.yaml
 sensor: !include_dir_merge_list devices/sensors/
 switch: !include_dir_merge_list devices/switches/
+stream:
 
 apple_tv:
 
